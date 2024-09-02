@@ -1,0 +1,133 @@
+/* =====================================================================
+   CSS Variables for Global Styles
+===================================================================== */
+:root {
+    --main-color: #172a88; /* デフォルトのメインカラー */
+    --sub-color: #df0522;  /* デフォルトのサブカラー */
+    --font-family: 'Roboto', sans-serif; /* デフォルトのフォントファミリー */
+}
+
+/* =====================================================================
+   Global Styles
+===================================================================== */
+body {
+    font-family: var(--font-family);
+    color: var(--main-color);
+    background-color: #f8f9fa;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* ボタンの共通スタイル */
+.btn-primary {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--sub-color);
+    border-color: var(--sub-color);
+}
+
+/* ヘッダーのスタイル */
+header {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.5rem; /* ヘッダーフォントサイズを調整 */
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li a {
+    color: grey;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* ナビゲーションバーのスタイル */
+.navbar {
+    background-color: var(--main-color); /* ナビゲーションバーの背景色 */
+}
+
+.navbar-nav .nav-link {
+    color: white; /* ナビゲーションリンクのテキスト色 */
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--sub-color); /* ナビゲーションリンクのホバー時の色 */
+}
+
+/* ハンバーガーアイコンの色 */
+.navbar-toggler-icon {
+    filter: invert(1); /* アイコンを白に */
+}
+
+/* ロゴのサイズ */
+.navbar-brand img {
+    width: 45px;
+    height: 45px;
+}
+
+/* =====================================================================
+   Index Page Specific Styles
+===================================================================== */
+#index-page {
+    text-align: center;
+    padding: 50px 0;
+}
+
+#index-page h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+#index-page .buttons .btn {
+    margin: 0 10px;
+}
+
+/* カードのスタイル */
+.card {
+    margin-top: 20px;
+}
+
+.card-header {
+    font-weight: bold;
+    background-color: var(--main-color);
+    color: white;
+}
+
+/* =====================================================================
+   CMS Pages Specific Styles
+===================================================================== */
+/* 例: システム提供者CMSのスタイル */
+.system-provider-cms {
+    /* システム提供者CMS固有のスタイル */
+}
+
+/* 例: システム利用者CMSのスタイル */
+.system-user-cms {
+    /* システム利用者CMS固有のスタイル */
+}
+
+/* 例: ユーザーサイトのスタイル */
+.user-site {
+    /* ユーザーサイト固有のスタイル */
+}
