@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Optional custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
+    <div class="container" style="max-width: 400px;  height: 800px; margin-top: 20px;">
+        <!-- カード全体を囲む -->
+        <div class="card shadow-sm">
+            <!-- ヘッダー部分 -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">iSX AI inspection</h5>
+                <div>
+                    <i class="bi bi-search mx-2"></i>
+                    <i class="bi bi-question-circle mx-2"></i>
+                    <i class="bi bi-box-arrow-right mx-2"></i>
+                </div>
+            </div>
+
+            <!-- スライドバナー
+            <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://picsum.photos/id/1/400/100" class="d-block w-100" alt="Banner 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/id/2/400/100" class="d-block w-100" alt="Banner 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/id/3/400/100" class="d-block w-100" alt="Banner 3">
+                    </div>
+                </div>
+            </div> -->
+
+            <h3 class="text-center mt-3">iSX AI inspection</h3>
+
+                <!-- 検索ボックス
+                <div class="p-3">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div> -->
+
+            <!-- ボタンエリア -->
+            <div class="p-3">
+                <!-- AI住宅点検ボタンとドロップダウンメニュー -->
+                <div class="dropdown mb-3">
+                    <button class="btn btn-primary w-100 text-start" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        AI住宅点検
+                    </button>
+                    <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <a class="dropdown-item" href="#">①-1 インスペクション</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li><a class="dropdown-item" href="#" style="background-color: #e3f2fd;">①-1-1 戸建</a></li>
+                                <li><a class="dropdown-item" href="#" style="background-color: #bbdefb;">①-1-2 集合住宅</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item" href="#" style="background-color: #90caf9;">①-2 定期点検</a></li>
+                    </ul>
+                </div>
+
+                <!-- AIスポット点検ボタン -->
+                <button class="btn btn-success w-100" type="button">
+                    AIスポット点検
+                </button>
+            </div>
+
+            <!-- おすすめコンテンツカルーセル -->
+            <div class="card-body">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex justify-content-center">
+                                <div class="card mx-2" style="width: 10rem;">
+                                    <img src="https://picsum.photos/100" class="card-img-top" alt="Content 1">
+                                    <div class="card-body">
+                                        <h6 class="card-title">コンテンツ 1</h6>
+                                    </div>
+                                </div>
+                                <div class="card mx-2" style="width: 10rem;">
+                                    <img src="https://picsum.photos/100" class="card-img-top" alt="Content 2">
+                                    <div class="card-body">
+                                        <h6 class="card-title">コンテンツ 2</h6>
+                                    </div>
+                                </div>
+                                <div class="card mx-2" style="width: 10rem;">
+                                    <img src="https://picsum.photos/100" class="card-img-top" alt="Content 3">
+                                    <div class="card-body">
+                                        <h6 class="card-title">コンテンツ 3</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <div class="card mx-2" style="width: 10rem;">
+                                    <img src="https://picsum.photos/100" class="card-img-top" alt="Content 4">
+                                    <div class="card-body">
+                                        <h6 class="card-title">コンテンツ 4</h6>
+                                    </div>
+                                </div>
+                                <div class="card mx-2" style="width: 10rem;">
+                                    <img src="https://picsum.photos/100" class="card-img-top" alt="Content 5">
+                                    <div class="card-body">
+                                        <h6 class="card-title">コンテンツ 5</h6>
+                                    </div>
+                                </div>
+                                <div class="card mx-2" style="width: 10rem;">
+                                    <img src="https://picsum.photos/100" class="card-img-top" alt="Content 6">
+                                    <div class="card-body">
+                                        <h6 class="card-title">コンテンツ 6</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 縦にスクロールするコンテンツ -->
+            <div id="navbar-example2" class="scrollspy-example card-body" style="max-height: 200px; overflow-y: auto;">
+                <h5 id="item-1">Item 1</h5>
+                <p>...</p>
+                <h5 id="item-2">Item 2</h5>
+                <p>...</p>
+                <h5 id="item-3">Item 3</h5>
+                <p>...</p>
+                <h5 id="item-4">Item 4</h5>
+                <p>...</p>
+                <h5 id="item-5">Item 5</h5>
+                <p>...</p>
+            </div>
+            <a href="../index.html" class="btn btn-link mt-4">Demo Entry</a>
+
+            <!-- 固定アイコンエリア -->
+            <div class="card-footer d-flex justify-content-around">
+                <i class="bi bi-house-door-fill"></i>
+                <i class="bi bi-person-fill"></i>
+                <i class="bi bi-bell-fill"></i>
+                <i class="bi bi-gear-fill"></i>
+                <i class="bi bi-heart-fill"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../style.js"></script>
+</body>
+</html>

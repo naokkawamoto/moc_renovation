@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Site Prepare 2</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <!-- Bootstrap Icons CDN -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    />
+    <!-- Optional custom CSS -->
+    <link rel="stylesheet" href="../style.css" />
+    </head>
+    <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
+    <!-- 固定高さのコンテナ -->
+    <div class="container" style="max-width: 400px; height: 800px; margin-top: 20px;">
+        <!-- 外枠カード（ヘッダ・フッタはそのまま） -->
+        <div class="card shadow-sm h-100">
+            <!-- ヘッダ -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">iSX AI inspection</h5>
+                <!-- ヘッダ右端アイコンの飛び先を site_prof.html に変更 -->
+                <a href="site_prof.html" style="text-decoration: none; color: inherit;">
+                <i class="bi bi-person-fill"></i>
+                </a>
+            </div>
+            <nav aria-label="breadcrumb" class="breadcrumb-nav" style="font-size: 0.65rem; margin-top: 0.5rem; margin-left: 0.5rem;">
+                <ol class="breadcrumb mb-2">
+                <li class="breadcrumb-item">住宅点検</li>
+                <li class="breadcrumb-item"><a href="site_dashboard.html">戸建</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare1.html">点検者確認</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare2.html">物件選択</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare3.html">物件確認</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare4.html">点検準備</a></li>
+                </ol>
+            </nav>
+
+            <!-- カード本文 -->
+            <div class="card-body">
+                <!-- 新規カード：点検準備 -->
+                <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">点検準備</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                    <!-- 点検実施日 -->
+                    <div class="mb-3">
+                        <label for="inspectionDate" class="form-label">点検実施日</label>
+                        <input type="text" class="form-control" id="inspectionDate" placeholder="2025年2月27日(木)">
+                    </div>
+                    <!-- 点検時刻（開始時刻・終了時刻のフォームふたつ） -->
+                    <div class="mb-3">
+                        <label class="form-label">点検時刻</label>
+                        <div class="d-flex gap-2">
+                        <input type="text" class="form-control" id="startTime" placeholder="開始時刻 11:00">
+                        <input type="text" class="form-control" id="endTime" placeholder="終了時刻 13:20">
+                        </div>
+                    </div>
+                    <!-- 天候 -->
+                    <div class="mb-3">
+                        <label for="weather" class="form-label">天候</label>
+                        <select class="form-select" id="weather">
+                        <option value="晴れ">晴れ</option>
+                        <option value="曇り">曇り</option>
+                        <option value="雨">雨</option>
+                        <option value="雪">雪</option>
+                        </select>
+                    </div>
+                    <!-- 点検依頼主 -->
+                    <div class="d-flex justify-content-center my-3">
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='site_inspection.html'">
+                            全景を撮る<i class="bi bi-camera-fill" style="font-size: 1rem;"></i>
+                        </button>
+                        </div>
+                        <!-- 点検開始ボタン -->
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='site_inspection.html'">点検開始</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+
+            <!-- フッタ -->
+            <div class="card-footer d-flex justify-content-around">
+                <a href="site_dashboard.html" style="text-decoration: none; color: inherit;">
+                <i class="bi bi-house-door-fill"></i>
+                </a>
+                <a href="site_prof.html" style="text-decoration: none; color: inherit;">
+                <i class="bi bi-person-fill"></i>
+                </a>
+                <a href="site_list.html" style="text-decoration: none; color: black;">
+                <i class="bi bi-list"></i>
+                </a>
+                <a href="site_setting.html" style="text-decoration: none; color: inherit;">
+                <i class="bi bi-gear-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="../style.js"></script>
+</body>
+</html>

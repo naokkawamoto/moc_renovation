@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Outside Inspection</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css" />
+    </head>
+    <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
+    <!-- コンテナ -->
+    <div class="container custom-container">
+        <div class="card shadow-sm h-100">
+        <!-- ヘッダ -->
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">iSX AI inspection</h5>
+            <a href="site_prof.html" class="header-link">
+            <i class="bi bi-person-fill"></i>
+            </a>
+        </div>
+        <nav aria-label="breadcrumb" class="breadcrumb-nav smaller" style="margin-top: 0.5rem; margin-left: 0.5rem;">
+            <ol class="breadcrumb mb-2">
+            <li class="breadcrumb-item">住宅点検</li>
+            <li class="breadcrumb-item"><a href="site_dashboard.html">戸建</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare1.html">点検者確認</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare2.html">物件選択</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare3.html">物件確認</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare4.html">点検準備</a></li>
+            </ol>
+        </nav>
+
+        <!-- メインコンテンツ -->
+        <div class="card-body smaller">
+            <!-- 【1】点検進捗テーブル（3行×7列） -->
+            <div class="card mb-2">
+            <div class="card-header">点検進捗</div>
+            <div class="card-body p-2">
+                <table class="table table-bordered table-no-wrap smaller mb-2">
+                <thead>
+                    <tr>
+                    <th>分類</th>
+                    <th>箇所</th>
+                    <th>進捗</th>
+                    <th>済み</th>
+                    <th>不可</th>
+                    <th>画像</th>
+                    <th>図面</th>
+                    <th>戻る</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>全体</td>
+                    <td>50</td>
+                    <td>40%</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td><a href="site_inspection.html"><i class="bi bi-arrow-return-left"></i></a></td>
+                    </tr>
+                    <tr>
+                    <td>外周り</td>
+                    <td>10</td>
+                    <td>40%</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td><a href="site_inspection.html"><i class="bi bi-arrow-return-left"></i></a></td>
+                    </tr>
+                    </tbody>
+                </tbody>
+                </table>
+            </div>
+            </div>
+
+            <!-- 【1】点検進捗テーブル（3行×7列） -->
+            <div class="card mb-2">
+                <div class="card-header">外周り</div>
+                <div class="card-body p-2">
+                    <table class="table table-bordered table-no-wrap smaller mb-2">
+                    <thead>
+                        <tr>
+                        <th>分類</th>
+                        <th>箇所</th>
+                        <th>進捗</th>
+                        <th>済み</th>
+                        <th>不可</th>
+                        <th>画像</th>
+                        <th>図面</th>
+                        <th>開始</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                        <td>基礎</td>
+                        <td>10</td>
+                        <td>40%</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><a href="site_base_inspection.html"><i class="bi bi-binoculars"></i></a></td>
+                        </tr>
+                        <tr>
+                        <td>外壁・軒下</td>
+                        <td>10</td>
+                        <td>40%</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><a href="site_base_inspection.html"><i class="bi bi-binoculars"></i></a></td>
+                        </tr>
+                        <tr>
+                        <td>屋根</td>
+                        <td>10</td>
+                        <td>40%</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><a href="site_base_inspection.html"><i class="bi bi-binoculars"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+    
+        </div>
+        <!-- フッタ -->
+        <div class="card-footer d-flex justify-content-around">
+            <a href="site_dashboard.html" class="footer-link">
+            <i class="bi bi-house-door-fill"></i>
+            </a>
+            <a href="site_prof.html" class="footer-link">
+            <i class="bi bi-person-fill"></i>
+            </a>
+            <a href="site_list.html" class="footer-link">
+            <i class="bi bi-list"></i>
+            </a>
+            <a href="site_setting.html" class="footer-link">
+            <i class="bi bi-gear-fill"></i>
+            </a>
+        </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="../style.js"></script>
+</body>
+</html>

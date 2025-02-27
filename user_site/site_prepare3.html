@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Site Prepare 3</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- Optional custom CSS -->
+    <link rel="stylesheet" href="../style.css" />
+    </head>
+    <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
+    <!-- 固定高さのコンテナ -->
+    <div class="container" style="max-width: 400px; height: 900px; margin-top: 20px;">
+        <!-- 外枠カード（ヘッダ・フッタはそのまま） -->
+        <div class="card shadow-sm h-100">
+            <!-- ヘッダ -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">iSX AI inspection</h5>
+                <!-- ヘッダ右端アイコンの飛び先を site_prof.html に変更 -->
+                <a href="site_prof.html" style="text-decoration: none; color: inherit;">
+                <i class="bi bi-person-fill"></i>
+                </a>
+            </div>
+            <nav aria-label="breadcrumb" class="breadcrumb-nav" style="font-size: 0.65rem; margin-top: 0.5rem; margin-left: 0.5rem;">
+                <ol class="breadcrumb mb-2">
+                <li class="breadcrumb-item">住宅点検</li>
+                <li class="breadcrumb-item"><a href="site_dashboard.html">戸建</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare1.html">点検者確認</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare2.html">物件選択</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare3.html">物件確認</a></li>
+                </ol>
+            </nav>
+
+            <!-- カード本文 -->
+            <div class="card-body">
+                <!-- 内部カード：建物情報入力 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">建物情報確認修正</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                        <!-- 1. 建物名称 -->
+                        <div class="mb-3">
+                            <label for="buildingName" class="form-label">1. 建物名称</label>
+                            <input type="text" class="form-control" id="buildingName" placeholder="例：練馬A邸">
+                        </div>
+
+                        <!-- 2. 所在地（都道府県、市区町村、番地） -->
+                        <div class="mb-3">
+                            <label for="address" class="form-label">2. 所在地（都道府県、市区町村、番地）</label>
+                            <input type="text" class="form-control" id="address" placeholder="例：東京都 渋谷区 1-1-1">
+                        </div>
+
+                        <!-- 3. 構造種別 -->
+                        <div class="mb-3">
+                            <label for="structureType" class="form-label">3. 構造種別</label>
+                            <select class="form-select" id="structureType">
+                            <option value="木造">木造</option>
+                            <option value="鉄骨造">鉄骨造</option>
+                            <option value="その他">その他</option>
+                            </select>
+                        </div>
+
+                        <!-- 4. 階数 -->
+                        <div class="mb-3">
+                            <label for="floorCount" class="form-label">4. 階数</label>
+                            <select class="form-select" id="floorCount">
+                            <option value="地上1階">地上１階</option>
+                            <option value="地上2階">地上２階</option>
+                            <option value="地上3階">地上3階</option>
+                            <option value="地上4階以上">地上4階以上</option>
+                            </select>
+                        </div>
+
+                        <!-- 5. 地下 -->
+                        <div class="mb-3">
+                            <label for="basement" class="form-label">5. 地下</label>
+                            <select class="form-select" id="basement">
+                            <option value="なし">なし</option>
+                            <option value="地下1階">地下1階</option>
+                            </select>
+                        </div>
+
+                        <!-- 6. 延べ床面積 -->
+                        <div class="mb-3">
+                            <label for="floorArea" class="form-label">6. 延べ床面積</label>
+                            <input type="text" class="form-control" id="floorArea" placeholder="例：150㎡">
+                        </div>
+                    </form>
+                        <!-- 7. 平面図 -->
+                        <div class="mb-3">
+                            <label class="form-label">7. 平面図</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="/images/floor1.jpg" alt="平面図サムネイル" class="img-thumbnail">
+                                </div>
+                                <div class="col-3">
+                                    <img src="/images/floor2.jpg" alt="平面図サムネイル" class="img-thumbnail">
+                                </div>    
+                            <div>
+                        </div>
+
+                        <!-- 8. 立面図（東西南北） -->
+                        <div class="mb-3">
+                            <label class="form-label">8. 立面図（東西南北）</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="/images/east_elecation.jpg" alt="東サムネイル" class="img-thumbnail">
+                                </div>
+                                <div class="col-3">
+                                    <img src="/images/west_elevation.jpg" alt="西サムネイル" class="img-thumbnail">
+                                </div>
+                                <div class="col-3">
+                                    <img src="/images/south_elevation.jpg" alt="南サムネイル" class="img-thumbnail">
+                                </div>
+                                <div class="col-3">
+                                    <img src="/images/north_elavation.jpg" alt="北サムネイル" class="img-thumbnail">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9. 傾斜図 -->
+                        <div class="mb-3">
+                            <label class="form-label">9. 傾斜図</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="/images/floor1_oblique.jpg" alt="１階" class="img-thumbnail">
+                                </div>
+                                <div class="col-3">
+                                    <img src="/images/floor2_oblique.jpg" alt="２階" class="img-thumbnail">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ボタン群：修正ボタン / 点検開始ボタン -->
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary">修正</button>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='site_prepare4.html'">点検準備へ</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- フッタ -->
+            <div class="card-footer d-flex justify-content-around">
+                <a href="site_dashboard.html" style="text-decoration: none; color: inherit;">
+                <i class="bi bi-house-door-fill"></i>
+                </a>
+                <a href="site_prof.html" style="text-decoration: none; color: inherit;">
+                <i class="bi bi-person-fill"></i>
+                </a>
+                <a href="site_list.html" style="text-decoration: none; color: black;">
+                <i class="bi bi-list"></i>
+                </a>
+                <a href="site_setting.html" style="text-decoration: none; color: inherit;">
+                <i class="bi bi-gear-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="../style.js"></script>
+</body>
+</html>
