@@ -142,37 +142,57 @@
                 </div>
                 </div>
 
-
+                
                 <!-- (1) 幅0.5mm以上のひび割れ -->
-                <p class="mb-1">
-                    (1) 幅0.5mm以上のひび割れ
-                    <label class="btn btn-outline-primary btn-right" for="crack_none">無し</label>
-                </p>
-                
+                <p class="mb-1">(1) 幅0.5mm以上のひび割れ</p>
+                <div class="mb-2">
+                <input type="radio" class="btn-check" name="crack" id="crack_none" value="none" autocomplete="off">
+                <label class="btn btn-outline-primary" for="crack_none">無し</label>
+
+                <input type="radio" class="btn-check" name="crack" id="crack_yes" value="yes" data-target="site_crack.html" autocomplete="off">
+                <label class="btn btn-outline-primary" for="crack_yes">有り</label>
+                </div>
+
                 <!-- (2) 深さ20mm以上の欠損 -->
-                <p class="mb-1">
-                    (2) 深さ20mm以上の欠損
-                    <label class="btn btn-primary btn-right" for="crack_none">有り</label>
-                </p>
-                
+                <p class="mb-1">(2) 深さ20mm以上の欠損</p>
+                <div class="mb-2">
+                <input type="radio" class="btn-check" name="missing" id="missing_none" value="none" autocomplete="off">
+                <label class="btn btn-outline-primary" for="missing_none">無し</label>
+
+                <input type="radio" class="btn-check" name="missing" id="missing_yes" value="yes" data-target="site_crack.html" autocomplete="off">
+                <label class="btn btn-outline-primary" for="missing_yes">有り</label>
+                </div>
+
                 <!-- (3) コンクリートの著しい劣化 -->
-                <p class="mb-1">
-                    (3) コンクリートの著しい劣化
-                    <label class="btn btn-outline-primary btn-right" for="crack_none">無し</label>
-                </p>
-                
+                <p class="mb-1">(3) コンクリートの著しい劣化</p>
+                <div class="mb-2">
+                <input type="radio" class="btn-check" name="deterioration" id="deterioration_none" value="none" autocomplete="off">
+                <label class="btn btn-outline-primary" for="deterioration_none">無し</label>
+
+                <input type="radio" class="btn-check" name="deterioration" id="deterioration_yes" value="yes" data-target="site_crack.html" autocomplete="off">
+                <label class="btn btn-outline-primary" for="deterioration_yes">有り</label>
+                </div>
+
                 <!-- (4) さび汁を伴うひび割れ又は欠損（白華を含む） -->
-                <p class="mb-1">
-                    (4) さび汁を伴うひび割れ又は欠損（白華を含む）
-                    <label class="btn btn-primary btn-right" for="crack_none">有り</label>
-                </p>
-                
+                <p class="mb-1">(4) さび汁を伴うひび割れ又は欠損（白華を含む）</p>
+                <div class="mb-2">
+                <input type="radio" class="btn-check" name="rust" id="rust_none" value="none" autocomplete="off">
+                <label class="btn btn-outline-primary" for="rust_none">無し</label>
+
+                <input type="radio" class="btn-check" name="rust" id="rust_yes" value="yes" data-target="site_crack.html" autocomplete="off">
+                <label class="btn btn-outline-primary" for="rust_yes">有り</label>
+                </div>
+
                 <!-- (5) 鉄筋の露出 -->
-                <p class="mb-1">
-                    (5) 鉄筋の露出
-                    <label class="btn btn-outline-primary btn-right" for="crack_none">無し</label>
-                </p>
-                
+                <p class="mb-1">(5) 鉄筋の露出</p>
+                <div class="mb-2">
+                <input type="radio" class="btn-check" name="rebar" id="rebar_none" value="none" autocomplete="off">
+                <label class="btn btn-outline-primary" for="rebar_none">無し</label>
+
+                <input type="radio" class="btn-check" name="rebar" id="rebar_yes" value="yes" data-target="site_crack.html" autocomplete="off">
+                <label class="btn btn-outline-primary" for="rebar_yes">有り</label>
+                </div>
+            </div>
             </div>
         </div>
 

@@ -134,7 +134,7 @@ header nav ul li a:hover {
 /* コンテナ */
 .custom-container {
     max-width: 400px;
-    height: 800px;
+    height: 950px;
     margin-top: 5px;
     padding: 0;
     }
@@ -250,4 +250,9 @@ header nav ul li a:hover {
         height: 150px;
         object-fit: cover;
         margin: auto;
+    }
+    /* ボタンを右寄せし、右側に5pxのマージンを付与 */
+    .btn-right {
+        float: right;
+        margin-right: 5px;
     }

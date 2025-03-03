@@ -58,7 +58,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="table-info" onclick="window.location.href='site_outside_inspection.html'" style="cursor: pointer;">
+                        <tr onclick="window.location.href='site_outside_inspection.html'" style="cursor: pointer;">
                             <td>基礎</td>
                             <td>10</td>
                             <td>40%</td>
@@ -67,7 +67,7 @@
                             <td>2</td>
                             <td>2</td>
                         </tr>
-                        <tr onclick="window.location.href='site_outside_inspection_exwall.html'" style="cursor: pointer;">
+                        <tr class="table-info" onclick="window.location.href='site_outside_inspection_exwall.html'" style="cursor: pointer;">
                             <td>外壁・軒下</td>
                             <td>10</td>
                             <td>40%</td>
@@ -88,10 +88,11 @@
                         </tbody>
                     </table>
                         <div class="btn-group mt-3 d-flex justify-content-center" role="group" aria-label="面の選択">
-                            <a class="btn btn-primary mx-1" href="site_outside_inspection.html">東</a>
-                            <a class="btn btn-outline-primary mx-1" href="site_outside_inspection_west.html">西</a>
-                            <a class="btn btn-outline-primary mx-1" href="site_outside_inspection_south.html">南</a>
+                            <button type="button" class="btn btn-primary mx-1">東</button>
+                            <button type="button" class="btn btn-outline-primary mx-1">西</button>
+                            <button type="button" class="btn btn-outline-primary mx-1">南</button>
                             <a class="btn btn-outline-primary mx-1" href="site_outside_inspection_north.html">北</a>
+
                         </div>
                         <div class="card-body p-2">
                             <img src="/images/east_elevation.jpg" alt="North Elevation" style="width:350px; margin-top: -30px;">
@@ -145,8 +146,9 @@
                             <p>仕上げを下記から選択</p>
                         </div>
                         <div class="btn-group mb-1 d-flex justify-content-center" role="group" aria-label="面の選択">
-                            <button type="button" class="btn btn-primary mx-1" style="font-size: 0.5rem;">コンクリート直</button>
-                            <button type="button" class="btn btn-outline-primary mx-1" style="font-size: 0.5rem;">モルタル、塗り</button>
+                            <button type="button" class="btn btn-primary mx-1" style="font-size: 0.5rem;">乾式（サイディングボード）</button>
+                            <a class="btn btn-outline-primary mx-1" href="site_outside_inspection_exwall_tile.html" style="font-size: 0.5rem;">タイル（湿式）</a>
+                            <button type="button" class="btn btn-outline-primary mx-1" style="font-size: 0.5rem;">塗壁</button>
                             <button type="button" class="btn btn-outline-primary mx-1" style="font-size: 0.5rem;">その他</button>
                         </div>
                         <table class="table table-bordered table-no-wrap smaller mb-2">
@@ -160,31 +162,43 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td><i class="bi bi-circle-fill text-danger mx-1"></i>幅0.5mm以上ひび</td>
+                                <td><i class="bi bi-circle-fill text-danger mx-1"></i>ひび、欠損、浮き、はらみ、剥落 </td>
                                 <td><button type="button" class="btn btn-secondary btn-sm" style="font-size: 0.5rem;">無</button></td>
                                 <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">東</button>西南北</td>
                                 <td><i class="bi-plus-square-dotted"></i></td>
                                 </tr>
                             <tr>
-                                <td><i class="bi bi-circle-fill text-primary mx-1"></i>深さ20mm以上欠損</td>
+                                <td><i class="bi bi-circle-fill text-primary mx-1"></i>複数にまたがるひび、欠損</td>
                                 <td><button type="button" class="btn btn-secondary btn-sm" style="font-size: 0.5rem;">無</button></td>
                                 <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">東</button>西南北</td>
                                 <td><i class="bi-plus-square-dotted"></i></td>
                             </tr>
                             <tr>
-                                <td><i class="bi bi-square-fill text-danger mx-1"></i>コンクリート劣化</td>
+                                <td><i class="bi bi-square-fill text-danger mx-1"></i>金属の著しい錆、化学的侵食</td>
                                 <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">有</button></td>
                                 <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">東</button>西南北</td>
                                 <td><i class="bi-plus-square-dotted"></i></td>
                             </tr>
                             <tr>
-                                <td><i class="bi bi-square-fill text-primary mx-1"></i>さび汁、ひび、欠損、白華</td>
+                                <td><i class="bi bi-square-fill text-primary mx-1"></i>外壁シーリング破断、欠損</td>
                                 <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">有</button></td>
                                 <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">東</button>西南北</td>
                                 <td><i class="bi-plus-square-dotted"></i></td>
                             </tr>
                             <tr>
-                                <td><i class="bi bi-triangle-fill text-danger mx-1"></i>鉄筋の露出</td>
+                                <td><i class="bi bi-triangle-fill text-danger mx-1"></i>建具周囲の隙間、開閉不良</td>
+                                <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">有</button></td>
+                                <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">東</button>西南北</td>
+                                <td><i class="bi-plus-square-dotted"></i></td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-triangle-fill text-primary mx-1"></i>軒裏シーリング破断、欠損</td>
+                                <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">有</button></td>
+                                <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">東</button>西南北</td>
+                                <td><i class="bi-plus-square-dotted"></i></td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-triangle-fill text-primary mx-1"></i>軒裏天井の雨漏りの後</td>
                                 <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">有</button></td>
                                 <td><button type="button" class="btn btn-primary btn-sm" style="font-size: 0.5rem;">東</button>西南北</td>
                                 <td><i class="bi-plus-square-dotted"></i></td>
