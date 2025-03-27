@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>クライアント詳細</title>
+
+<!-- Bootstrap CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<!-- ヘッダーの読み込み -->
+<div id="header-container"></div>
+
+<div class="container mt-4">
+<h2 class="small-text mb-3">【会社名が入る】</h2>
+<!-- パンくずリスト -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small-text">
+    <li class="breadcrumb-item"><a href="provider_company_list.html">クライアント一覧</a></li>
+    <li class="breadcrumb-item"><a href="provider_company_detail.html">【会社名が入る】</a></li>
+    <li class="breadcrumb-item active" aria-current="page">会社詳細</li>
+    </ol>
+</nav>
+
+<!-- タブナビゲーション -->
+<ul class="nav nav-tabs small-text" id="detailTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active small-text" id="tab-company-info-tab" data-bs-toggle="tab" data-bs-target="#tab-company-info" type="button" role="tab" aria-controls="tab-company-info" aria-selected="true">会社情報</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link small-text" id="tab-project-list-tab" data-bs-toggle="tab" data-bs-target="#tab-project-list" type="button" role="tab" aria-controls="tab-project-list" aria-selected="false">プロジェクト一覧</button>
+    </li>
+    <!-- 新規追加：施設タブ -->
+    <li class="nav-item" role="presentation">
+        <button class="nav-link small-text" id="tab-facility-tab" data-bs-toggle="tab" data-bs-target="#tab-facility" type="button" role="tab" aria-controls="tab-facility" aria-selected="false">施設</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link small-text" id="tab-user-list-tab" data-bs-toggle="tab" data-bs-target="#tab-user-list" type="button" role="tab" aria-controls="tab-user-list" aria-selected="false">ユーザー一覧</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link small-text" id="tab-contract-tab" data-bs-toggle="tab" data-bs-target="#tab-contract" type="button" role="tab" aria-controls="tab-contract" aria-selected="false">契約</button>
+    </li>
+</ul>
+
+<!-- タブコンテンツ -->
+<div class="tab-content mt-3" id="detailTabContent">
+    <!-- タブ1: 会社情報 -->
+    <div class="tab-pane fade show active" id="tab-company-info" role="tabpanel" aria-labelledby="tab-company-info-tab">
+    <div class="card mt-3">
+        <div class="card-body">
+        <!-- 連番 -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>連番</strong></div>
+            <div class="col-7 value-col small-text">
+            <span class="small-text">1</span>
+            </div>
+            <div class="col-2 change-btn"></div>
+        </div>
+        <!-- HP -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>HP</strong></div>
+            <div class="col-7 value-col small-text">
+            <input type="text" class="form-control form-control-small" placeholder="http://www.sample1.co.jp">
+            </div>
+            <div class="col-2 change-btn">
+            <button class="btn btn-secondary btn-sm small-text">変更</button>
+            </div>
+        </div>
+        <!-- ユーザー数 -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>ユーザー数</strong></div>
+            <div class="col-7 value-col small-text">
+            <input type="text" class="form-control form-control-small" placeholder="15" readonly>
+            </div>
+            <div class="col-2 change-btn text-end">
+            <a href="provider_user_create.html" class="btn btn-primary btn-sm small-text">追加</a>
+            </div>
+        </div>
+        <!-- 住所 -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>住所</strong></div>
+            <div class="col-7 value-col small-text">
+            <input type="text" class="form-control form-control-small" placeholder="東京都渋谷区〇〇1-1-1">
+            </div>
+            <div class="col-2 change-btn">
+            <button class="btn btn-secondary btn-sm small-text">変更</button>
+            </div>
+        </div>
+        <!-- 管理者名 -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>管理者名</strong></div>
+            <div class="col-7 value-col small-text">
+            <input type="text" class="form-control form-control-small" placeholder="山田 太郎">
+            </div>
+            <div class="col-2 change-btn">
+            <button class="btn btn-secondary btn-sm small-text">変更</button>
+            </div>
+        </div>
+        <!-- 管理者メール -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>管理者メール</strong></div>
+            <div class="col-7 value-col small-text">
+            <input type="text" class="form-control form-control-small" placeholder="taro@example.com">
+            </div>
+            <div class="col-2 change-btn">
+            <button class="btn btn-secondary btn-sm small-text">変更</button>
+            </div>
+        </div>
+        <!-- 管理者電話番号 -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>管理者電話番号</strong></div>
+            <div class="col-7 value-col small-text">
+            <input type="text" class="form-control form-control-small" placeholder="03-1234-5678">
+            </div>
+            <div class="col-2 change-btn">
+            <button class="btn btn-secondary btn-sm small-text">変更</button>
+            </div>
+        </div>
+        <!-- 登録日（フォームなし） -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>登録日</strong></div>
+            <div class="col-7 value-col small-text">
+            <span class="small-text">2024-01-10</span>
+            </div>
+            <div class="col-2 change-btn"></div>
+        </div>
+        <!-- 更新日 -->
+        <div class="row mb-2 align-items-center">
+            <div class="col-3 label-col small-text"><strong>更新日</strong></div>
+            <div class="col-7 value-col small-text">
+            <input type="text" class="form-control form-control-small" placeholder="2024-03-15" readonly>
+            </div>
+            <div class="col-2 change-btn"></div>
+        </div>
+        <!-- 操作用ボタン -->
+        <div class="row mt-3">
+            <div class="col text-end">
+            <button class="btn btn-success btn-sm small-text">保存</button>
+            <button class="btn btn-danger btn-sm small-text">削除</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+    <!-- タブ2: プロジェクト一覧 -->
+    <div class="tab-pane fade" id="tab-project-list" role="tabpanel" aria-labelledby="tab-project-list-tab">
+    <table class="table table-striped small-text mt-3">
+        <thead>
+        <tr>
+            <th scope="col" class="small-text">プロジェクト名</th>
+            <th scope="col" class="small-text">施設数</th>
+            <th scope="col" class="small-text">担当者</th>
+            <th scope="col" class="small-text">登録日</th>
+            <th scope="col" class="small-text">更新日</th>
+            <th scope="col" class="text-end small-text">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="small-text">プロジェクトA</td>
+            <td class="small-text"><a href="provider_facility_list.html" class="small-text text-primary" style="text-decoration: underline;">5</a></td>
+            <td class="small-text">担当者A</td>
+            <td class="small-text">2024-01-15</td>
+            <td class="small-text">2024-03-10</td>
+            <td class="text-end small-text">
+            <a href="provider_project_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="small-text">プロジェクトB</td>
+            <td class="small-text"><a href="provider_facility_list.html" class="small-text text-primary" style="text-decoration: underline;">3</a></td>
+            <td class="small-text">担当者B</td>
+            <td class="small-text">2024-02-05</td>
+            <td class="small-text">2024-03-15</td>
+            <td class="text-end small-text">
+            <a href="provider_project_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <div class="tab-pane fade" id="tab-facility" role="tabpanel" aria-labelledby="tab-facility-tab">
+        <div class="d-flex justify-content-end mb-2">
+        <a href="provider_facility_create.html" class="btn btn-primary btn-sm small-text">新規登録</a>
+    </div>
+    <table class="table table-striped small-text">
+        <thead>
+        <tr>
+            <th class="small-text">施設名</th>
+            <th class="small-text">プロジェクト名</th>
+            <th class="small-text">概要</th>
+            <th class="text-end small-text">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="small-text">施設A</td>
+            <td class="small-text">プロジェクトX</td>
+            <td class="small-text">概要情報が入ります</td>
+            <td class="text-end small-text">
+            <a href="provider_facility_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="small-text">施設B</td>
+            <td class="small-text">プロジェクトY</td>
+            <td class="small-text">概要情報が入ります</td>
+            <td class="text-end small-text">
+            <a href="provider_facility_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="small-text">施設C</td>
+            <td class="small-text">プロジェクトZ</td>
+            <td class="small-text">概要情報が入ります</td>
+            <td class="text-end small-text">
+            <a href="provider_facility_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <!-- タブ3: ユーザー一覧 -->
+<div class="tab-pane fade" id="tab-user-list" role="tabpanel" aria-labelledby="tab-user-list-tab">
+    <div class="d-flex justify-content-end mb-2">
+        <a href="provider_user_create.html" class="btn btn-primary btn-sm small-text">追加</a>
+    </div>
+    <table class="table table-striped small-text">
+        <thead>
+        <tr>
+            <th scope="col" class="small-text">連番</th>
+            <th scope="col" class="small-text">メール（ユーザー名）</th>
+            <th scope="col" class="small-text">パスワード</th>
+            <th scope="col" class="small-text">権限</th>
+            <th scope="col" class="small-text">講習情報<br>(講習機関・修了証明書番号)</th>
+            <th scope="col" class="small-text">建築士資格種別</th>
+            <th scope="col" class="small-text">建築士登録番号</th>
+            <th scope="col" class="small-text">所属事務所名</th>
+            <th scope="col" class="small-text">事務所登録番号</th>
+            <th scope="col" class="small-text">登録日</th>
+            <th scope="col" class="text-end small-text">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="small-text">1</td>
+            <td class="small-text">taro@example.com</td>
+            <td class="small-text">******</td>
+            <td class="small-text">一般</td>
+            <td class="small-text">講習A / CERT-001</td>
+            <td class="small-text">一級</td>
+            <td class="small-text">ARCH-1001</td>
+            <td class="small-text">株式会社建築研究所</td>
+            <td class="small-text">OFF-1001</td>
+            <td class="small-text">2024-01-10</td>
+            <td class="text-end small-text">
+            <a href="provider_user_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="small-text">2</td>
+            <td class="small-text">hanako@example.com</td>
+            <td class="small-text">******</td>
+            <td class="small-text">外部</td>
+            <td class="small-text">講習B / CERT-002</td>
+            <td class="small-text">二級</td>
+            <td class="small-text">ARCH-1002</td>
+            <td class="small-text">有限会社設計工房</td>
+            <td class="small-text">OFF-1002</td>
+            <td class="small-text">2024-02-05</td>
+            <td class="text-end small-text">
+            <a href="provider_user_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="small-text">3</td>
+            <td class="small-text">jiro@example.com</td>
+            <td class="small-text">******</td>
+            <td class="small-text">管理</td>
+            <td class="small-text">講習C / CERT-003</td>
+            <td class="small-text">木造</td>
+            <td class="small-text">ARCH-1003</td>
+            <td class="small-text">株式会社建築工房</td>
+            <td class="small-text">OFF-1003</td>
+            <td class="small-text">2024-03-01</td>
+            <td class="text-end small-text">
+            <a href="provider_user_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="small-text">4</td>
+            <td class="small-text">ichiro@example.com</td>
+            <td class="small-text">******</td>
+            <td class="small-text">一般</td>
+            <td class="small-text">講習A / CERT-004</td>
+            <td class="small-text">一級</td>
+            <td class="small-text">ARCH-1004</td>
+            <td class="small-text">有限会社デザイン事務所</td>
+            <td class="small-text">OFF-1004</td>
+            <td class="small-text">2024-01-15</td>
+            <td class="text-end small-text">
+            <a href="provider_user_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="small-text">5</td>
+            <td class="small-text">yuko@example.com</td>
+            <td class="small-text">******</td>
+            <td class="small-text">外部</td>
+            <td class="small-text">講習B / CERT-005</td>
+            <td class="small-text">Lite</td>
+            <td class="small-text">ARCH-1005</td>
+            <td class="small-text">株式会社モダン建築</td>
+            <td class="small-text">OFF-1005</td>
+            <td class="small-text">2024-02-20</td>
+            <td class="text-end small-text">
+            <a href="provider_user_detail.html" class="btn btn-primary btn-sm small-text">詳細</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+    
+    <!-- タブ4: 契約 -->
+    <div class="tab-pane fade" id="tab-contract" role="tabpanel" aria-labelledby="tab-contract-tab">
+    <div class="small-text mt-3">
+        <p><strong>契約種類:</strong> <input type="text" class="form-control form-control-small d-inline-block w-auto" placeholder="Free" readonly data-bs-toggle="modal" data-bs-target="#contractModal"></p>
+        <p><strong>支払い方法:</strong> <input type="text" class="form-control form-control-small d-inline-block w-auto" placeholder="クレジットカード：VISA" readonly data-bs-toggle="modal" data-bs-target="#cardModal"></p>
+        <p><strong>支払い状況:</strong> <span class="badge bg-success small-text">支払い済み</span></p>
+        <p><strong>登録日:</strong> <span class="small-text">2024-01-10</span></p>
+        <p><strong>更新日:</strong> <span class="small-text">2024-03-15</span></p>
+    </div>
+    </div>
+</div>
+</div>
+
+<!-- 契約種類モーダル -->
+<div class="modal fade" id="contractModal" tabindex="-1" aria-labelledby="contractModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content small-text">
+    <div class="modal-header">
+        <h5 class="modal-title" id="contractModalLabel">契約種類の選択</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+    </div>
+    <div class="modal-body">
+        <p>各プランの説明:</p>
+        <ul>
+        <li><strong>Free:</strong> 基本機能のみ</li>
+        <li><strong>Lite:</strong> 追加機能付き</li>
+        <li><strong>Pro:</strong> 高度な機能を搭載</li>
+        <li><strong>Enterprise:</strong> 大規模向け、カスタマイズ対応</li>
+        </ul>
+        <div class="d-grid gap-2">
+        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Free</button>
+        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Lite</button>
+        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Pro</button>
+        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Enterprise</button>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<!-- 支払い方法・カード情報モーダル -->
+<div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content small-text">
+    <div class="modal-header">
+        <h5 class="modal-title" id="cardModalLabel">クレジットカード情報</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+    </div>
+    <div class="modal-body">
+        <p>クレジットカードを登録するためのフォームをここに表示します。</p>
+        <form>
+        <div class="mb-2">
+            <label class="form-label small-text">カード番号</label>
+            <input type="text" class="form-control form-control-small" placeholder="**** **** **** ****">
+        </div>
+        <div class="mb-2">
+            <label class="form-label small-text">有効期限</label>
+            <input type="text" class="form-control form-control-small" placeholder="MM/YY">
+        </div>
+        <div class="mb-2">
+            <label class="form-label small-text">セキュリティコード</label>
+            <input type="text" class="form-control form-control-small" placeholder="CVC">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm small-text">登録</button>
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+
+<!-- フッターの読み込み -->
+<div id="footer-container"></div>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../style.js"></script>
+
+<script>
+fetch('provider_header.html')
+    .then(response => response.text())
+    .then(data => {
+    document.getElementById('header-container').innerHTML = data;
+    });
+
+fetch('provider_footer.html')
+    .then(response => response.text())
+    .then(data => {
+    document.getElementById('footer-container').innerHTML = data;
+    });
+
+document.addEventListener('DOMContentLoaded', () => {
+    applyCustomSettings();
+});
+</script>
+</body>
+</html>

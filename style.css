@@ -256,3 +256,29 @@ header nav ul li a:hover {
         float: right;
         margin-right: 5px;
     }
+
+    .small-text {
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+    .form-control-small {
+        font-size: 0.55rem;
+        padding: 0.3rem;
+    }
+    .label-col {
+    width: 30%;
+    }
+    .value-col {
+    width: 65%;
+    }
+    .change-btn {
+    width: 5%;
+    }
+      /* ヘッダーとカードにマージン追加 */
+    .card {
+    margin-top: 20px;
+    }
+    /* ユーザー数の追加ボタン */
+    .add-user-btn {
+    margin-left: 5px;
+    }

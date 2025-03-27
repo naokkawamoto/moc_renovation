@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KPI分析</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .kpi-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+        }
+        .tab-pane {
+        padding-top: 20px;
+        }
+    </style>
+    </head>
+    <body>
+    <!-- ヘッダー読み込み -->
+    <div id="header-container"></div>
+    
+    <div class="container mt-4">
+        <h2 class="mb-3">KPI分析</h2>
+        <!-- パンくずリスト -->
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb small-text">
+            <li class="breadcrumb-item"><a href="provider_dashboard.html">ダッシュボード</a></li>
+            <li class="breadcrumb-item active" aria-current="page">KPI分析</li>
+        </ol>
+        </nav>
+        
+        <!-- タブナビゲーション -->
+        <ul class="nav nav-tabs" id="kpiTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="sales-tab" data-bs-toggle="tab" data-bs-target="#sales" type="button" role="tab" aria-controls="sales" aria-selected="true">売上</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="client-tab" data-bs-toggle="tab" data-bs-target="#client" type="button" role="tab" aria-controls="client" aria-selected="false">クライアント数</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="user-tab" data-bs-toggle="tab" data-bs-target="#user" type="button" role="tab" aria-controls="user" aria-selected="false">ユーザー数</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="active-tab" data-bs-toggle="tab" data-bs-target="#active" type="button" role="tab" aria-controls="active" aria-selected="false">アクティブ</button>
+        </li>
+        </ul>
+        
+        <!-- タブコンテンツ -->
+        <div class="tab-content" id="kpiTabContent">
+        <!-- タブ1: 売上 -->
+        <div class="tab-pane fade show active" id="sales" role="tabpanel" aria-labelledby="sales-tab">
+            <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="small-text">当月売上</h4>
+                <p class="kpi-value">10,340,000円</p>
+                <!-- ダミーグラフ（placeholder画像） -->
+                <img src="https://via.placeholder.com/400x200?text=%E5%A3%B2%E4%B8%8A%E3%82%B0%E3%83%A9%E3%83%95" alt="売上グラフ" class="img-fluid">
+            </div>
+            </div>
+        </div>
+        <!-- タブ2: クライアント数 -->
+        <div class="tab-pane fade" id="client" role="tabpanel" aria-labelledby="client-tab">
+            <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="small-text">クライアント数</h4>
+                <p class="kpi-value">150<br><small>有料：140</small></p>
+                <!-- ダミーグラフ -->
+                <img src="https://via.placeholder.com/400x200?text=%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E6%95%B0" alt="クライアント数グラフ" class="img-fluid">
+            </div>
+            </div>
+        </div>
+        <!-- タブ3: ユーザー数 -->
+        <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
+            <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="small-text">ユーザー数</h4>
+                <p class="kpi-value">720<br><small>有料：640</small></p>
+                <!-- ダミーグラフ -->
+                <img src="https://via.placeholder.com/400x200?text=%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E6%95%B0" alt="ユーザー数グラフ" class="img-fluid">
+            </div>
+            </div>
+        </div>
+        <!-- タブ4: アクティブ -->
+        <div class="tab-pane fade" id="active" role="tabpanel" aria-labelledby="active-tab">
+            <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="small-text">アクティブユーザー</h4>
+                <p class="kpi-value">DAU: 300<br>MAU: 5000</p>
+                <!-- ダミーグラフ -->
+                <img src="https://via.placeholder.com/400x200?text=Active+Users" alt="アクティブグラフ" class="img-fluid">
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <!-- フッター読み込み -->
+    <div id="footer-container"></div>
+    
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../style.js"></script>
+    
+    <script>
+        fetch('provider_header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+    
+        fetch('provider_footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+    
+        document.addEventListener('DOMContentLoaded', () => {
+        applyCustomSettings();
+        });
+    </script>
+</body>
+</html>

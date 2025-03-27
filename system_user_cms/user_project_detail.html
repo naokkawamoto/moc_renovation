@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>プロジェクト詳細</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- カスタムCSS -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- ヘッダーの読み込み -->
+    <div id="header-container"></div>
+
+    <div class="container mt-4">
+        <h2>プロジェクト詳細</h2>
+        <!-- パンくずリスト -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb small-text">
+                <li class="breadcrumb-item"><a href="user_project_list.html">プロジェクト一覧</a></li>
+                <li class="breadcrumb-item active" aria-current="page">プロジェクト詳細</li>
+            </ol>
+        </nav>
+
+        <!-- プロジェクト詳細カード -->
+        <div class="card mt-3">
+            <div class="card-body">
+                <!-- プロジェクト名 -->
+                <h4 class="card-title mb-3">プロジェクト詳細</h4>
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>プロジェクト名</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <input type="text" class="form-control form-control-small" placeholder="ハウスインスペクション（戸建て）">
+                    </div>
+                    <div class="col-2 change-btn"></div>
+                </div>
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>テンプレート</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <input type="text" class="form-control form-control-small" placeholder="ハウスインスペクション（戸建て）">
+                    </div>
+                    <div class="col-2 change-btn"></div>
+                </div>
+                
+                <!-- 施設名① -->
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>施設名①</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <input type="text" class="form-control form-control-small" placeholder="施設名1">
+                    </div>
+                    <div class="col-2 change-btn"></div>
+                </div>
+                <!-- 施設名② -->
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>施設名②</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <input type="text" class="form-control form-control-small" placeholder="施設名2">
+                    </div>
+                    <div class="col-2 change-btn">
+                        <button class="btn btn-primary btn-sm small-text">追加</button>
+                    </div>
+                </div>
+                
+                <!-- 担当者名① -->
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>担当者名①</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <input type="text" class="form-control form-control-small" placeholder="担当者A">
+                    </div>
+                    <div class="col-2 change-btn"></div>
+                </div>
+                <!-- 担当者名② -->
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>担当者名②</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <input type="text" class="form-control form-control-small" placeholder="担当者B">
+                    </div>
+                    <div class="col-2 change-btn"></div>
+                </div>
+                <!-- 担当者名③ -->
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>担当者名③</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <input type="text" class="form-control form-control-small" placeholder="担当者C">
+                    </div>
+                    <div class="col-2 change-btn">
+                        <button class="btn btn-primary btn-sm small-text">追加</button>
+                    </div>
+                </div>
+                
+                <!-- 検査数（リンク） -->
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>検査数</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <a href="user_inspection_list.html" class="small-text text-primary" style="text-decoration: underline;">10</a>
+                    </div>
+                    <div class="col-2 change-btn"></div>
+                </div>
+                
+                <!-- 登録日 -->
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>登録日</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <span class="small-text">2024-01-15</span>
+                    </div>
+                    <div class="col-2 change-btn"></div>
+                </div>
+                <!-- 更新日 -->
+                <div class="row mb-2 align-items-center">
+                    <div class="col-3 label-col small-text"><strong>更新日</strong></div>
+                    <div class="col-7 value-col small-text">
+                        <input type="text" class="form-control form-control-small" placeholder="2024-03-10" readonly>
+                    </div>
+                    <div class="col-2 change-btn"></div>
+                </div>
+                
+                <!-- 操作用ボタン -->
+                <div class="row mt-3">
+                    <div class="col text-end">
+                        <button class="btn btn-success btn-sm small-text">保存</button>
+                        <button class="btn btn-danger btn-sm small-text">削除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッターの読み込み -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../style.js"></script>
+
+    <script>
+        // ユーザー向けヘッダー・フッターを読み込み
+        fetch('user_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+
+        fetch('user_footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            applyCustomSettings();
+        });
+    </script>
+</body>
+</html>

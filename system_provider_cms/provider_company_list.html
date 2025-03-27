@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<titleクライアント一覧</title>
+
+<!-- Bootstrap CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional custom CSS -->
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<!-- ヘッダーの読み込み -->
+<div id="header-container"></div>
+
+<!-- コンテンツエリア -->
+<div class="container mt-4">
+<h2 class="small-text">クライアント一覧</h2>
+
+<!-- 登録会社数表示 -->
+<div class="mb-3 small-text">
+    <strong>登録クライアント数: </strong><span id="company-count">10</span>社
+</div>
+
+<!-- 検索窓 -->
+<div class="input-group mb-3">
+    <input type="text" class="form-control small-text" placeholder="建設会社を検索" aria-label="建設会社検索" aria-describedby="button-search">
+    <button class="btn btn-primary small-text" type="button" id="button-search">検索</button>
+</div>
+
+<!-- 建設会社一覧テーブル -->
+<table class="table table-striped small-text">
+    <thead>
+    <tr>
+        <th scope="col" class="small-text">ID</th>
+        <th scope="col" class="small-text">会社名</th>
+        <th scope="col" class="small-text">HP</th>
+        <th scope="col" class="small-text">契約種類</th>
+        <th scope="col" class="small-text">ユーザー数</th>
+        <th scope="col" class="small-text">地域</th>
+        <th scope="col" class="small-text">管理者（姓名・メール）</th>
+        <th scope="col" class="small-text">管理者電話番号</th>
+        <th scope="col" class="small-text">支払い方法・カード情報</th>
+        <th scope="col" class="small-text">登録日</th>
+        <th scope="col" class="small-text">更新日</th>
+        <th scope="col" class="text-end small-text">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 1社目 -->
+    <tr>
+        <th scope="row" class="small-text">1</th>
+        <td class="small-text">株式会社サンプル1</td>
+        <td class="small-text"><a href="http://www.sample1.co.jp" target="_blank">www.sample1.co.jp</a></td>
+        <td class="small-text">Free</td>
+        <td class="small-text">
+            <a href="provider_user_list.html" class="small-text text-primary" style="text-decoration: underline;">15</a>
+        </td>
+        <td class="small-text">東京都</td>
+        <td class="small-text">山田 太郎<br><small>taro@example.com</small></td>
+        <td class="small-text">03-1234-5678</td>
+        <td class="small-text">クレジットカード：VISA</td>
+        <td class="small-text">2024-01-10</td>
+        <td class="small-text">2024-03-15</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 2社目 -->
+    <tr>
+        <th scope="row" class="small-text">2</th>
+        <td class="small-text">株式会社サンプル2</td>
+        <td class="small-text"><a href="http://www.sample2.co.jp" target="_blank">www.sample2.co.jp</a></td>
+        <td class="small-text">Lite</td>
+        <td class="small-text">
+            <a href="provider_user_list.html" class="small-text text-primary" style="text-decoration: underline;">8</a>
+        </td>
+        <td class="small-text">大阪府</td>
+        <td class="small-text">佐藤 花子<br><small>hanako@example.com</small></td>
+        <td class="small-text">06-2345-6789</td>
+        <td class="small-text">口座振替</td>
+        <td class="small-text">2024-02-05</td>
+        <td class="small-text">2024-03-20</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 3社目 -->
+    <tr>
+        <th scope="row" class="small-text">3</th>
+        <td class="small-text">有限会社サンプル3</td>
+        <td class="small-text"><a href="http://www.sample3.jp" target="_blank">www.sample3.jp</a></td>
+        <td class="small-text">Pro</td>
+        <td class="small-text">
+            <a href="" class="small-text text-primary" style="text-decoration: underline;">20</a>
+        </td>
+        <td class="small-text">愛知県</td>
+        <td class="small-text">高橋 次郎<br><small>jiro@example.com</small></td>
+        <td class="small-text">052-345-6789</td>
+        <td class="small-text">クレジットカード：MasterCard</td>
+        <td class="small-text">2024-03-01</td>
+        <td class="small-text">2024-03-25</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 4社目 -->
+    <tr>
+        <th scope="row" class="small-text">4</th>
+        <td class="small-text">株式会社サンプル4</td>
+        <td class="small-text"><a href="http://www.sample4.co.jp" target="_blank">www.sample4.co.jp</a></td>
+        <td class="small-text">Enterprize</td>
+        <td class="small-text">
+            <a href="" class="small-text text-primary" style="text-decoration: underline;">35</a>
+        </td>
+        <td class="small-text">福岡県</td>
+        <td class="small-text">伊藤 一郎<br><small>ichiro@example.com</small></td>
+        <td class="small-text">092-4567-8901</td>
+        <td class="small-text">銀行振込</td>
+        <td class="small-text">2024-01-15</td>
+        <td class="small-text">2024-03-10</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 5社目 -->
+    <tr>
+        <th scope="row" class="small-text">5</th>
+        <td class="small-text">株式会社サンプル5</td>
+        <td class="small-text"><a href="http://www.sample5.co.jp" target="_blank">www.sample5.co.jp</a></td>
+        <td class="small-text">Free</td>
+        <td class="small-text">
+            <a href="" class="small-text text-primary" style="text-decoration: underline;">12</a>
+        </td>
+        <td class="small-text">北海道</td>
+        <td class="small-text">松本 優子<br><small>yuko@example.com</small></td>
+        <td class="small-text">011-5678-9012</td>
+        <td class="small-text">クレジットカード：AMEX</td>
+        <td class="small-text">2024-02-20</td>
+        <td class="small-text">2024-03-18</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 6社目 -->
+    <tr>
+        <th scope="row" class="small-text">6</th>
+        <td class="small-text">有限会社サンプル6</td>
+        <td class="small-text"><a href="http://www.sample6.jp" target="_blank">www.sample6.jp</a></td>
+        <td class="small-text">Lite</td>
+        <td class="small-text">
+            <a href="" class="small-text text-primary" style="text-decoration: underline;">20</a>
+        </td>
+        <td class="small-text">神奈川県</td>
+        <td class="small-text">中村 直子<br><small>naoko@example.com</small></td>
+        <td class="small-text">045-6789-0123</td>
+        <td class="small-text">口座振替</td>
+        <td class="small-text">2024-03-05</td>
+        <td class="small-text">2024-03-22</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 7社目 -->
+    <tr>
+        <th scope="row" class="small-text">7</th>
+        <td class="small-text">株式会社サンプル7</td>
+        <td class="small-text"><a href="http://www.sample7.co.jp" target="_blank">www.sample7.co.jp</a></td>
+        <td class="small-text">Pro</td>
+        <td class="small-text">
+            <a href="" class="small-text text-primary" style="text-decoration: underline;">10</a>
+        </td>
+        <td class="small-text">京都府</td>
+        <td class="small-text">小林 勝也<br><small>katsuya@example.com</small></td>
+        <td class="small-text">075-7890-1234</td>
+        <td class="small-text">クレジットカード：VISA</td>
+        <td class="small-text">2024-01-28</td>
+        <td class="small-text">2024-03-12</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 8社目 -->
+    <tr>
+        <th scope="row" class="small-text">8</th>
+        <td class="small-text">有限会社サンプル8</td>
+        <td class="small-text"><a href="http://www.sample8.jp" target="_blank">www.sample8.jp</a></td>
+        <td class="small-text">Enterprize</td>
+        <td class="small-text">
+            <a href="" class="small-text text-primary" style="text-decoration: underline;">40</a>
+        </td>
+        <td class="small-text">埼玉県</td>
+        <td class="small-text">藤田 美咲<br><small>misaki@example.com</small></td>
+        <td class="small-text">048-8901-2345</td>
+        <td class="small-text">銀行振込</td>
+        <td class="small-text">2024-02-10</td>
+        <td class="small-text">2024-03-08</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 9社目 -->
+    <tr>
+        <th scope="row" class="small-text">9</th>
+        <td class="small-text">株式会社サンプル9</td>
+        <td class="small-text"><a href="http://www.sample9.co.jp" target="_blank">www.sample9.co.jp</a></td>
+        <td class="small-text">Free</td>
+        <td class="small-text">
+            <a href="" class="small-text text-primary" style="text-decoration: underline;">22</a>
+        </td>
+        <td class="small-text">千葉県</td>
+        <td class="small-text">斎藤 一樹<br><small>kazuki@example.com</small></td>
+        <td class="small-text">043-9012-3456</td>
+        <td class="small-text">クレジットカード：MasterCard</td>
+        <td class="small-text">2024-03-12</td>
+        <td class="small-text">2024-03-26</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    <!-- 10社目 -->
+    <tr>
+        <th scope="row" class="small-text">10</th>
+        <td class="small-text">有限会社サンプル10</td>
+        <td class="small-text"><a href="http://www.sample10.jp" target="_blank">www.sample10.jp</a></td>
+        <td class="small-text">Lite</td>
+        <td class="small-text">
+            <a href="" class="small-text text-primary" style="text-decoration: underline;">7</a>
+        </td>
+        <td class="small-text">広島県</td>
+        <td class="small-text">高木 理恵<br><small>rie@example.com</small></td>
+        <td class="small-text">082-0123-4567</td>
+        <td class="small-text">口座振替</td>
+        <td class="small-text">2024-02-28</td>
+        <td class="small-text">2024-03-16</td>
+        <td class="text-end small-text">
+        <a href="provider_company_detail.html" class="btn btn-primary btn-sm">詳細</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- ページネーション -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">前へ</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+        <a class="page-link" href="#">次へ</a>
+    </li>
+    </ul>
+</nav>
+
+</div>
+
+<!-- フッターの読み込み -->
+<div id="footer-container"></div>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../style.js"></script>
+
+<!-- JavaScript to load header and footer -->
+<script>
+// provider_header.html を読み込んで挿入
+fetch('provider_header.html')
+    .then(response => response.text())
+    .then(data => {
+    document.getElementById('header-container').innerHTML = data;
+    });
+
+// provider_footer.html を読み込んで挿入
+fetch('provider_footer.html')
+    .then(response => response.text())
+    .then(data => {
+    document.getElementById('footer-container').innerHTML = data;
+    });
+    
+// カスタム設定を適用
+document.addEventListener('DOMContentLoaded', () => {
+    applyCustomSettings();
+});
+</script>
+</body>
+</html>
