@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エージェント一覧</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+    <!-- ヘッダーの読み込み -->
+    <div id="header-container"></div>
+
+    <!-- コンテンツエリア -->
+    <div class="container mt-4">
+    <h2 class="small-text">エージェント一覧</h2>
+
+    <!-- 登録エージェント数表示 -->
+    <div class="mb-3 small-text">
+        <strong>登録エージェント数: </strong><span id="agent-count">5</span>件
+    </div>
+
+    <!-- 検索エリア -->
+    <div class="d-flex align-items-center mb-3">
+        <input type="text" class="form-control small-text" style="width:150px;" placeholder="エージェントを検索" aria-label="エージェント検索">
+        <button class="btn btn-primary small-text ms-2" id="button-search">検索</button>
+        <!-- 右寄せ 新規エージェント登録ボタン -->
+        <div class="ms-auto">
+        <a href="provider_agent_create.html" class="btn btn-primary btn-sm small-text">新規エージェント登録</a>
+        </div>
+    </div>
+
+    <!-- エージェント一覧テーブル -->
+    <table class="table table-striped small-text">
+        <thead>
+        <tr>
+            <th scope="col" class="small-text">エージェントID</th>
+            <th scope="col" class="small-text">会社名</th>
+            <th scope="col" class="small-text">担当者</th>
+            <th scope="col" class="small-text">メール</th>
+            <th scope="col" class="small-text">シェア対象</th>
+            <th scope="col" class="small-text">シェア率</th>
+            <th scope="col" class="small-text">契約種類</th>
+            <th scope="col" class="small-text">契約社数</th>
+            <th scope="col" class="small-text">ID数</th>
+            <th scope="col" class="text-end small-text">詳細</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td class="small-text">1</td>
+            <td class="small-text">株式会社オンテック</td>
+            <td class="small-text">田中 太郎</td>
+            <td class="small-text">tanaka@example.com</td>
+            <td class="small-text">売上</td>
+            <td class="small-text">10%</td>
+            <td class="small-text">紹介10%</td>
+            <td class="small-text">15</td>
+            <td class="small-text">100</td>
+            <td class="text-end small-text">
+                <a href="provider_agent_detail.html" class="btn btn-primary btn-sm">詳細</a>
+            </td>
+            </tr>
+            <tr>
+            <td class="small-text">2</td>
+            <td class="small-text">株式会社キャパ</td>
+            <td class="small-text">鈴木 花子</td>
+            <td class="small-text">suzuki@example.com</td>
+            <td class="small-text">売上</td>
+            <td class="small-text">20%</td>
+            <td class="small-text">契約導入20%</td>
+            <td class="small-text">8</td>
+            <td class="small-text">50</td>
+            <td class="text-end small-text">
+                <a href="provider_agent_detail.html" class="btn btn-primary btn-sm">詳細</a>
+            </td>
+            </tr>
+            <tr>
+            <td class="small-text">3</td>
+            <td class="small-text">KX株式会社</td>
+            <td class="small-text">佐藤 次郎</td>
+            <td class="small-text">sato@example.com</td>
+            <td class="small-text">売上</td>
+            <td class="small-text">30%</td>
+            <td class="small-text">カスタマーサポート30%</td>
+            <td class="small-text">20</td>
+            <td class="small-text">200</td>
+            <td class="text-end small-text">
+                <a href="provider_agent_detail.html" class="btn btn-primary btn-sm">詳細</a>
+            </td>
+            </tr>
+            <tr>
+            <td class="small-text">4</td>
+            <td class="small-text">川元工業</td>
+            <td class="small-text">高橋 三郎</td>
+            <td class="small-text">takahashi@example.com</td>
+            <td class="small-text">売上</td>
+            <td class="small-text">10%</td>
+            <td class="small-text">紹介10%</td>
+            <td class="small-text">5</td>
+            <td class="small-text">30</td>
+            <td class="text-end small-text">
+                <a href="provider_agent_detail.html" class="btn btn-primary btn-sm">詳細</a>
+            </td>
+            </tr>
+            <tr>
+            <td class="small-text">5</td>
+            <td class="small-text">株式会社サンプル</td>
+            <td class="small-text">松本 優子</td>
+            <td class="small-text">matsumoto@example.com</td>
+            <td class="small-text">売上</td>
+            <td class="small-text">20%</td>
+            <td class="small-text">契約導入20%</td>
+            <td class="small-text">12</td>
+            <td class="small-text">80</td>
+            <td class="text-end small-text">
+                <a href="provider_agent_detail.html" class="btn btn-primary btn-sm">詳細</a>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+
+    <!-- ページネーション -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">前へ</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">次へ</a>
+        </li>
+        </ul>
+    </nav>
+    </div>
+
+    <!-- フッターの読み込み -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../style.js"></script>
+
+    <!-- JavaScript to load header and footer -->
+    <script>
+    // provider_header.html を読み込んで挿入
+    fetch('provider_header.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        });
+
+    // provider_footer.html を読み込んで挿入
+    fetch('provider_footer.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+        });
+
+    // カスタム設定を適用
+    document.addEventListener('DOMContentLoaded', () => {
+        applyCustomSettings();
+    });
+</script>
+</body>
+</html>

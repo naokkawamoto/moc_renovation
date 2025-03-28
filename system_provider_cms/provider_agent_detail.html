@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>エージェント詳細</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+    <!-- ヘッダーの読み込み -->
+    <div id="header-container"></div>
+
+    <div class="container mt-4">
+    <h2 class="small-text mb-3">【エージェント名が入る】</h2>
+    <!-- パンくずリスト -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb small-text">
+        <li class="breadcrumb-item"><a href="provider_agent_list.html">エージェント一覧</a></li>
+        <li class="breadcrumb-item active" aria-current="page">エージェント詳細</li>
+        </ol>
+    </nav>
+
+    <!-- タブナビゲーション -->
+    <ul class="nav nav-tabs small-text" id="detailTab" role="tablist">
+        <li class="nav-item" role="presentation">
+        <button class="nav-link active small-text" id="tab-company-info-tab" data-bs-toggle="tab" data-bs-target="#tab-company-info" type="button" role="tab" aria-controls="tab-company-info" aria-selected="true">会社情報</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link small-text" id="tab-contract-tab" data-bs-toggle="tab" data-bs-target="#tab-contract" type="button" role="tab" aria-controls="tab-contract" aria-selected="false">契約</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link small-text" id="tab-billing-tab" data-bs-toggle="tab" data-bs-target="#tab-billing" type="button" role="tab" aria-controls="tab-billing" aria-selected="false">請求</button>
+        </li>
+    </ul>
+
+    <!-- タブコンテンツ -->
+    <div class="tab-content mt-3" id="detailTabContent">
+        <!-- 会社情報タブ -->
+        <div class="tab-pane fade show active" id="tab-company-info" role="tabpanel" aria-labelledby="tab-company-info-tab">
+        <div class="card mt-3">
+            <div class="card-body">
+            <!-- エージェントID -->
+            <div class="row mb-2 align-items-center">
+                <div class="col-3 label-col small-text"><strong>エージェントID</strong></div>
+                <div class="col-7 value-col small-text">
+                <span class="small-text">A001</span>
+                </div>
+                <div class="col-2 change-btn"></div>
+            </div>
+            <!-- 会社名 -->
+            <div class="row mb-2 align-items-center">
+                <div class="col-3 label-col small-text"><strong>会社名</strong></div>
+                <div class="col-7 value-col small-text">
+                <input type="text" class="form-control form-control-small" placeholder="株式会社サンプル">
+                </div>
+                <div class="col-2 change-btn"></div>
+            </div>
+            <!-- 担当者名 -->
+            <div class="row mb-2 align-items-center">
+                <div class="col-3 label-col small-text"><strong>担当者名</strong></div>
+                <div class="col-7 value-col small-text">
+                <input type="text" class="form-control form-control-small" placeholder="山田 太郎">
+                </div>
+                <div class="col-2 change-btn"></div>
+            </div>
+            <!-- メール -->
+            <div class="row mb-2 align-items-center">
+                <div class="col-3 label-col small-text"><strong>メール</strong></div>
+                <div class="col-7 value-col small-text">
+                <input type="text" class="form-control form-control-small" placeholder="taro@example.com">
+                </div>
+                <div class="col-2 change-btn"></div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- 契約タブ -->
+        <div class="tab-pane fade" id="tab-contract" role="tabpanel" aria-labelledby="tab-contract-tab">
+        <div class="card mt-3">
+            <div class="card-body">
+            <!-- 契約種類 -->
+            <div class="row mb-2 align-items-center">
+                <div class="col-3 label-col small-text"><strong>契約種類</strong></div>
+                <div class="col-7 value-col small-text">
+                <input type="text" class="form-control form-control-small" placeholder="紹介10%" readonly>
+                </div>
+                <div class="col-2 change-btn"></div>
+            </div>
+            <!-- 契約社数 -->
+            <div class="row mb-2 align-items-center">
+                <div class="col-3 label-col small-text"><strong>契約社数</strong></div>
+                <div class="col-7 value-col small-text">
+                <input type="text" class="form-control form-control-small" placeholder="15社" readonly>
+                </div>
+                <div class="col-2 change-btn"></div>
+            </div>
+            <!-- 契約日 -->
+            <div class="row mb-2 align-items-center">
+                <div class="col-3 label-col small-text"><strong>契約日</strong></div>
+                <div class="col-7 value-col small-text">
+                <span class="small-text">2024-01-10</span>
+                </div>
+                <div class="col-2 change-btn"></div>
+            </div>
+            <!-- 契約終了日 -->
+            <div class="row mb-2 align-items-center">
+                <div class="col-3 label-col small-text"><strong>契約終了日</strong></div>
+                <div class="col-7 value-col small-text">
+                <span class="small-text">2024-12-31</span>
+                </div>
+                <div class="col-2 change-btn"></div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- 請求タブ -->
+        <div class="tab-pane fade" id="tab-billing" role="tabpanel" aria-labelledby="tab-billing-tab">
+        <!-- 上部カード: 次回の支払い -->
+        <div class="card mt-3">
+            <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="small-text mb-0">次回の支払い</h5>
+            <div>
+                <span class="small-text me-2">契約名：紹介契約</span>
+                <button type="button" class="btn btn-primary btn-sm small-text" data-bs-toggle="modal" data-bs-target="#contractModal">契約情報</button>
+            </div>
+            </div>
+            <div class="card-body">
+            <table class="table table-borderless small-text mb-0">
+                <thead>
+                <tr>
+                    <th>支払日</th>
+                    <th>契約日</th>
+                    <th>当月獲得</th>
+                    <th>当月売上</th>
+                    <th>シェア率（紹介）</th>
+                    <th>支払い額</th>
+                    <th>当月契約</th>
+                    <th>当月売上</th>
+                    <th>シェア率（なし）</th>
+                    <th>支払い額</th>
+                    <th>合計金額</th>
+                    <th>税込金額</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2024-04-01</td>
+                    <td>2024-01-10</td>
+                    <td>5</td>
+                    <td>¥50,000</td>
+                    <td>10%</td>
+                    <td>¥5,000</td>
+                    <td>3</td>
+                    <td>¥30,000</td>
+                    <td>0%</td>
+                    <td>¥0</td>
+                    <td>¥5,000</td>
+                    <td>¥5,500</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- 下部カード: 支払い履歴 -->
+        <div class="mt-4">
+            <h5 class="small-text">支払い履歴</h5>
+            <table class="table table-striped small-text">
+            <thead>
+                <tr>
+                <th>ID</th>
+                <th>ステータス</th>
+                <th>支払日</th>
+                <th>契約名</th>
+                <th>税込金額</th>
+                <th>領収書</th>
+                <th>請求書</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>1</td>
+                <td><span class="badge bg-success">支払済</span></td>
+                <td>2024-01-15</td>
+                <td>Lite Plan</td>
+                <td>¥12,100</td>
+                <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">領収書</a></td>
+                <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">請求書</a></td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td><span class="badge bg-warning">未払</span></td>
+                <td>2024-02-15</td>
+                <td>Lite Plan</td>
+                <td>¥12,100</td>
+                <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">領収書</a></td>
+                <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">請求書</a></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- フッターの読み込み -->
+    <div id="footer-container"></div>
+
+    <!-- 契約種類モーダル -->
+    <div class="modal fade" id="contractModal" tabindex="-1" aria-labelledby="contractModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content small-text">
+        <div class="modal-header">
+            <h5 class="modal-title" id="contractModalLabel">契約種類の選択</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        </div>
+        <div class="modal-body">
+            <p>各プランの説明:</p>
+            <ul>
+            <li><strong>Free:</strong> 基本機能のみ（10GB）</li>
+            <li><strong>Lite:</strong> 追加機能付き（100GB）</li>
+            <li><strong>Pro:</strong> 高度な機能搭載（500GB）</li>
+            <li><strong>EPS:</strong> 大規模向け（1000GB）</li>
+            </ul>
+            <div class="d-grid gap-2">
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Free</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Lite</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">Pro</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal">EPS</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- 支払い方法・カード情報モーダル -->
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content small-text">
+        <div class="modal-header">
+            <h5 class="modal-title" id="cardModalLabel">クレジットカード情報</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        </div>
+        <div class="modal-body">
+            <p>クレジットカードを登録するためのフォームをここに表示します。</p>
+            <form>
+            <div class="mb-2">
+                <label class="form-label small-text">カード番号</label>
+                <input type="text" class="form-control form-control-small" placeholder="**** **** **** ****">
+            </div>
+            <div class="mb-2">
+                <label class="form-label small-text">有効期限</label>
+                <input type="text" class="form-control form-control-small" placeholder="MM/YY">
+            </div>
+            <div class="mb-2">
+                <label class="form-label small-text">セキュリティコード</label>
+                <input type="text" class="form-control form-control-small" placeholder="CVC">
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm small-text">登録</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../style.js"></script>
+
+    <script>
+    fetch('provider_header.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        });
+
+    fetch('provider_footer.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+        });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        applyCustomSettings();
+    });
+</script>
+</body>
+</html>

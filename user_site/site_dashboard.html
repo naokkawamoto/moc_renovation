@@ -1,109 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Bootstrap Icons CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
     <!-- Optional custom CSS -->
     <link rel="stylesheet" href="../style.css" />
-    <!-- ホバー時にドロップダウン表示 & カード下線調整 -->
     <style>
-        .dropdown:hover .dropdown-menu {
-        display: block;
-        }
-        .card-header {
-        border-bottom: 1px solid rgba(0,0,0,0.125);
+        /* 小さいカードの共通スタイル */
+        .small-card {
+        width: 400px;
+        margin-bottom: 1rem;
+        color: white;
         }
     </style>
     </head>
-    <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
-    <!-- 固定高さのコンテナ：上マージンを少なめに調整 -->
-    <div class="container" style="max-width: 400px; height: 800px; margin-top: 10px;">
-        <!-- 外枠カード：ヘッダ・フッタはそのまま -->
-        <div class="card shadow-sm h-100">
-        <!-- ヘッダ -->
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">iSX AI inspection</h5>
-            <!-- ヘッダ右端アイコンの飛び先を site_prof.html に変更 -->
-            <a href="site_prof.html" style="text-decoration: none; color: inherit;">
-            <i class="bi bi-person-fill"></i>
-            </a>
+    <body>
+    <!-- ヘッダー -->
+    <div id="header-container"></div>
+
+    <!-- メインコンテンツ -->
+    <div class="container mt-4">
+        <!-- 検査待ち一覧カード（全体幅450px） -->
+    <div class="card mx-auto mb-4" style="width: 450px;">
+        <div class="card-header">
+        <h5 class="mb-0">検査待ち一覧</h5>
         </div>
-        <!-- カード本文：上寄せに調整 -->
-        <div class="card-body d-flex flex-column justify-content-start align-items-center">
-            <!-- 上部カード：中央揃え、幅300×高さ200、上マージンを調整 -->
-            <div class="card mb-3 mx-auto" style="width: 300px; height: 250px; margin-top: 0;">
-            <!-- カードタイトル：背景青 -->
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0 text-center">AI住宅点検</h5>
-                </div>
-                <!-- カード本体：背景白 -->
-                <div class="card-body d-flex flex-column justify-content-center align-items-center" style="background-color: white;">
-                    <div class="d-flex gap-3 mb-2">
-                    <!-- ドロップダウン付きボタン（AI住宅点検） -->
-                        <div class="dropdown">
-                            <button class="btn btn-info shadow" type="button" id="dropdownMenuButtonTop" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100px; height: 100px;">
-                            AI住宅点検
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonTop">
-                            <li><a class="dropdown-item" href="site_prepare1.html">戸建</a></li>
-                            <li><a class="dropdown-item" href="site_prepare1.html">集合住宅</a></li>
-                            </ul>
-                        </div>
-                        <!-- 別色のボタン（AI定期点検） -->
-                        <button class="btn btn-warning shadow" type="button" style="width: 100px; height: 100px;" onclick="window.location.href='site_prepare1.html'">
-                            AI定期点検
-                        </button>
-                    </div>
-                    <!-- 説明文（50文字程度） -->
-                    <p class="card-text text-center" style="font-size: 0.8rem;">
-                    最新鋭のAIが住宅全体を点検時間を住まいの安全性と快適性を徹底サポートします。
-                    </p>
-                </div>
+        <div class="card-body">
+        <!-- 小さいカード１ -->
+        <div class="card small-card bg-info mx-auto">
+            <div class="card-body p-2">
+            <p class="mb-1" style="font-size:0.55rem;"><strong>検査予定日:</strong> 2025-04-01</p>
+            <div class="d-flex justify-content-between align-items-center" style="font-size:0.55rem;">
+                <span><strong>施設名:</strong> 山田邸</span>
+                <span>
+                <i class="bi bi-chat-dots-fill" style="font-size:1.5rem;"></i>
+                <span class="badge bg-light text-dark">2</span>
+                </span>
             </div>
-        <!-- 下部カード：中央揃え、幅300×高さ200 -->
-        <div class="card mx-auto" style="width: 300px; height: 250px; margin-top: 10px;">
-            <!-- カードタイトル：背景緑 -->
-            <div class="card-header bg-success text-white">
-            <h5 class="mb-0 text-center">AIスポット点検</h5>
-            </div>
-            <!-- カード本体：背景白 -->
-            <div class="card-body d-flex flex-column justify-content-center align-items-center" style="background-color: white;">
-            <!-- 別色のボタン -->
-            <button class="btn btn-danger shadow" type="button" style="width: 100px; height: 100px;" onclick="window.location.href='site_prepare1.html'">
-                AIスポット点検
-            </button>
-            <!-- 説明文（50文字程度） -->
-            <p class="card-text text-center mt-2" style="font-size: 0.8rem;">
-                現場に特化したAIが迅速にスポット点検を実施し、即時対応を可能にします。
-            </p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>プロジェクト名:</strong> ハウスインスペクション（戸建て）</p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>担当者:</strong> ユーザーA</p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>状況:</strong> 検査前</p>
             </div>
         </div>
+        <!-- 小さいカード２ -->
+        <div class="card small-card bg-warning mx-auto">
+            <div class="card-body p-2">
+            <p class="mb-1" style="font-size:0.55rem;"><strong>検査予定日:</strong> 2025-04-02</p>
+            <div class="d-flex justify-content-between align-items-center" style="font-size:0.55rem;">
+                <span><strong>施設名:</strong> 佐藤邸</span>
+                <span>
+                <i class="bi bi-chat-dots-fill" style="font-size:1.5rem;"></i>
+                <span class="badge bg-light text-dark">1</span>
+                </span>
+            </div>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>プロジェクト名:</strong> ハウスインスペクション（アパート）</p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>担当者:</strong> ユーザーB</p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>状況:</strong> 検査中</p>
+            </div>
         </div>
-        <!-- フッタ -->
-        <div class="card-footer d-flex justify-content-around">
-            <a href="site_dashboard.html" style="text-decoration: none; color: inherit;">
-                <i class="bi bi-house-door-fill"></i>
-            </a>
-            <a href="site_prof.html" style="text-decoration: none; color: inherit;">
-                <i class="bi bi-person-fill"></i>
-            </a>
-            <a href="site_list.html" style="text-decoration: none; color: black;">
-                <i class="bi bi-list"></i>
-            </a>
-            <a href="site_setting.html" style="text-decoration: none; color: inherit;">
-                <i class="bi bi-gear-fill"></i>
-            </a>
+        <!-- 小さいカード３ -->
+        <div class="card small-card bg-success mx-auto">
+            <div class="card-body p-2">
+            <p class="mb-1" style="font-size:0.55rem;"><strong>検査予定日:</strong> 2025-04-03</p>
+            <div class="d-flex justify-content-between align-items-center" style="font-size:0.55rem;">
+                <span><strong>施設名:</strong> 高橋邸</span>
+                <span>
+                <i class="bi bi-chat-dots-fill" style="font-size:1.5rem;"></i>
+                <span class="badge bg-light text-dark">0</span>
+                </span>
+            </div>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>プロジェクト名:</strong> ハウスインスペクション（集合住宅）</p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>担当者:</strong> ユーザーC</p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>状況:</strong> 検査完了</p>
+            </div>
+        </div>
+        <!-- 小さいカード４ -->
+        <div class="card small-card bg-danger mx-auto">
+            <div class="card-body p-2">
+            <p class="mb-1" style="font-size:0.55rem;"><strong>検査予定日:</strong> 2025-04-04</p>
+            <div class="d-flex justify-content-between align-items-center" style="font-size:0.55rem;">
+                <span><strong>施設名:</strong> 伊藤邸</span>
+                <span>
+                <i class="bi bi-chat-dots-fill" style="font-size:1.5rem;"></i>
+                <span class="badge bg-light text-dark">3</span>
+                </span>
+            </div>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>プロジェクト名:</strong> ハウスインスペクション（戸建て）</p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>担当者:</strong> ユーザーD</p>
+            <p class="mb-1" style="font-size:0.55rem;"><strong>状況:</strong> 未承認</p>
+            </div>
+        </div>
         </div>
     </div>
+    
+
+        <!-- お知らせ一覧カード（幅450px） -->
+        <div class="card mx-auto mb-4" style="width: 450px;">
+        <div class="card-header">
+            <h5 class="mb-0">お知らせ</h5>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush small-text">
+            <li class="list-group-item">
+                <small>2025-03-10</small><br>
+                山田邸検査のチャットが来ています。
+            </li>
+            <li class="list-group-item">
+                <small>2025-03-10</small><br>
+                本日の検査は４件です。
+            </li>
+            <li class="list-group-item">
+                <small>2025-03-09</small><br>
+                山田邸検査レポートが上長承認されました。
+            </li>
+            <li class="list-group-item">
+                <small>2025-03-09</small><br>
+                山田低レポートが顧客承認されました。
+            </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer-container"></div>
+
     <!-- Bootstrap JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JavaScript -->
+    <!-- カスタムJS -->
     <script src="../style.js"></script>
+    <!-- ヘッダー＆フッター読込 -->
+    <script>
+        // site_header.html を読み込んで挿入
+        fetch('site_header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+        // site_footer.html を読み込んで挿入
+        fetch('site_footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+        // カスタム設定を適用
+        document.addEventListener('DOMContentLoaded', () => {
+        applyCustomSettings();
+        });
+    </script>
 </body>
 </html>
