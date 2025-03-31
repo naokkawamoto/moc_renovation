@@ -1,136 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Site Prepare 1</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>検査開始選択</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Optional custom CSS -->
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <!-- ヘッダー -->
+  <div id="header-container"></div>
 
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Bootstrap Icons CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <!-- Optional custom CSS -->
-    <link rel="stylesheet" href="../style.css" />
-    </head>
-    <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
-    <!-- 固定高さのコンテナ -->
-    <div class="container" style="max-width: 400px; height: 800px; margin-top: 20px;">
-        <!-- 外枠カード（ヘッダ・フッタはそのまま） -->
-        <div class="card shadow-sm h-100">
-        <!-- ヘッダ -->
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">iSX AI inspection</h5>
-            <!-- ヘッダ右端アイコンの飛び先を site_prof.html に変更 -->
-            <a href="site_prof.html" style="text-decoration: none; color: inherit;">
-            <i class="bi bi-person-fill"></i>
-            </a>
-        </div>
-        <nav aria-label="breadcrumb" class="breadcrumb-nav" style="font-size: 0.65rem; margin-top: 0.5rem; margin-left: 0.5rem;">
-            <ol class="breadcrumb mb-2">
-            <li class="breadcrumb-item">住宅点検</li>
-            <li class="breadcrumb-item"><a href="site_dashboard.html">戸建</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="site_prepare1.html">点検者確認</a></li>
-            </ol>
-        </nav>
-        
-
-        <!-- カード本文：2枚のカードに分割 -->
-        <div class="card-body">
-            <!-- 1枚目：ユーザー情報 -->
-            <div class="card mb-3">
-            <div class="card-header">
-                <h5 class="mb-0">ユーザー情報</h5>
-            </div>
-            <div class="card-body" style="font-size: 0.8rem;">
-                <p>ユーザー名：河本直己</p>
-                <p>所属会社：ONETECH</p>
-                <div class="d-flex justify-content-end">
-                <button class="btn btn-secondary">変更</button>
-                </div>
-            </div>
-            </div>
-
-            <!-- 2枚目：点検者情報確認（現状のまま） -->
-            <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">点検者情報確認</h5>
-            </div>
-            <div class="card-body" style="font-size: 0.8rem;">
-                <form>
-                <!-- 1. 講習機関名および修了証明書番号 -->
-                <div class="mb-3">
-                    <label for="inputKoushu" class="form-label">
-                    1. 調査実施者への講習の実施講習機関名および修了証明書番号
-                    </label>
-                    <input type="text" class="form-control" id="inputKoushu" placeholder="例：○○講習機関 / 123456">
-                </div>
-                <!-- 2. 建築士資格種別（プルダウン） -->
-                <div class="mb-3">
-                    <label for="selectKenchikushi" class="form-label">2. 建築士資格種別</label>
-                    <select class="form-select" id="selectKenchikushi">
-                    <option value="一級">一級</option>
-                    <option value="二級">二級</option>
-                    <option value="木造">木造</option>
-                    </select>
-                </div>
-                <!-- 3. 建築士登録番号（数字） -->
-                <div class="mb-3">
-                    <label for="inputTouroku" class="form-label">3. 建築士登録番号</label>
-                    <input type="number" class="form-control" id="inputTouroku" placeholder="例：123456">
-                </div>
-                <!-- 4. 所属事務所名 -->
-                <div class="mb-3">
-                    <label for="inputJimusho" class="form-label">4. 所属事務所名</label>
-                    <input type="text" class="form-control" id="inputJimusho" placeholder="onetech事務所">
-                </div>
-                <!-- 5. 建築士事務所登録番号 -->
-                <div class="mb-3">
-                    <label for="inputJimushoNo" class="form-label">5. 建築士事務所登録番号</label>
-                    <input type="text" class="form-control" id="inputJimushoNo" placeholder="onetech事務所">
-                </div>
-                </form>
-
-                <!-- カード中央に「点検を開始する」ボタン -->
-                <div class="row my-3">
-                <div class="col d-flex justify-content-center">
-                    <button class="btn btn-primary" onclick="window.location.href='site_prepare2.html'">
-                    物件選択へ
-                    </button>
-                </div>
-                </div>
-
-                <!-- 下部に「変更」ボタンを右寄せ -->
-                <div class="row">
-                <div class="col d-flex justify-content-end">
-                    <button class="btn btn-secondary">変更</button>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <!-- フッタ -->
-        <div class="card-footer d-flex justify-content-around">
-            <a href="site_dashboard.html" style="text-decoration: none; color: inherit;">
-            <i class="bi bi-house-door-fill"></i>
-            </a>
-            <a href="site_prof.html" style="text-decoration: none; color: inherit;">
-            <i class="bi bi-person-fill"></i>
-            </a>
-            <a href="site_list.html" style="text-decoration: none; color: black;">
-            <i class="bi bi-list"></i>
-            </a>
-            <a href="site_setting.html" style="text-decoration: none; color: inherit;">
-            <i class="bi bi-gear-fill"></i>
-            </a>
-        </div>
-        </div>
+  <div class="container mt-4">
+    <h3 class="text-center mb-4">どこから検査開始しますか</h3>
+    <div class="d-grid gap-3">
+      <button type="button" class="btn btn-primary btn-lg px-5 py-4 mb-2 mt-1" style="font-size: larger;" onclick="window.location.href='site_outside_setup.html'">外周り</button>
+      <button type="button" class="btn btn-primary btn-lg px-5 py-4 mb-2 mt-1" style="font-size: larger;" onclick="window.location.href='site_outside_setup.html'">室内</button>
+      <button type="button" class="btn btn-primary btn-lg px-5 py-4 mb-2 mt-1" style="font-size: larger;" onclick="window.location.href='site_setup.html'">設備</button>
+      <button type="button" class="btn btn-primary btn-lg px-5 py-4 mb-2 mt-1" style="font-size: larger;" onclick="window.location.href='site_setup.html'">その他</button>
     </div>
+  </div>
 
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JavaScript -->
-    <script src="../style.js"></script>
+  <!-- フッター -->
+  <div id="footer-container"></div>
+
+  <!-- Bootstrap JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="../style.js"></script>
+  <!-- ヘッダー＆フッターの読み込み -->
+  <script>
+    // site_header.html を読み込んで挿入
+    fetch('site_header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+    // site_footer.html を読み込んで挿入
+    fetch('site_footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+      });
+    // カスタム設定を適用
+    document.addEventListener('DOMContentLoaded', () => {
+      applyCustomSettings();
+    });
+  </script>
 </body>
 </html>

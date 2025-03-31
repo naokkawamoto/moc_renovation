@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <title>お知らせ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- Optional custom CSS -->
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        /* 必要に応じたカスタムスタイル */
+    </style>
+    </head>
+    <body>
+    <!-- ヘッダー -->
+    <div id="header-container"></div>
+
+    <!-- メインコンテンツ -->
+    <div class="container mt-4">
+        <h3>お知らせ一覧</h3>
+        <div class="list-group">
+        <!-- 通知1 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification1" role="button" aria-expanded="false" aria-controls="notification1" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-10</small>
+            <span>山田邸検査のチャットが来ています。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification1">
+            <div class="card card-body" style="font-size:0.55rem;">
+            ここに検査の詳細情報が表示されます。例えば、担当者へのメッセージや検査日時の変更など、約100文字程度の詳細を確認してください。
+            </div>
+        </div>
+        <!-- 通知2 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification2" role="button" aria-expanded="false" aria-controls="notification2" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-10</small>
+            <span>本日の検査は４件です。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification2">
+            <div class="card card-body" style="font-size:0.55rem;">
+            本日の検査件数、担当者別のスケジュールなど詳細情報がここに表示されます。約100文字程度の説明文をご確認ください。
+            </div>
+        </div>
+        <!-- 通知3 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification3" role="button" aria-expanded="false" aria-controls="notification3" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-09</small>
+            <span>山田邸検査レポートが上長承認されました。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification3">
+            <div class="card card-body" style="font-size:0.55rem;">
+            上長による承認が完了しました。報告書の内容や今後の対応について、約100文字程度で詳細情報が記載されています。
+            </div>
+        </div>
+        <!-- 通知4 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification4" role="button" aria-expanded="false" aria-controls="notification4" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-09</small>
+            <span>山田低レポートが顧客承認されました。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification4">
+            <div class="card card-body" style="font-size:0.55rem;">
+            顧客からの承認が完了しました。報告書の修正点や次のステップに関する情報が、約100文字程度で確認できます。
+            </div>
+        </div>
+        <!-- 通知5 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification5" role="button" aria-expanded="false" aria-controls="notification5" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-08</small>
+            <span>新しい検査スケジュールが追加されました。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification5">
+            <div class="card card-body" style="font-size:0.55rem;">
+            新たに追加された検査スケジュールの詳細情報がここに表示されます。約100文字程度の説明で、スケジュールの確認ができます。
+            </div>
+        </div>
+        <!-- 通知6 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification6" role="button" aria-expanded="false" aria-controls="notification6" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-07</small>
+            <span>検査報告書が提出されました。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification6">
+            <div class="card card-body" style="font-size:0.55rem;">
+            提出された検査報告書の概要や重要なポイントを、約100文字程度で確認できる詳細情報が表示されます。
+            </div>
+        </div>
+        <!-- 通知7 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification7" role="button" aria-expanded="false" aria-controls="notification7" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-06</small>
+            <span>顧客からのフィードバックが届きました。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification7">
+            <div class="card card-body" style="font-size:0.55rem;">
+            お客様からのフィードバック内容が、約100文字程度の詳細情報として表示されます。サービス向上に向けたポイントをご確認ください。
+            </div>
+        </div>
+        <!-- 通知8 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification8" role="button" aria-expanded="false" aria-controls="notification8" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-05</small>
+            <span>システムメンテナンスのお知らせ。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification8">
+            <div class="card card-body" style="font-size:0.55rem;">
+            システムメンテナンスに伴う一時停止や影響範囲など、約100文字程度の詳細情報をここで確認できます。ご不便をおかけします。
+            </div>
+        </div>
+        <!-- 通知9 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification9" role="button" aria-expanded="false" aria-controls="notification9" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-04</small>
+            <span>新規プロジェクトのお知らせ。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification9">
+            <div class="card card-body" style="font-size:0.55rem;">
+            新規プロジェクトの概要や開始予定日、関係者情報など、約100文字程度で詳細を確認できる情報が記載されています。
+            </div>
+        </div>
+        <!-- 通知10 -->
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#notification10" role="button" aria-expanded="false" aria-controls="notification10" style="font-size:0.55rem;">
+            <div class="d-flex w-100 justify-content-between">
+            <small>2025-03-03</small>
+            <span>システムアップデートのお知らせ。 <i class="bi bi-chevron-down"></i></span>
+            </div>
+        </a>
+        <div class="collapse" id="notification10">
+            <div class="card card-body" style="font-size:0.55rem;">
+            システムアップデートの概要、新機能の追加や改善点など、約100文字程度で詳細情報が確認できる内容になっています。
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- カスタムJS -->
+    <script src="../style.js"></script>
+    <script>
+        // ヘッダー＆フッターの読み込み
+        fetch('site_header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+        fetch('site_footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

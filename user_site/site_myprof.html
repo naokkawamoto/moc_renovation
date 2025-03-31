@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>User My Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Optional custom CSS -->
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <!-- ヘッダー -->
+  <div id="header-container"></div>
+
+  <div class="container mt-4">
+    <!-- 検査者情報確認カード（常に展開状態） -->
+    <div class="card mb-3">
+      <div class="card-header" style="font-size: 0.8rem;">
+        <h5 class="mb-0">検査者情報確認(ユーザー名：河本直己)</h5>
+      </div>
+      <div class="card-body">
+        <form style="font-size: 0.8rem;">
+          <div class="mb-3">
+            <label for="inputKoushu" class="form-label">1. 講習機関名/修了証明書番号</label>
+            <input type="text" class="form-control" id="inputKoushu" placeholder="例：○○講習機関 / 123456">
+          </div>
+          <div class="mb-3">
+            <label for="selectKenchikushi" class="form-label">2. 建築士資格種別</label>
+            <select class="form-select" id="selectKenchikushi">
+              <option value="一級">一級</option>
+              <option value="二級">二級</option>
+              <option value="木造">木造</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="inputTouroku" class="form-label">3. 建築士登録番号</label>
+            <input type="number" class="form-control" id="inputTouroku" placeholder="例：123456">
+          </div>
+          <div class="mb-3">
+            <label for="inputJimusho" class="form-label">4. 所属事務所名</label>
+            <input type="text" class="form-control" id="inputJimusho" placeholder="onetech事務所">
+          </div>
+          <div class="mb-3">
+            <label for="inputJimushoNo" class="form-label">5. 建築士事務所登録番号</label>
+            <input type="text" class="form-control" id="inputJimushoNo" placeholder="例：登録番号">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div id="footer-container"></div>
+
+  <!-- Bootstrap JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Optional custom JavaScript -->
+  <script src="../style.js"></script>
+  <!-- ヘッダー＆フッター読込 -->
+  <script>
+    fetch('site_header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+    fetch('site_footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+      });
+    document.addEventListener('DOMContentLoaded', () => {
+      applyCustomSettings();
+    });
+  </script>
+</body>
+</html>
