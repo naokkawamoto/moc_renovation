@@ -166,29 +166,97 @@
 
       <!-- タブ3: 請求 -->
       <div class="tab-pane fade" id="tab-billing" role="tabpanel" aria-labelledby="tab-billing-tab">
-        <div class="card mt-3">
-          <div class="card-header small-text">
-            クレジットカード情報
+        <!-- 上部カード: 次回のご請求 -->
+    <div class="card mt-3">
+      <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="small-text mb-0">次回のご請求</h5>
+          <div>
+          <span class="small-text me-2">契約名：Lite Plan</span>
+          <button type="button" class="btn btn-primary btn-sm small-text" data-bs-toggle="modal" data-bs-target="#contractModal">契約情報</button>
           </div>
-          <div class="card-body">
-            <p class="small-text">クレジットカードを登録するためのフォームをここに表示します。</p>
-            <form>
-              <div class="mb-2">
-                <label class="form-label small-text">カード番号</label>
-                <input type="text" class="form-control form-control-small" placeholder="**** **** **** ****">
-              </div>
-              <div class="mb-2">
-                <label class="form-label small-text">有効期限</label>
-                <input type="text" class="form-control form-control-small" placeholder="MM/YY">
-              </div>
-              <div class="mb-2">
-                <label class="form-label small-text">セキュリティコード</label>
-                <input type="text" class="form-control form-control-small" placeholder="CVC">
-              </div>
-              <button type="submit" class="btn btn-primary btn-sm small-text">登録</button>
-            </form>
-          </div>
-        </div>
+      </div>
+      <div class="card-body">
+          <table class="table table-borderless small-text mb-0">
+          <thead>
+              <tr>
+              <th>請求日</th>
+              <th>契約名</th>
+              <th>単価</th>
+              <th>追加ユーザー数</th>
+              <th>単価</th>
+              <th>追加ストレージ</th>
+              <th>単価</th>
+              <th>合計</th>
+              <th>税込み</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+              <td>2024-04-01</td>
+              <td>Lite Plan</td>
+              <td>¥10,000</td>
+              <td>2</td>
+              <td>¥2,000</td>
+              <td>100GB</td>
+              <td>¥1,000</td>
+              <td>¥14,000</td>
+              <td>¥15,400</td>
+              </tr>
+          </tbody>
+          </table>
+      </div>
+      </div>
+  
+      <!-- 下部テーブル: ご請求履歴 -->
+      <div class="mt-4">
+      <h5 class="small-text">ご請求履歴</h5>
+      <table class="table table-striped small-text">
+          <thead>
+          <tr>
+              <th>インデックス</th>
+              <th>ステータス</th>
+              <th>請求日</th>
+              <th>契約名</th>
+              <th>追加ユーザー</th>
+              <th>追加ストレージ</th>
+              <th>領収書</th>
+              <th>請求書</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td>1</td>
+              <td><span class="badge bg-success">支払済</span></td>
+              <td>2024-01-15</td>
+              <td>Lite Plan</td>
+              <td>10</td>
+              <td>100GB</td>
+              <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">領収書</a></td>
+              <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">請求書</a></td>
+          </tr>
+          <tr>
+              <td>2</td>
+              <td><span class="badge bg-warning">未払</span></td>
+              <td>2024-02-15</td>
+              <td>Lite Plan</td>
+              <td>20</td>
+              <td>100GB</td>
+              <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">領収書</a></td>
+              <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">請求書</a></td>
+          </tr>
+          <tr>
+              <td>3</td>
+              <td><span class="badge bg-warning">未払</span></td>
+              <td>2024-03-15</td>
+              <td>Lite Plan</td>
+              <td>30</td>
+              <td>100GB</td>
+              <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">領収書</a></td>
+              <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">請求書</a></td>
+          </tr>
+          </tbody>
+      </table>
+      </div>
       </div>
     </div>
   </div>
@@ -220,100 +288,6 @@
     </div>
   </div>
 
-  <!-- タブ6: 請求 -->
-  <div class="tab-pane fade" id="tab-billing" role="tabpanel" aria-labelledby="tab-billing-tab">
-    <!-- 上部カード: 次回のご請求 -->
-    <div class="card mt-3">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="small-text mb-0">次回のご請求</h5>
-        <div>
-        <span class="small-text me-2">契約名：Lite Plan</span>
-        <button type="button" class="btn btn-primary btn-sm small-text" data-bs-toggle="modal" data-bs-target="#contractModal">契約情報</button>
-        </div>
-    </div>
-    <div class="card-body">
-        <table class="table table-borderless small-text mb-0">
-        <thead>
-            <tr>
-            <th>請求日</th>
-            <th>契約名</th>
-            <th>単価</th>
-            <th>追加ユーザー数</th>
-            <th>単価</th>
-            <th>追加ストレージ</th>
-            <th>単価</th>
-            <th>合計</th>
-            <th>税込み</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>2024-04-01</td>
-            <td>Lite Plan</td>
-            <td>¥10,000</td>
-            <td>2</td>
-            <td>¥2,000</td>
-            <td>100GB</td>
-            <td>¥1,000</td>
-            <td>¥14,000</td>
-            <td>¥15,400</td>
-            </tr>
-        </tbody>
-        </table>
-    </div>
-    </div>
-
-    <!-- 下部テーブル: ご請求履歴 -->
-    <div class="mt-4">
-    <h5 class="small-text">ご請求履歴</h5>
-    <table class="table table-striped small-text">
-        <thead>
-        <tr>
-            <th>インデックス</th>
-            <th>ステータス</th>
-            <th>請求日</th>
-            <th>契約名</th>
-            <th>追加ユーザー</th>
-            <th>追加ストレージ</th>
-            <th>領収書</th>
-            <th>請求書</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td><span class="badge bg-success">支払済</span></td>
-            <td>2024-01-15</td>
-            <td>Lite Plan</td>
-            <td>10</td>
-            <td>100GB</td>
-            <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">領収書</a></td>
-            <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">請求書</a></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><span class="badge bg-warning">未払</span></td>
-            <td>2024-02-15</td>
-            <td>Lite Plan</td>
-            <td>20</td>
-            <td>100GB</td>
-            <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">領収書</a></td>
-            <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">請求書</a></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><span class="badge bg-warning">未払</span></td>
-            <td>2024-03-15</td>
-            <td>Lite Plan</td>
-            <td>30</td>
-            <td>100GB</td>
-            <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">領収書</a></td>
-            <td><a href="#" class="text-primary small-text" style="text-decoration: underline;">請求書</a></td>
-        </tr>
-        </tbody>
-    </table>
-    </div>
-</div>
 </div> <!-- end tab-content -->
   </div>
 
