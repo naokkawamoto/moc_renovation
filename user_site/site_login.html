@@ -20,25 +20,12 @@
             <div class="card-body">
                 <h2 class="text-center mb-4">ログイン</h2>
 
-                <!-- SNS Login Buttons -->
-                <div class="d-grid gap-2 mb-4">
-                    <button class="btn btn-primary" type="button">
-                        <i class="bi bi-facebook"></i> Facebookでログイン
-                    </button>
-                    <button class="btn btn-info" type="button" style="background-color: #1DA1F2; border-color: #1DA1F2;">
-                        <i class="bi bi-twitter"></i> Xでログイン
-                    </button>
-                </div>
 
-                <!-- Divider -->
-                <div class="text-center mb-3">
-                    <span>または</span>
-                </div>
 
                 <!-- Email Login Form -->
                 <form action="site_dashboard.html" method="POST">
                     <div class="mb-3">
-                        <label for="inputEmail" class="form-label">メールアドレス</label>
+                        <label for="inputEmail" class="form-label">メールアドレス（ID)</label>
                         <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required>
                     </div>
 
@@ -48,7 +35,7 @@
                     </div>
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-success">ログイン</button>
+                        <a href="site_signup_confirm.html" class="btn btn-outline-success">ログイン</a>
                     </div>
                 </form>
 

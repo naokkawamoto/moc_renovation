@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>分析</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS (5系) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- カスタムCSS -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <div id="header-container"></div>
+
+    <!-- メインコンテンツ -->
+    <div class="container mt-4">
+        <!-- パンくずリスト -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb small-text">
+            <li class="breadcrumb-item"><a href="user_dashboard.html">ダッシュボード</a></li>
+            <li class="breadcrumb-item active" aria-current="page">分析</li>
+            </ol>
+        </nav>
+
+        <h2>分析</h2>
+        
+        <!-- タブナビゲーション -->
+        <ul class="nav nav-tabs" id="analysisTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="today-status-tab" data-bs-toggle="tab" data-bs-target="#today-status" type="button" role="tab" aria-controls="today-status" aria-selected="true">
+                    本日の状況
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="inspection-time-tab" data-bs-toggle="tab" data-bs-target="#inspection-time" type="button" role="tab" aria-controls="inspection-time" aria-selected="false">
+                    検査件数と検査時間
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="inspection-detail-tab" data-bs-toggle="tab" data-bs-target="#inspection-detail" type="button" role="tab" aria-controls="inspection-detail" aria-selected="false">
+                    検査項目と不具合
+                </button>
+            </li>
+        </ul>
+        
+        <!-- タブコンテンツ -->
+        <div class="tab-content" id="analysisTabContent">
+            <!-- タブ1: 本日の状況 -->
+            <div class="tab-pane fade show active" id="today-status" role="tabpanel" aria-labelledby="today-status-tab">
+                <div class="card bg-light mt-3">
+                    <div class="card-body text-start">
+                        <h2 class="mb-3">本日の状況</h2>
+                        <div class="mb-2">
+                            <strong>検査数：</strong>120
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-block">
+                                <span class="badge bg-dark fs-6">検査調整中: 2</span>
+                            </div>
+                            <div class="d-block">
+                                <span class="badge bg-warning text-dark fs-6">検査待ち: 5</span>
+                            </div>
+                            <div class="d-block">
+                                <span class="badge bg-primary fs-6">検査中: 5</span>
+                            </div>
+                            <div class="d-block">
+                                <span class="badge bg-info text-dark fs-6">内部承認待ち: 2</span>
+                            </div>
+                            <div class="d-block">
+                                <span class="badge bg-secondary fs-6">依頼主承認待ち: 2</span>
+                            </div>
+                            <div class="d-block">
+                                <span class="badge bg-success fs-6">検査終了: 10</span>
+                            </div>
+                        </div>
+                        <!-- ダミーグラフ -->
+                        <div class="mt-3">
+                            <div class="border p-3 text-center">Dummy Graph for 本日の状況</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- タブ2: 検査件数と検査時間 -->
+            <div class="tab-pane fade" id="inspection-time" role="tabpanel" aria-labelledby="inspection-time-tab">
+                <div class="card bg-light mt-3">
+                    <div class="card-body">
+                        <h2 class="mb-3">検査件数と検査時間</h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>項目</th>
+                                    <th>今月</th>
+                                    <th>今年</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>検査数</td>
+                                    <td>50</td>
+                                    <td>600</td>
+                                </tr>
+                                <tr>
+                                    <td>平均検査時間</td>
+                                    <td>60分</td>
+                                    <td>65分</td>
+                                </tr>
+                                <tr>
+                                    <td>平均検査項目数</td>
+                                    <td>20</td>
+                                    <td>20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- ダミーグラフ -->
+                        <div class="mt-3">
+                            <div class="border p-3 text-center">Dummy Graph for 検査件数と検査時間</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- タブ3: 検査項目と不具合 -->
+            <div class="tab-pane fade" id="inspection-detail" role="tabpanel" aria-labelledby="inspection-detail-tab">
+                <div class="card bg-light mt-3">
+                    <div class="card-body">
+                        <h2 class="mb-3">検査項目と不具合</h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>項目</th>
+                                    <th>今月</th>
+                                    <th>今年</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>平均検査項目数</td>
+                                    <td>20</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>平均不具合数</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>不具合率</td>
+                                    <td>15%</td>
+                                    <td>15%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- ダミーグラフ -->
+                        <div class="mt-3">
+                            <div class="border p-3 text-center">Dummy Graph for 検査項目と不具合</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- カスタムスクリプト -->
+    <script src="../style.js"></script>
+
+    <!-- ヘッダー＆フッター読込 -->
+    <script>
+        // user_header.htmlを読み込んで挿入
+        fetch('user_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+
+        // user_footer.htmlを読み込んで挿入
+        fetch('user_footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+
+        // カスタム設定を適用
+        document.addEventListener('DOMContentLoaded', () => {
+            applyCustomSettings();
+        });
+    </script>
+</body>
+</html>

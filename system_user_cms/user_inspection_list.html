@@ -15,8 +15,15 @@
 
   <!-- メインコンテンツ -->
   <div class="container mt-4">
+    
+    <!-- パンくずリスト -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb small-text">
+          <li class="breadcrumb-item"><a href="user_dashboard.html">ダッシュボード</a></li>
+          <li class="breadcrumb-item active" aria-current="page">検査一覧</li>
+      </ol>
+    </nav>
     <h2>検査一覧</h2>
-
     <!-- 並べ替え・検索コントロール -->
     <div class="d-flex flex-wrap align-items-center justify-content-center gap-2 mb-4">
       <input type="text" class="form-control" placeholder="検索..." style="max-width:200px;" id="searchInput">

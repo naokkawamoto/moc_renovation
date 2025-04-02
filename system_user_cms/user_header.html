@@ -37,6 +37,10 @@
         </div>
         <div class="offcanvas-body" style="background-color: black;">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <!-- 検査一覧 -->
+            <li class="nav-item">
+              <a class="nav-link" href="user_inspection_list.html" style="color: white;">検査一覧</a>
+            </li>
             <!-- プロジェクトドロップダウン -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="projectDropdown" role="button" data-bs-toggle="dropdown"
@@ -49,10 +53,7 @@
                 <li><a class="dropdown-item" href="user_project_detail.html">ハウスインスペクション（集合住宅）</a></li>
               </ul>
             </li>
-            <!-- 検査一覧 -->
-            <li class="nav-item">
-              <a class="nav-link" href="user_inspection_list.html" style="color: white;">検査一覧</a>
-            </li>
+            
             <!-- 設定ドロップダウン -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown"
@@ -60,12 +61,13 @@
                 設定
               </a>
               <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+                
+                <li><a class="dropdown-item" href="user_project_list.html">プロジェクト一覧</a></li>
                 <li><a class="dropdown-item" href="user_user_list.html">ユーザー</a></li>
-                <!-- 施設リンク削除 -->
+                <li><a class="dropdown-item" href="user_analysis.html">分析</a></li>
                 <li><a class="dropdown-item" href="user_template_list.html">テンプレート</a></li>
                 <li><a class="dropdown-item" href="user_company_detail.html">会社情報</a></li>
-                <!-- プロジェクト一覧を追加 -->
-                <li><a class="dropdown-item" href="user_project_list.html">プロジェクト一覧</a></li>
+                
               </ul>
             </li>
             <!-- AIページ -->
