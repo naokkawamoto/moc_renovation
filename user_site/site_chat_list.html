@@ -1,196 +1,167 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>検査一覧 - チャットあり</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Bootstrap CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons CDN -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
-  <!-- Optional custom CSS -->
-  <link rel="stylesheet" href="../style.css" />
+  <meta charset="UTF-8">
+  <title>チャット一覧</title>
+  <meta name="viewport" content="width=1024, height=1366, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
   <style>
-    /* 小さいカードの共通スタイル：高さ50px、マージン1px */
-    .small-card {
-      width: 400px;
-      margin-bottom: 1px;
-      height: 50px;
+    body, html {
+      width: 1024px;
+      height: 1366px;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
+    }
+    .container-fluid {
+      max-width: 1024px;
+      height: calc(100vh - 60px); /* フッター分を引いた高さ */
+      overflow-y: auto;
+    }
+    #footer-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 1024px;
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
-  <!-- ヘッダー -->
-  <div id="header-container"></div>
-  
-  <!-- メインコンテンツ -->
-  <div class="container mt-4">
-    <!-- タイトル -->
-    <h5 class="mb-3 text-center">チャットのある検査一覧</h5>
-    
-    <!-- 検索・ソートコントロール（横一行） -->
-    <div class="d-flex flex-wrap align-items-center justify-content-center gap-2 mb-4">
-      <input type="text" class="form-control" placeholder="検索..." style="max-width:200px;" id="searchInput">
-      <select class="form-select" style="max-width:150px;" id="sortDate">
-        <option value="asc">日付順</option>
-        <option value="desc">逆順</option>
-      </select>
-      <select class="form-select" style="max-width:150px;" id="sortStatus">
-        <option value="">ステータス別</option>
-        <option value="in_progress">検査中</option>
-        <option value="not_started">検査前</option>
-        <option value="not_approved">未承認</option>
-      </select>
-      <select class="form-select" style="max-width:150px;" id="sortAssignee">
-        <option value="">担当者別</option>
-        <option value="担当者1">担当者1</option>
-        <option value="担当者2">担当者2</option>
-        <option value="担当者3">担当者3</option>
-      </select>
-      <button type="button" class="btn btn-outline-primary" style="min-width:100px;">検索</button>
-    </div>
-    
-    <!-- 小さいカード一覧（ダミーサンプル：チャット数が0でないものだけ） -->
-    <div class="d-flex flex-column align-items-center">
-      <!-- カード１：チャット数 2 -->
-      <div class="card small-card">
-        <div class="card-body p-1" style="font-size:0.55rem;">
-          <div class="d-flex justify-content-between">
-            <div>
-              <span><strong>検査予定日:</strong> 2025-04-02</span>
-              <span class="badge bg-primary ms-2" style="font-size:0.55rem;">検査中</span>
-          </div>
-          <a href="site_inspection.html" class="btn btn-sm btn-outline-danger">検査再開</a>
-          </div>
-          <div class="d-flex justify-content-between mt-1">
-            <span><strong>埼玉A邸:</strong> ハウスインスペクション（戸建て）</span>
-            <span><strong>担当者:</strong> ユーザーA</span>
-            <span>
-              <i class="bi bi-chat-dots-fill"></i>
-              <span class="badge bg-danger text-white" style="font-size:0.55rem;">2</span>
-            </span>
+  <div class="container-fluid main-container mt-4">
+    <h5 class="text-center mb-3">チャット一覧</h5>
+    <div class="row">
+      <!-- チャットリスト -->
+      <div class="col-auto" style="width:300px;">
+        <div class="mb-3">
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" placeholder="チャットを検索">
+            <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
           </div>
         </div>
-      </div>
-      <!-- カード２：チャット数 1 -->
-      <div class="card small-card">
-        <div class="card-body p-1" style="font-size:0.55rem;">
-          <div class="d-flex justify-content-between">
+        <ul class="list-group">
+          <li class="list-group-item d-flex align-items-start">
+            <i class="bi bi-person-circle me-2"></i>
             <div>
-              <span><strong>検査予定日:</strong> 2025-04-02</span>
-              <span class="badge bg-primary ms-2" style="font-size:0.55rem;">検査中</span>
-          </div>
-          <a href="site_inspection.html" class="btn btn-sm btn-outline-danger">検査再開</a>
-          </div>
-          <div class="d-flex justify-content-between mt-1">
-            <span><strong>杉並A邸:</strong> ハウスインスペクション（アパート）</span>
-            <span><strong>担当者:</strong> ユーザーB</span>
-            <span>
-              <i class="bi bi-chat-dots-fill"></i>
-              <span class="badge bg-danger text-white" style="font-size:0.55rem;">1</span>
-            </span>
+              <div class="fw-bold">タイトル</div>
+              <small class="text-dark">案件A</small>
+              <small class="text-muted">12:30</small><br>
+              <small>山田：こんにちは...</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex align-items-start">
+            <i class="bi bi-person-circle me-2"></i>
+            <div>
+              <div class="fw-bold">タイトル</div>
+              <small class="text-dark">案件B</small>
+              <small class="text-muted">11:15</small><br>
+              <small>佐藤：資料送付し...</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex align-items-start">
+            <i class="bi bi-person-circle me-2"></i>
+            <div>
+              <div class="fw-bold">タイトル</div>
+              <small class="text-dark">案件C</small>
+              <small class="text-muted">10:05</small><br>
+              <small>鈴木：ご確認くだ...</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex align-items-start">
+            <i class="bi bi-person-circle me-2"></i>
+            <div>
+              <div class="fw-bold">タイトル</div>
+              <small class="text-dark">案件D</small>
+              <small class="text-muted">09:50</small><br>
+              <small>高橋：よろしくお...</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex align-items-start">
+            <i class="bi bi-person-circle me-2"></i>
+            <div>
+              <div class="fw-bold">タイトル</div>
+              <small class="text-dark">案件E</small>
+              <small class="text-muted">08:20</small><br>
+              <small>伊藤：お疲れ様で...</small>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- メッセージ表示 -->
+      <div class="col" style="padding-left:15px;">
+        <!-- 上部検索 -->
+        <div class="mb-2">
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" placeholder="メッセージ内検索">
+            <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
           </div>
         </div>
-      </div>
-      <!-- カード５：チャット数 3 -->
-      <div class="card small-card">
-        <div class="card-body p-1" style="font-size:0.55rem;">
-          <div class="d-flex justify-content-between">
+        <!-- チャット履歴 -->
+        <div class="overflow-auto mb-3 p-2 bg-light" style="height:calc(100% - 200px);">
+          <div class="d-flex mb-3">
+            <i class="bi bi-person-circle me-2"></i>
             <div>
-              <span><strong>検査予定日:</strong> 2025-04-07</span>
-              <span class="badge bg-info text-dark ms-2" style="font-size:0.55rem;">内部承認待ち</span>
+              <div>
+                <div class="fw-bold">タイトル</div>
+                <small class="text-dark">案件A</small><br>
+              </div>
+              <div class="small text-muted">山田 太郎</div>
+              <div class="alert alert-secondary p-2">こんにちは、進捗はいかがですか？</div>
+            </div>
           </div>
-          <a href="site_inspection_result.html" class="btn btn-sm btn-outline-info">詳細確認</a>
+          <div class="d-flex justify-content-end mb-3">
+            <div>
+              <div class="small text-muted text-end">自分</div>
+              <div class="alert alert-primary p-2">資料送付しました！</div>
+            </div>
+            <i class="bi bi-person-circle ms-2"></i>
           </div>
-          <div class="d-flex justify-content-between mt-1">
-            <span><strong>千葉A邸:</strong> ハウスインスペクション（戸建て）</span>
-            <span><strong>担当者:</strong> ユーザーE</span>
-            <span>
-              <i class="bi bi-chat-dots-fill"></i>
-              <span class="badge bg-danger text-white" style="font-size:0.55rem;">3</span>
-            </span>
+          <div class="d-flex mb-3">
+            <i class="bi bi-person-circle me-2"></i>
+            <div>
+              <div class="small text-muted">佐藤 花子</div>
+              <div class="alert alert-secondary p-2">ありがとうございます！確認します。</div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mb-3">
+            <div>
+              <div class="small text-muted text-end">自分</div>
+              <div class="alert alert-primary p-2">よろしくお願いします。</div>
+            </div>
+            <i class="bi bi-person-circle ms-2"></i>
           </div>
         </div>
-      </div>
-      <!-- カード６：チャット数 1 -->
-      <div class="card small-card">
-        <div class="card-body p-1" style="font-size:0.55rem;">
-          <div class="d-flex justify-content-between">
-            <div>
-              <span><strong>検査予定日:</strong> 2025-04-05</span>
-              <span class="badge bg-warning text-dark ms-2" style="font-size:0.55rem;">検査待ち</span>
-          </div>
-          <a href="site_inspection_result.html" class="btn btn-sm btn-outline-warning">検査開始</a>
-          </div>
-          <div class="d-flex justify-content-between mt-1">
-            <span><strong>神奈川A邸:</strong> ハウスインスペクション（アパート）</span>
-            <span><strong>担当者:</strong> ユーザーF</span>
-            <span>
-              <i class="bi bi-chat-dots-fill"></i>
-              <span class="badge bg-danger text-white" style="font-size:0.55rem;">1</span>
-            </span>
-          </div>
-        </div>
-      </div>
-      <!-- カード９：チャット数 2 -->
-      <div class="card small-card">
-        <div class="card-body p-1" style="font-size:0.55rem;">
-          <div class="d-flex justify-content-between">
-            <div>
-              <span><strong>検査予定日:</strong> 2025-04-06</span>
-              <span class="badge bg-secondary ms-2" style="font-size:0.55rem;">依頼主承認待ち</span>
-          </div>
-          <a href="site_inspection_result.html" class="btn btn-sm btn-outline-secondary">詳細確認</a>
-          </div>
-          <div class="d-flex justify-content-between mt-1">
-            <span><strong>千葉B邸:</strong> ハウスインスペクション（集合住宅）</span>
-            <span><strong>担当者:</strong> ユーザーI</span>
-            <span>
-              <i class="bi bi-chat-dots-fill"></i>
-              <span class="badge bg-danger text-white" style="font-size:0.55rem;">2</span>
-            </span>
+        <!-- 入力フォーム -->
+        <div>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" placeholder="メッセージを入力">
+            <button class="btn btn-outline-secondary"><i class="bi bi-emoji-smile"></i></button>
+            <button class="btn btn-outline-secondary"><i class="bi bi-image"></i></button>
+            <button class="btn btn-outline-secondary"><i class="bi bi-paperclip"></i></button>
+            <button class="btn btn-outline-secondary"><i class="bi bi-plus-lg"></i></button>
+            <button class="btn btn-primary" type="button">送信</button>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- ページネーション -->
-    <nav aria-label="Page navigation">
-      <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
   </div>
-  
-  <!-- フッター -->
+
+  <!-- フッター固定 -->
   <div id="footer-container"></div>
-  
-  <!-- Bootstrap JS CDN -->
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Optional custom JavaScript -->
   <script src="../style.js"></script>
-  <!-- ヘッダー＆フッター読込 -->
   <script>
-    fetch('site_header.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('header-container').innerHTML = data; });
+    // フッター読み込み
     fetch('site_footer.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('footer-container').innerHTML = data; });
-      
-    document.addEventListener('DOMContentLoaded', () => {
-      applyCustomSettings();
-    });
+      .then(r => r.text())
+      .then(html => document.getElementById('footer-container').innerHTML = html);
   </script>
 </body>
 </html>

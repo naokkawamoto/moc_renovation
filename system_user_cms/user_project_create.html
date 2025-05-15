@@ -2,140 +2,577 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>プロジェクト作成</title>
-
-    <!-- Bootstrap CSS CDN -->
+    <title>案件作成</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS (5系) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
     <!-- カスタムCSS -->
     <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-    <!-- ヘッダーの読み込み -->
+    <style>
+    /* すべてのフォーム内テキストを0.8remに */
+    .form-card * {
+        font-size: 0.8rem;
+    }
+    </style>
+    </head>
+    <body>
+    <!-- ヘッダー読み込み -->
     <div id="header-container"></div>
 
-    <div class="container mt-4">
-        
-        <!-- パンくずリスト -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb small-text">
-                <li class="breadcrumb-item"><a href="user_project_list.html">プロジェクト一覧</a></li>
-                <li class="breadcrumb-item active" aria-current="page">プロジェクト作成</li>
-            </ol>
-        </nav>
-
-        <h2>プロジェクト作成</h2>
-
-        <!-- プロジェクト作成カード -->
-        <div class="card mt-3">
-            <div class="card-body">
-                <h4 class="card-title mb-3">プロジェクト作成</h4>
-                
-                <!-- プロジェクト名 -->
-                <div class="row mb-2 align-items-center">
-                    <div class="col-3 label-col small-text"><strong>プロジェクト名</strong></div>
-                    <div class="col-7 value-col small-text">
-                        <input type="text" class="form-control form-control-small" placeholder="プロジェクト名を入力">
-                    </div>
-                    <div class="col-2 change-btn"></div>
-                </div>
-                
-                <!-- テンプレート（プルダウン選択） -->
-                <div class="row mb-2 align-items-center">
-                    <div class="col-3 label-col small-text"><strong>テンプレート</strong></div>
-                    <div class="col-7 value-col small-text">
-                        <select class="form-select form-select-sm">
-                            <option value="">選択してください</option>
-                            <option value="戸建て">ハウスインスペクション（戸建て）</option>
-                            <option value="アパート">ハウスインスペクション（アパート）</option>
-                            <option value="集合住宅">ハウスインスペクション（集合住宅）</option>
-                        </select>
-                    </div>
-                    <div class="col-2 change-btn"></div>
-                </div>
-                
-                
-                <!-- 担当者名①（プルダウン選択） -->
-                <div class="row mb-2 align-items-center">
-                    <div class="col-3 label-col small-text"><strong>担当者名①</strong></div>
-                    <div class="col-7 value-col small-text">
-                        <select class="form-select form-select-sm">
-                            <option value="">選択してください</option>
-                            <option value="担当者A">担当者A</option>
-                            <option value="担当者B">担当者B</option>
-                            <option value="担当者C">担当者C</option>
-                            <option value="担当者D">担当者D</option>
-                        </select>
-                    </div>
-                    <div class="col-2 change-btn"></div>
-                </div>
-                <!-- 担当者名②（プルダウン選択） -->
-                <div class="row mb-2 align-items-center">
-                    <div class="col-3 label-col small-text"><strong>担当者名②</strong></div>
-                    <div class="col-7 value-col small-text">
-                        <select class="form-select form-select-sm">
-                            <option value="">選択してください</option>
-                            <option value="担当者A">担当者A</option>
-                            <option value="担当者B">担当者B</option>
-                            <option value="担当者C">担当者C</option>
-                            <option value="担当者D">担当者D</option>
-                        </select>
-                    </div>
-                    <div class="col-2 change-btn"></div>
-                </div>
-                <!-- 担当者名③（プルダウン選択＋追加ボタン） -->
-                <div class="row mb-2 align-items-center">
-                    <div class="col-3 label-col small-text"><strong>担当者名③</strong></div>
-                    <div class="col-7 value-col small-text">
-                        <select class="form-select form-select-sm">
-                            <option value="">選択してください</option>
-                            <option value="担当者A">担当者A</option>
-                            <option value="担当者B">担当者B</option>
-                            <option value="担当者C">担当者C</option>
-                            <option value="担当者D">担当者D</option>
-                        </select>
-                    </div>
-                    <div class="col-2 change-btn">
-                        <button class="btn btn-primary btn-sm small-text">追加</button>
-                    </div>
-                </div>
-                
-                <!-- 操作用ボタン -->
-                <div class="row mt-3">
-                    <div class="col text-end">
-                        <button class="btn btn-success btn-sm small-text">作成</button>
-                        <a href="user_project_list.html" class="btn btn-secondary btn-sm small-text">キャンセル</a>
-                    </div>
-                </div>
+    <div class="container-fluid mt-4">
+    <div class="row">
+        <!-- 左カラム：案件リスト（前回と同様） -->
+        <div class="col-auto" style="width:200px;">
+        <div style="height:80vh; overflow-y:auto; overflow-x:hidden; padding-right:5px;">
+            <h5>案件リスト</h5>
+            <div class="list-group">
+            <a href="user_project_detail.html" class="list-group-item list-group-item-action">案件1</a>
+            <a href="user_project_detail.html" class="list-group-item list-group-item-action">案件2</a>
+            <a href="user_project_detail.html" class="list-group-item list-group-item-action">案件3</a>
             </div>
         </div>
+        </div>
+        
+        <!-- 右カラム：各フォームカード -->
+        <div class="col">
+        <div style="height:80vh; overflow-y:auto; overflow-x:hidden; padding-right:5px;">
+            <form>
+            <!-- カード１：顧客情報 -->
+            <div class="card mb-3 form-card">
+                <div class="card-header">
+                顧客情報
+                </div>
+                <div class="card-body">
+                <div class="mb-2">
+                    <label class="form-label">顧客名</label>
+                    <input type="text" class="form-control" placeholder="顧客名">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">カナ</label>
+                    <input type="text" class="form-control" placeholder="カナ">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">種別</label>
+                    <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="typeIndividual" value="個人">
+                        <label class="form-check-label" for="typeIndividual">個人</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="typeCorporate" value="法人">
+                        <label class="form-check-label" for="typeCorporate">法人</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">電話番号１</label>
+                    <input type="tel" class="form-control" placeholder="電話番号１">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">電話番号２</label>
+                    <input type="tel" class="form-control" placeholder="電話番号２">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">メールアドレス</label>
+                    <input type="email" class="form-control" placeholder="メールアドレス">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">性別</label>
+                    <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="男性">
+                        <label class="form-check-label" for="genderMale">男性</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="女性">
+                        <label class="form-check-label" for="genderFemale">女性</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">生年月日</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">郵便番号</label>
+                    <div class="input-group">
+                    <input type="text" class="form-control" placeholder="郵便番号">
+                    <button type="button" class="btn btn-outline-secondary">住所検索</button>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">現住所</label>
+                    <input type="text" class="form-control" placeholder="例：〇〇市〇〇町00-00">
+                </div>
+                </div>
+            </div>
+            
+            <!-- カード２：反響情報 -->
+            <div class="card mb-3 form-card">
+                <div class="card-header">
+                反響情報
+                </div>
+                <div class="card-body">
+                <div class="mb-2">
+                    <label class="form-label">建築担当店舗</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">反響日</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">反響種別</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" style="font-size: 0.6rem;">反響元</label>
+                    <div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="本部ホームページ" id="origin1">
+                        <label class="form-check-label" for="origin1">本部ホームページ</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="自社ホームページ" id="origin2">
+                        <label class="form-check-label" for="origin2">自社ホームページ</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="その他WEBページ" id="origin3">
+                        <label class="form-check-label" for="origin3">その他WEBページ</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="SUUMO" id="origin4">
+                        <label class="form-check-label" for="origin4">SUUMO</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="HOME’S" id="origin5">
+                        <label class="form-check-label" for="origin5">HOME’S</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="不動産ナビ" id="origin6">
+                        <label class="form-check-label" for="origin6">不動産ナビ</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="Instagram" id="origin7">
+                        <label class="form-check-label" for="origin7">Instagram</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="Facebook" id="origin8">
+                        <label class="form-check-label" for="origin8">Facebook</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="LINE" id="origin9">
+                        <label class="form-check-label" for="origin9">LINE</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="YouTube" id="origin10">
+                        <label class="form-check-label" for="origin10">YouTube</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="SNS広告" id="origin11">
+                        <label class="form-check-label" for="origin11">SNS広告</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="ポスティングチラシ" id="origin12">
+                        <label class="form-check-label" for="origin12">ポスティングチラシ</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="折込チラシ" id="origin13">
+                        <label class="form-check-label" for="origin13">折込チラシ</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="紙媒体広告" id="origin14">
+                        <label class="form-check-label" for="origin14">紙媒体広告</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="通りすがり" id="origin15">
+                        <label class="form-check-label" for="origin15">通りすがり</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="近所" id="origin16">
+                        <label class="form-check-label" for="origin16">近所</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="野建て看板" id="origin17">
+                        <label class="form-check-label" for="origin17">野建て看板</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="紹介" id="origin18">
+                        <label class="form-check-label" for="origin18">紹介</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="font-size: 0.6rem;">
+                        <input class="form-check-input" type="checkbox" value="不明" id="origin19">
+                        <label class="form-check-label" for="origin19">不明</label>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">ご主人職業</label>
+                    <select class="form-select">
+                    <option>公務員</option>
+                    <option>会社員</option>
+                    <option>自営業</option>
+                    <option>パート</option>
+                    <option>アルバイト</option>
+                    <option>働いていない</option>
+                    <option>不明</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">ご主人：会社名</label>
+                    <input type="text" class="form-control" placeholder="会社名">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">奥様職業</label>
+                    <select class="form-select">
+                    <option>公務員</option>
+                    <option>会社員</option>
+                    <option>自営業</option>
+                    <option>パート</option>
+                    <option>アルバイト</option>
+                    <option>働いていない</option>
+                    <option>不明</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">奥様：会社名</label>
+                    <input type="text" class="form-control" placeholder="会社名">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">住居体系</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">住居詳細（家賃・築年数）</label>
+                    <input type="text" class="form-control" placeholder="家賃・築年数">
+                </div>
+                </div>
+            </div>
+            
+            <!-- カード３：計画内容 -->
+            <div class="card mb-3 form-card">
+                <div class="card-header">
+                計画内容
+                </div>
+                <div class="card-body">
+                <div class="mb-2">
+                    <label class="form-label">建物</label>
+                    <div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="building1" value="既存住宅">
+                        <label class="form-check-label" for="building1">既存住宅</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="building2" value="中古住宅購入">
+                        <label class="form-check-label" for="building2">中古住宅購入</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="building3" value="既存マンション">
+                        <label class="form-check-label" for="building3">既存マンション</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="building4" value="中古マンション購入">
+                        <label class="form-check-label" for="building4">中古マンション購入</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="building5" value="賃貸物件">
+                        <label class="form-check-label" for="building5">賃貸物件</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="building6" value="他">
+                        <label class="form-check-label" for="building6">他</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">工事</label>
+                    <div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="construction1" value="リフォーム">
+                        <label class="form-check-label" for="construction1">リフォーム</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="construction2" value="リノベーション">
+                        <label class="form-check-label" for="construction2">リノベーション</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="construction3" value="修繕">
+                        <label class="form-check-label" for="construction3">修繕</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="construction4" value="建替え">
+                        <label class="form-check-label" for="construction4">建替え</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="construction5" value="他">
+                        <label class="form-check-label" for="construction5">他</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">工事場所</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="住所を入力">
+                        <button type="button" class="btn btn-outline-secondary">
+                        <i class="bi bi-geo-alt"></i> Googleマップで登録
+                        </button>
+                    </div>
+                    </div>
+                <div class="mb-2">
+                    <label class="form-label">計画時期</label>
+                    <div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="planTime" id="plan1" value="1年以内">
+                        <label class="form-check-label" for="plan1">１年以内</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="planTime" id="plan2" value="2年以内">
+                        <label class="form-check-label" for="plan2">２年以内</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="planTime" id="plan3" value="3年以内">
+                        <label class="form-check-label" for="plan3">３年以内</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="planTime" id="plan4" value="未定">
+                        <label class="form-check-label" for="plan4">未定</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="planTime" id="plan5" value="不明">
+                        <label class="form-check-label" for="plan5">不明</label>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- カード４：物件情報（住所系） -->
+            <div class="card mb-3 form-card">
+                <div class="card-header">
+                物件情報
+                </div>
+                <div class="card-body">
+                <div class="mb-2">
+                    <label class="form-label">物件種別</label>
+                    <div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="propertyType" id="typeMansion" value="マンション">
+                        <label class="form-check-label" for="typeMansion">マンション</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="propertyType" id="typeHouse" value="戸建て">
+                        <label class="form-check-label" for="typeHouse">戸建て</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="propertyType" id="typeOffice" value="オフィス">
+                        <label class="form-check-label" for="typeOffice">オフィス</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="propertyType" id="typeShop" value="店舗">
+                        <label class="form-check-label" for="typeShop">店舗</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="propertyType" id="typeApartment" value="アパート">
+                        <label class="form-check-label" for="typeApartment">アパート</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="propertyType" id="typeOther" value="その他">
+                        <label class="form-check-label" for="typeOther">その他</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">物件名</label>
+                    <div class="input-group">
+                    <input type="text" class="form-control" placeholder="〇〇邸">
+                    <button type="button" class="btn btn-outline-secondary">既存物件から選択</button>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">外観画像</label>
+                    <input type="file" class="form-control">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">物件住所種別</label>
+                    <div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="addressType" id="addrSame" value="同じ">
+                        <label class="form-check-label" for="addrSame">顧客情報と同じ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="addressType" id="addrNew" value="新規">
+                        <label class="form-check-label" for="addrNew">新しい住所を入力する</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">郵便番号</label>
+                    <div class="input-group">
+                    <input type="text" class="form-control" placeholder="郵便番号">
+                    <button type="button" class="btn btn-outline-secondary">住所検索</button>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">都道府県</label>
+                    <input type="text" class="form-control" placeholder="都道府県">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">住所</label>
+                    <input type="text" class="form-control" placeholder="例：〇〇市〇〇町00-00">
+                    <button type="button" class="btn btn-outline-secondary">
+                    <i class="bi bi-geo-alt"></i> Googleマップで登録
+                    </button>
+                </div>
+            </div>
+            
+            <!-- カード５：物件情報（担当者登録） -->
+            <div class="card mb-3 form-card">
+                <div class="card-header">
+                物件情報（担当者登録）
+                </div>
+                <div class="card-body">
+                <div class="mb-2">
+                    <label class="form-label">担当者登録</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <button type="button" class="btn btn-outline-secondary">供託オンライン申請システムから取得</button>
+                </div>
+                <div class="mb-2">
+                    <button type="button" class="btn btn-outline-secondary">公図 取得</button>
+                </div>
+                <div class="mb-2">
+                    <button type="button" class="btn btn-outline-secondary">土地・建物登記 取得</button>
+                </div>
+                <div class="mb-2">
+                    <button type="button" class="btn btn-outline-secondary">簿謄本・前面道路要約書 取得</button>
+                </div>
+                </div>
+            </div>
+            
+            <!-- カード６：関係者登録 -->
+            <div class="card mb-3 form-card">
+                <div class="card-header">
+                関係者登録
+                </div>
+                <div class="card-body">
+                <div class="mb-2">
+                    <label class="form-label">家屋調査士</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">司法書士</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">銀行</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">解体</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">水道設備</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">電気設備業者</label>
+                    <select class="form-select">
+                    <option>サンプル１</option>
+                    <option>サンプル２</option>
+                    <option>サンプル３</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+            
+            <!-- カード７：資料 -->
+            <div class="card mb-3 form-card">
+                <div class="card-header">
+                資料
+                </div>
+                <div class="card-body">
+                <div class="mb-2">
+                    <button type="button" class="btn btn-outline-secondary w-100">資料１：クリックして登録</button>
+                </div>
+                <div class="mb-2">
+                    <button type="button" class="btn btn-outline-secondary w-100">資料２：クリックして登録</button>
+                </div>
+                <div class="mb-2">
+                    <button type="button" class="btn btn-outline-secondary w-100">資料３：クリックして登録</button>
+                </div>
+                <div class="mb-2">
+                    <button type="button" class="btn btn-outline-secondary w-100">資料４：クリックして登録</button>
+                </div>
+                </div>
+            </div>
+            
+            <!-- 保存ボタン -->
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">保存</button>
+            </div>
+            
+            </form>
+        </div>
+        </div>
+    </div>
     </div>
 
-    <!-- フッターの読み込み -->
+    <!-- フッター読み込み -->
     <div id="footer-container"></div>
 
-    <!-- Bootstrap JS CDN -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- カスタムスクリプト -->
     <script src="../style.js"></script>
-
     <script>
-        // ユーザー向けヘッダー・フッターを読み込み
-        fetch('user_header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-container').innerHTML = data;
-            });
-
-        fetch('user_footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-            });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            applyCustomSettings();
-        });
-    </script>
+    fetch('user_header.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('header-container').innerHTML = data; });
+    fetch('user_footer.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('footer-container').innerHTML = data; });
+</script>
 </body>
 </html>

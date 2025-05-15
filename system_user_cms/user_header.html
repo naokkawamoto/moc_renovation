@@ -14,46 +14,36 @@
 <body>
   <header class="navbar navbar-expand-lg" style="background-color: black; color: white;">
     <div class="container-fluid">
-      <!-- ロゴ・ブランド部分 -->
-      <a class="navbar-brand" href="user_dashboard.html" style="color: white;">
-        <img src="../images/company_logo.png" alt="Logo" width="45" height="45" class="d-inline-block align-top">
-        SYSTEM USER CMS（クライアント管理画面）
-      </a>
-      <!-- ハンバーガーボタン -->
+      <!-- ハンバーガーメニュボタン（左端） -->
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
       </button>
-      <!-- offcanvas (スマホ表示時に右からスライド) -->
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <!-- ロゴ・ブランド部分 -->
+      <a class="navbar-brand" href="user_dashboard.html" style="color: white;">
+        RENOVATION USER CMS（クライアント管理画面）
+      </a>
+      <!-- offcanvas（スマホ表示時に左からスライド） -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header" style="background-color: black; color: white;">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
             <a class="navbar-brand" href="user_dashboard.html" style="color: white;">
               <img src="../images/company_logo.png" alt="Logo" width="45" height="45" class="d-inline-block align-top">
-              Service Name
+              RENOVATION USER CMS（クライアント管理画面）
             </a>
           </h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body" style="background-color: black;">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <!-- 検査一覧 -->
+            <!-- 案件一覧 -->
             <li class="nav-item">
-              <a class="nav-link" href="user_inspection_list.html" style="color: white;">検査一覧</a>
+              <a class="nav-link" href="user_project_list.html" style="color: white;">案件リスト</a>
             </li>
-            <!-- プロジェクトドロップダウン -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="projectDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false" style="color: white;">
-                プロジェクト
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="projectDropdown">
-                <li><a class="dropdown-item" href="user_project_detail.html">ハウスインスペクション（戸建て）</a></li>
-                <li><a class="dropdown-item" href="user_project_detail.html">ハウスインスペクション（アパート）</a></li>
-                <li><a class="dropdown-item" href="user_project_detail.html">ハウスインスペクション（集合住宅）</a></li>
-              </ul>
+            <!-- 案件新規作成 -->
+            <li class="nav-item">
+              <a class="nav-link" href="user_project_create.html" style="color: white;">案件新規作成</a>
             </li>
-            
             <!-- 設定ドロップダウン -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown"
@@ -61,25 +51,15 @@
                 設定
               </a>
               <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
-                
-                <li><a class="dropdown-item" href="user_project_list.html">プロジェクト一覧</a></li>
-                <li><a class="dropdown-item" href="user_user_list.html">ユーザー</a></li>
                 <li><a class="dropdown-item" href="user_analysis.html">分析</a></li>
                 <li><a class="dropdown-item" href="user_template_list.html">テンプレート</a></li>
                 <li><a class="dropdown-item" href="user_company_detail.html">会社情報</a></li>
-                
               </ul>
             </li>
-            <!-- AIページ -->
-            <li class="nav-item">
-              <a class="nav-link" href="user_ai.html" style="color: white;">
-                <i class="bi bi-robot"></i> AI
-              </a>
-            </li>
-            <!-- マイページ（クリックで user_myprof.html へ遷移） -->
+            <!-- 河本直己（マイページ） -->
             <li class="nav-item">
               <a class="nav-link" href="user_myprof.html" id="mypageLink" style="color: white;">
-                <i class="bi bi-person-circle"></i> マイページ
+                <i class="bi bi-person-circle"></i> 河本直己
               </a>
             </li>
             <!-- ログアウト -->

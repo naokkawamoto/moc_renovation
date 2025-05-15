@@ -1,107 +1,318 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>プロジェクト管理</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS (5系) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- カスタムCSS -->
-    <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8">
+  <title>案件管理</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS (5系) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- カスタムCSS -->
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <!-- ヘッダー -->
-    <div id="header-container"></div>
+  <!-- ヘッダー -->
+  <div id="header-container"></div>
 
-    <!-- メインコンテンツ -->
-    <div class="container mt-4">
-        <!-- パンくずリスト -->
-        <nav aria-label="breadcrumb">
-        <ol class="breadcrumb small-text">
-            <li class="breadcrumb-item"><a href="user_dashboard.html">ダッシュボード</a></li>
-            <li class="breadcrumb-item active" aria-current="page">検査一覧</li>
-        </ol>
-        </nav>
-        <h2>プロジェクト一覧</h2>
-
-        <!-- 新規作成ボタン（右寄せ） -->
-        <div class="d-flex justify-content-end mb-3">
-            <a href="user_project_create.html" class="btn btn-primary btn-sm">新規作成</a>
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <!-- 左カラム：案件リスト（スクロールバーは右側） -->
+      <div class="col-auto" style="width:200px;">
+        <div style="height:80vh; overflow-y: scroll; overflow-x: hidden; padding-right:5px;">
+          <h5>案件リスト</h5>
+          <div class="list-group">
+            <a href="user_project_detail.html" class="list-group-item list-group-item-action">案件1</a>
+            <a href="user_project_detail.html" class="list-group-item list-group-item-action">案件2</a>
+            <a href="user_project_detail.html" class="list-group-item list-group-item-action">案件3</a>
+          </div>
         </div>
+      </div>
 
-        <!-- プロジェクト一覧テーブル -->
-        <div class="card mt-4">
-            <div class="card-body">
-                <h4 class="card-title mb-3">プロジェクト一覧</h4>
-                <table class="table table-hover table-striped">
-                    <thead>
-                        <tr class="small-text">
-                            <th scope="col">#</th>
-                            <th scope="col">プロジェクト名</th>
-                            <th scope="col">検査数</th>
-                            <th scope="col">本日の検査数</th>
-                            <th scope="col">最新更新日</th>
-                            <th scope="col" class="text-end">操作</th>
-                        </tr>
-                    </thead>
-                    <tbody class="small-text">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>ハウスインスペクション（戸建て）</td>
-                            <td>15</td>
-                            <td>2</td>
-                            <td>2025-03-08</td>
-                            <td class="text-end">
-                                <a href="user_project_detail.html" class="btn btn-success btn-sm">詳細</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>ハウスインスペクション（アパート）</td>
-                            <td>10</td>
-                            <td>1</td>
-                            <td>2025-03-07</td>
-                            <td class="text-end">
-                                <a href="user_project_detail.html" class="btn btn-success btn-sm">詳細</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>ハウスインスペクション（集合住宅）</td>
-                            <td>20</td>
-                            <td>0</td>
-                            <td>2025-03-06</td>
-                            <td class="text-end">
-                                <a href="user_project_detail.html" class="btn btn-success btn-sm">詳細</a>
-                            </td>
-                        </tr>
-                        <!-- 必要に応じてプロジェクトを追加 -->
-                    </tbody>
-                </table>
+      <!-- 中央カラム：メインコンテンツ（スクロールバーは右側） -->
+      <div class="col">
+        <div style="height:80vh; overflow-y: scroll; overflow-x: hidden; padding-right:5px;">
+          <!-- 上段：案件作成ドロップダウンと報告ボタン -->
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <!-- 案件作成ボタン（左側） -->
+              <div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    案件作成
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="user_project_create.html">新規作成</a></li>
+                    <li><a class="dropdown-item" href="user_project_create_easy.html">簡単作成</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 報告ボタン（右側） -->
+              <div>
+                <a href="user_report.html" class="btn btn-secondary">報告</a>
+              </div>
             </div>
+          </div>
+          <!-- 中段：パネル／リスト表示切替ボタン（右寄せ） -->
+          <div class="mb-3">
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-outline-primary me-2">パネル</button>
+              <button class="btn btn-outline-secondary">リスト</button>
+            </div>
+          </div>
+          <!-- 下段：コンテンツエリア（案件リスト：カード表示） -->
+          <!-- 1行目（6枚） -->
+          <div class="row">
+            <!-- サンプルカード 1 -->
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-warning text-dark">着工前</span>
+                  </div>
+                  <img src="../images/house.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-house"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- サンプルカード 2 -->
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-success">進行中</span>
+                  </div>
+                  <img src="../images/building.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-building"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- サンプルカード 3 -->
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-warning text-dark">着工前</span>
+                  </div>
+                  <img src="../images/house.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-house"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- サンプルカード 4 -->
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-success">進行中</span>
+                  </div>
+                  <img src="../images/building.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-building"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- サンプルカード 5 -->
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-warning text-dark">着工前</span>
+                  </div>
+                  <img src="../images/house.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-house"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- サンプルカード 6 -->
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-success">進行中</span>
+                  </div>
+                  <img src="../images/building.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-building"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- 2行目（6枚） -->
+          <div class="row">
+            <!-- 以下、サンプルカード 7 ～ 12（同様の構造） -->
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-warning text-dark">着工前</span>
+                  </div>
+                  <img src="../images/house.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-house"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-success">進行中</span>
+                  </div>
+                  <img src="../images/building.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-building"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-warning text-dark">着工前</span>
+                  </div>
+                  <img src="../images/house.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-house"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-success">進行中</span>
+                  </div>
+                  <img src="../images/building.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-building"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-warning text-dark">着工前</span>
+                  </div>
+                  <img src="../images/house.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-house"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-2 mb-3">
+              <a href="user_project_detail.html" class="text-decoration-none text-reset">
+                <div class="card">
+                  <div class="card-header small">
+                    <span class="badge bg-success">進行中</span>
+                  </div>
+                  <img src="../images/building.webp" class="card-img-top" alt="案件画像">
+                  <div class="card-body">
+                    <p class="card-text" style="font-size: 0.8rem;">
+                      <i class="bi bi-building"></i> ハウジング・スタッフ株式会社<br>
+                      021-042 山本太郎<br>
+                      2025/04/01~2025/06/30
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- 右カラム：お知らせ（スクロールバーを左側に） -->
+      <div class="col-auto" style="width:200px;">
+        <div style="height:80vh; overflow-y: scroll; overflow-x: hidden; direction: rtl; padding-left:5px;">
+          <div style="direction: ltr;">
+            <h5>お知らせ</h5>
+            <ul class="list-group">
+              <li class="list-group-item">最新のお知らせ1</li>
+              <li class="list-group-item">最新のお知らせ2</li>
+              <li class="list-group-item">最新のお知らせ3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- フッター -->
-    <div id="footer-container"></div>
+  <!-- フッター -->
+  <div id="footer-container"></div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- カスタムスクリプト -->
-    <script src="../style.js"></script>
-    <!-- ヘッダー＆フッターの読み込み -->
-    <script>
-        fetch('user_header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-container').innerHTML = data;
-            });
-        fetch('user_footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-            });
-    </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- カスタムスクリプト -->
+  <script src="../style.js"></script>
+  <!-- ヘッダー＆フッターの読み込み -->
+  <script>
+    fetch('user_header.html')
+      .then(response => response.text())
+      .then(data => { document.getElementById('header-container').innerHTML = data; });
+    fetch('user_footer.html')
+      .then(response => response.text())
+      .then(data => { document.getElementById('footer-container').innerHTML = data; });
+  </script>
 </body>
 </html>

@@ -1,52 +1,96 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <title>Site Footer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- Optional custom CSS -->
-    <link rel="stylesheet" href="../style.css">
-    <style>
-      .site-footer {
-          background-color: #006400; /* 濃いグリーン */
-          color: white;
-          padding: 10px 0;
-      }
-      .site-footer a {
-          color: white;
-          text-decoration: none;
-      }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Site Footer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- カスタムCSS -->
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .footer-item {
+      flex: 1;
+      text-align: center;
+    }
+    .footer-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin: 0 auto;
+    }
+    .footer-text {
+      font-size: 0.5rem;
+      margin-top: 0.2rem;
+    }
+    .footer-badge {
+      position: absolute;
+      top: 0.2rem;
+      right: 1.2rem;
+      font-size: 0.6rem;
+    }
+  </style>
 </head>
 <body>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="d-flex justify-content-around">
-        <!-- ホームアイコン：ダッシュボードへ -->
-        <a href="site_dashboard.html">
-          <i class="bi bi-house-door-fill" style="font-size: 1.5rem;"></i>
-        </a>
-        <!-- リストアイコン：検査一覧へ -->
-        <a href="site_inspection_list.html">
-          <i class="bi bi-list" style="font-size: 1.5rem;"></i>
-        </a>
-        <!-- チャットアイコン：チャット一覧へ -->
-        <a href="site_chat_list.html" class="position-relative">
-          <i class="bi bi-chat-dots-fill" style="font-size: 1.5rem;"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            5
-            <span class="visually-hidden">unread messages</span>
-          </span>
-        </a>
+  <footer class="text-center text-lg-start" style="background-color: var(--main-color); color: white;">
+    <div class="container py-2">
+      <div class="d-flex justify-content-around align-items-center">
+        <!-- 案件一覧 -->
+        <div class="footer-item">
+          <a href="site_project_list.html" class="footer-link text-white">
+            <i class="bi bi-list footer-icon"></i>
+            <div class="footer-text">案件一覧</div>
+          </a>
+        </div>
+        <!-- マイページ -->
+        <div class="footer-item">
+          <a href="site_myprof.html" class="footer-link text-white">
+            <i class="bi bi-person-fill footer-icon"></i>
+            <div class="footer-text">マイページ</div>
+          </a>
+        </div>
+        <!-- お知らせ -->
+        <div class="footer-item position-relative">
+          <a href="site_notifications.html" class="footer-link text-white">
+            <i class="bi bi-bell-fill footer-icon"></i>
+            <span class="badge bg-danger footer-badge">3</span>
+            <div class="footer-text">お知らせ</div>
+          </a>
+        </div>
+        <!-- チャット -->
+        <div class="footer-item position-relative">
+          <a href="site_chat_list.html" class="footer-link text-white">
+            <i class="bi bi-chat-dots-fill footer-icon"></i>
+            <span class="badge bg-danger footer-badge">5</span>
+            <div class="footer-text">チャット</div>
+          </a>
+        </div>
+        <!-- メニュー -->
+        <div class="footer-item dropdown">
+          <a href="#" id="footerMenuBtn" class="footer-link text-white" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-three-dots-vertical footer-icon"></i>
+            <div class="footer-text">メニュー</div>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="site_setting.html">設定</a></li>
+            <li><a class="dropdown-item" href="site_version.html">バージョン情報</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" onclick="logout()">ログアウト</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>
+
   <!-- Bootstrap JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function logout() {
+      // TODO: ログアウト処理を実装
+      window.location.href = 'login.html';
+    }
+  </script>
 </body>
 </html>
