@@ -97,49 +97,65 @@
                     <td rowspan="2">仮設費用</td>
                     <td>内訳1</td>
                     <td>100,000</td>
-                    <td>簡易見積もり</td>
+                    <td><span class="badge bg-primary">簡易見積もり</span></td>
                     <td>ABC見積</td>
-                    <td><button class="btn btn-sm btn-outline-primary">詳細</button></td>
+                    <td>
+                      <a href="site_project_detail_estimate_create.html"
+                         class="btn btn-sm btn-danger"
+                         role="button">
+                        見積依頼
+                      </a>
+                    </td>
                 </tr>
                 <tr>
                     <td>内訳2</td>
                     <td>120,000</td>
-                    <td>見積もり依頼中</td>
+                    <td><span class="badge bg-danger">見積もり依頼中</span></td>
                     <td>DEF建設</td>
-                    <td><button class="btn btn-sm btn-outline-primary">詳細</button></td>
+                    <td>
+                      <a href="site_project_detail_estimate_manage.html"
+                         class="btn btn-sm btn-outline-primary"
+                         role="button">
+                        詳細確認
+                      </a>
+                    </td>
                 </tr>
                 <!-- 取り壊し費用 -->
                 <tr>
                     <td rowspan="2">取り壊し費用</td>
                     <td>内訳1</td>
                     <td>200,000</td>
-                    <td>見積もり完了</td>
+                    <td><span class="badge bg-dark">見積もり完了</span></td>
                     <td>XYZ工事</td>
-                    <td><button class="btn btn-sm btn-outline-primary">詳細</button></td>
+                    <td><button class="btn btn-sm btn-outline-primary">詳細確認</button></td>
                 </tr>
                 <tr>
                     <td>内訳2</td>
                     <td>220,000</td>
-                    <td>簡易見積もり</td>
+                    <td><span class="badge bg-primary">簡易見積もり</span></td>
                     <td>ABC見積</td>
-                    <td><button class="btn btn-sm btn-outline-primary">詳細</button></td>
+                    <td><button class="btn btn-sm btn-danger">見積依頼</button></td>
                 </tr>
                 <!-- プラン費用 -->
                 <tr>
                     <td rowspan="2">プラン費用</td>
                     <td>内訳1</td>
                     <td>150,000</td>
-                    <td>見積もり依頼中</td>
+                    <td><span class="badge bg-danger">見積もり依頼中</span></td>
                     <td>PLAN社</td>
-                    <td><button class="btn btn-sm btn-outline-primary">詳細</button></td>
+                    <td><button class="btn btn-sm btn-outline-primary">詳細確認</button></td>
                 </tr>
                 <tr>
                     <td>内訳2</td>
                     <td>170,000</td>
-                    <td>見積もり完了</td>
+                    <td><span class="badge bg-dark">見積もり完了</span></td>
                     <td>GHIプランニング</td>
-                    <td><button class="btn btn-sm btn-outline-primary">詳細</button></td>
+                    <td><button class="btn btn-sm btn-danger">見積依頼</button></td>
                 </tr>
+                <!-- 合計行 -->
+                <tr class="table-light"><td colspan="2"></td><td>合計金額（税別）</td><td>2,250,000</td></tr>
+                <tr class="table-light"><td colspan="2"></td><td>消費税10％</td><td>225,000</td></tr>
+                <tr class="table-light"><td colspan="2"></td><td>合計金額（税込）</td><td>2,475,000</td></tr>
             </tbody>
         </table>
     </div>
