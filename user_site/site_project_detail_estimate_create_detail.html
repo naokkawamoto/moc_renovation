@@ -55,31 +55,52 @@
 
     <div class="p-3">
       <!-- ヘッダー情報 -->
-      <a href="site_project_detail_design_detail_estimate.html">見積詳細管理</a> ＞基礎工事
-
-      <!-- 見積もり新規依頼ボタン -->
-      <div class="mt-3 mb-4">
-        <button class="btn btn-primary">
-          <i class="bi bi-plus-lg"></i> 新規作成開始
-        </button>
-      </div>
-
-
+      <a href="site_project_detail_design_detail_estimate.html">見積詳細管理</a> ＞新規作成（基礎工事）
       
 
-      <h5>ABC建設</h5>
-      <table class="tabele-responsive mb-3 small-text text text-end">
-        <tbody>
-          <tr>
-            <th class="table-light">電話番号</th>
-            <td>03-3444-5555</td>
-            <th class="table-light">担当者名</th>
-            <td>山田太郎</td>
-            <th class="table-light">email</th>
-            <td>yamada@def_con.com</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- 業者選択＋開始ボタン -->
+    <div class="d-flex align-items-center mb-3">
+      <label class="me-2 mb-0">業者選択：</label>
+      <select class="form-select form-select-sm me-3" style="width:auto;">
+        <option>業者A</option>
+        <option>業者B</option>
+        <option>業者C</option>
+        <option>業者D</option>
+        <option>業者E</option>
+      </select>
+      
+    </div>
+
+    <!-- 連絡先情報 -->
+    <div class="row mb-4 gx-3">
+      <div class="col-auto">
+        <label class="form-label">電話番号：</label>
+        <select class="form-select form-select-sm">
+          <option>選択してください</option>
+          <option>03-3444-5555</option>
+          <option>03-xxxx-xxxx</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <label class="form-label">担当者名：</label>
+        <select class="form-select form-select-sm">
+          <option>選択してください</option>
+          <option>山田 太郎</option>
+          <option>佐藤 花子</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <label class="form-label">Email：</label>
+        <select class="form-select form-select-sm">
+          <option>選択してください</option>
+          <option>yamada@def_con.com</option>
+          <option>hanako@sato.com</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-primary">新規作成開始</button>
+      </div>
+    </div>
 
     <!-- サブタブ -->
     <ul class="nav nav-tabs mb-3">
@@ -382,6 +403,11 @@
   </div>
 </div>
 
+
+
+
+    
+  </div>
 
   <div id="footer-container"></div>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
