@@ -12,13 +12,12 @@
     body, html { width:1024px; height:1366px; margin:0; padding:0; overflow:hidden; }
     .container-fluid { max-width:1024px; height:calc(100vh - 56px); overflow-y:auto; }
     #footer-container { position:fixed; bottom:0; left:0; width:1024px; z-index:1000; }
-    /* テーブル文字サイズ */
-    .info-table td, .info-table th { font-size: 0.7rem; }
-    .section-table td, .section-table th { font-size: 0.7rem; vertical-align: top; }
-    /* フロアカードの余白調整 */
-    #floorView .col-6 { margin-top: 0; padding-top: 0; }
+    /* テーブル文字サイズを小さく */
+    .table-small td, .table-small th { font-size: 0.7rem; }
     /* nav-pills フォントサイズ */
     .nav-pills .nav-link { font-size: 1rem; }
+    /* ボタン間隔 */
+    .footer-buttons .btn { margin-right: 1rem; }
   </style>
 </head>
 <body>
@@ -28,7 +27,7 @@
         <h5 class="mb-0">会社名</h5>
         <h4 class="mb-0 d-inline">案件名 <i class="bi bi-star"></i></h4>
       </div>
-      <button class="btn btn-primary" type="button" onclick="location.href='site_project_detail_design.html'">
+      <button class="btn btn-primary" type="button" onclick="location.href='site_project_detail_designlist.html'">
         <i class="bi bi-arrow-return-left"></i> プラン一覧へ戻る
       </button>
     </div>
@@ -38,9 +37,9 @@
       <!-- nav-pills に変更 -->
       <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" href="site_project_detail_design.html"><i class="bi bi-sticky"></i>概要</a>
-          </li>
-          <li class="nav-item">
+          <a class="nav-link" href="site_project_detail_design.html"><i class="bi bi-sticky"></i> 概要</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="site_project_detail_design_estimate.html"><i class="bi bi-calculator"></i> 見積もり</a>
         </li>
         <li class="nav-item">
@@ -52,614 +51,988 @@
       </ul>
     </div>
 
-    <!-- 概要サブタイトル -->
+    <!-- 資金計画サブタイトル -->
     <div class="mb-2 px-3">
-      <h5 class="mb-0">資金計画</h5>これはプラン１の見積もり資金計画です。
+      <h5 class="mb-0">資金計画</h5>これはプラン１の資金計画概要です。
     </div>
+
     <!-- サブタブ -->
-<div class="p-3">
-  <ul class="nav nav-tabs mb-3" id="subTabs" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link active"
-        id="sub-target-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#sub-target"
-        type="button"
-        role="tab"
-        aria-controls="sub-target"
-        aria-selected="true"
-      >資金計画対象</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link"
-        id="sub-expence-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#sub-expence"
-        type="button"
-        role="tab"
-        aria-controls="sub-expence"
-        aria-selected="true"
-      >総費用（概算①＋②＋③）</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link"
-        id="sub-construction-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#sub-construction"
-        type="button"
-        role="tab"
-        aria-controls="sub-construction"
-        aria-selected="false"
-      >①建築工事</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link"
-        id="sub-incidental-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#sub-incidental"
-        type="button"
-        role="tab"
-        aria-controls="sub-incidental"
-        aria-selected="false"
-      >②付帯・諸費用</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link"
-        id="sub-land-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#sub-land"
-        type="button"
-        role="tab"
-        aria-controls="sub-land"
-        aria-selected="false"
-      >③土地関係費用</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link"
-        id="sub-repayment-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#sub-repayment"
-        type="button"
-        role="tab"
-        aria-controls="sub-repayment"
-        aria-selected="false"
-      >返済計画</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link"
-        id="sub-doc-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#sub-doc"
-        type="button"
-        role="tab"
-        aria-controls="sub-doc"
-        aria-selected="false"
-      >資料</button>
-    </li>
-  </ul>
-  <div class="tab-content">
-    <!-- 資金計画対象 -->
-    <div
-      class="tab-pane fade show active"
-      id="sub-target"
-      role="tabpanel"
-      aria-labelledby="sub-target-tab"
-    >
-      <!-- 資金計画対象タブのコンテンツ -->
-<div class="table-responsive">
-  <!-- メタ情報 -->
-  <table class="table table-bordered mb-4">
-    <tbody>
-      <tr>
-        <th class="table-light">工事名</th>
-        <td colspan="3">東京渋谷様邸</td>
-        <th class="table-light">種別</th>
-        <td>リノベーション</td>
-      </tr>
-      <tr>
-        <th class="table-light">建築場所</th>
-        <td colspan="3">東京都渋谷区渋谷</td>
-        <th class="table-light">見積番号</th>
-        <td>001-2022-0324</td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="p-3">
+      <ul class="nav nav-tabs mb-3" id="subTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="sub-overview-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sub-overview"
+            type="button"
+            role="tab"
+            aria-controls="sub-overview"
+            aria-selected="true"
+          >資金計画概要</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="sub-construction-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sub-construction"
+            type="button"
+            role="tab"
+            aria-controls="sub-construction"
+            aria-selected="false"
+          >①建築工事</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="sub-incidental-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sub-incidental"
+            type="button"
+            role="tab"
+            aria-controls="sub-incidental"
+            aria-selected="false"
+          >②付帯・諸費用</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="sub-land-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sub-land"
+            type="button"
+            role="tab"
+            aria-controls="sub-land"
+            aria-selected="false"
+          >③土地関係費用</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="sub-doc-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sub-doc"
+            type="button"
+            role="tab"
+            aria-controls="sub-doc"
+            aria-selected="false"
+          >資料</button>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <!-- 資金計画概要 -->
+        <div
+          class="tab-pane fade show active"
+          id="sub-overview"
+          role="tabpanel"
+          aria-labelledby="sub-overview-tab"
+        >
+          <!-- セクション1：資金計画対象 -->
+          <div class="card mb-4 table-small">
+            <div class="card-header bg-gray">
+              <strong>資金計画対象</strong>
+            </div>
+            <div class="card-body p-3">
+              <!-- メタ情報テーブル -->
+              <div class="table-responsive mb-3">
+                <table class="table table-bordered table-sm mb-0">
+                  <tbody>
+                    <tr>
+                      <th class="table-light">工事名</th>
+                      <td colspan="3">東京渋谷様邸</td>
+                      <th class="table-light">種別</th>
+                      <td>リノベーション</td>
+                    </tr>
+                    <tr>
+                      <th class="table-light">建築場所</th>
+                      <td colspan="3">東京都渋谷区渋谷</td>
+                      <th class="table-light">見積番号</th>
+                      <td>001-2022-0324</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- 面積情報テーブル -->
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm mb-0 text-center">
+                  <thead class="table-dark text-white">
+                    <tr>
+                      <th>区分</th>
+                      <th>面積（㎡）</th>
+                      <th>面積（坪）</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1階</td>
+                      <td class="text-end">50.00</td>
+                      <td class="text-end">15.12</td>
+                    </tr>
+                    <tr>
+                      <td>2階</td>
+                      <td class="text-end">50.00</td>
+                      <td class="text-end">15.12</td>
+                    </tr>
+                    <tr>
+                      <td>延べ床</td>
+                      <td class="text-end">100.00</td>
+                      <td class="text-end">30.25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
-  <table class="table table-bordered mb-4">
-    <tbody>
-      <tr>
-        <th class="table-light">土地面積</th>
-        <td colspan="3">330.58（㎡） 100(坪)</td>
-        <th class="table-light">施工面積</th>
-        <td>100.00（㎡） 30.25(坪)</td>
-      </tr>
-    </tbody>
-  </table>
+          <!-- セクション2：総費用（①＋②＋③） -->
+          <div class="card mb-4 table-small">
+            <div class="card-header bg-gray">
+              <strong>総費用（①＋②＋③）</strong>
+            </div>
+            <div class="card-body p-3">
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm text-center mb-0">
+                  <thead class="table-primary text-white">
+                    <tr>
+                      <th colspan="3">総　費　用 ①＋②＋③</th>
+                    </tr>
+                    <tr class="table-light">
+                      <th style="width: 5%"></th>
+                      <th>内　訳</th>
+                      <th>金　額（税込）</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>①建築工事費用</td>
+                      <td>¥34,224,239</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>②付帯・諸費用</td>
+                      <td>¥6,555,400</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>③土地関係費用</td>
+                      <td>¥5,120,000</td>
+                    </tr>
+                    <tr class="table-active">
+                      <th colspan="2" class="text-end">合　計（税込）</th>
+                      <td>¥45,899,639</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
-  <!-- 面積情報 -->
-  <table class="table table-bordered">
-    <thead class="table-dark text-white text-center">
-      <tr>
-        <th>区分</th>
-        <th>面積（㎡）</th>
-        <th>面積（坪）</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1階</td>
-        <td class="text-end">50.00</td>
-        <td class="text-end">15.12</td>
-      </tr>
-      <tr>
-        <td>2階</td>
-        <td class="text-end">50.00</td>
-        <td class="text-end">15.12</td>
-      </tr>
-      <tr>
-        <td>延べ床</td>
-        <td class="text-end">100.00</td>
-        <td class="text-end">30.25</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-    </div>
-    <!-- 総費用（概算①＋②＋③） -->
+          <!-- セクション3：返済計画 -->
+          <div class="card mb-4 table-small">
+            <div class="card-header bg-gray">
+              <strong>返済計画</strong>
+            </div>
+            <div class="card-body p-3">
+              <!-- 入力テーブル -->
+              <div class="table-responsive mb-3">
+                <table class="table table-bordered table-sm mb-0">
+                  <tbody>
+                    <tr>
+                      <th class="table-light">①総費用</th>
+                      <td>¥45,899,639</td>
+                      <td>見積もりから自動計算</td>
+                    </tr>
+                    <tr>
+                      <th class="table-light">②自己資金</th>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm"
+                          value="¥284,452"
+                        >
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="table-light">③お借入金額</th>
+                      <td>¥45,615,187</td>
+                      <td>①−②</td>
+                    </tr>
+                    <tr>
+                      <th class="table-light">借入先金融機関</th>
+                      <td>
+                        <select class="form-select form-select-sm">
+                          <option value="">選択してください</option>
+                          <option>よなごしんきん</option>
+                          <option>○○銀行</option>
+                          <option>▲▲信用組合</option>
+                        </select>
+                      </td>
+                      <td>選択</td>
+                    </tr>
+                    <tr>
+                      <th class="table-light">借入期間</th>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input
+                            type="number"
+                            class="form-control form-control-sm"
+                            value="35"
+                          >
+                          <span class="input-group-text">年</span>
+                        </div>
+                      </td>
+                      <td>入力</td>
+                    </tr>
+                    <tr>
+                      <th class="table-light">金利・期間設定</th>
+                      <td colspan="2">
+                        <!-- １行目 -->
+                        <div class="row gx-2 mb-2 align-items-center">
+                          <div class="col-auto d-flex align-items-center">
+                            <span>期間</span>
+                          </div>
+                          <div class="col-auto">
+                            <input
+                              type="number"
+                              class="form-control form-control-sm"
+                              value="1"
+                            >
+                          </div>
+                          <div class="col-auto d-flex align-items-center">
+                            <span>〜</span>
+                          </div>
+                          <div class="col-auto">
+                            <input
+                              type="number"
+                              class="form-control form-control-sm"
+                              value="10"
+                            >
+                          </div>
+                          <div class="col-auto d-flex align-items-center">
+                            <span>年</span>
+                          </div>
+                          <div class="col-auto d-flex align-items-center">
+                            <span>金利</span>
+                          </div>
+                          <div class="col-auto input-group input-group-sm">
+                            <input
+                              type="number"
+                              class="form-control form-control-sm"
+                              value="0.7"
+                              step="0.01"
+                            >
+                            <span class="input-group-text">％</span>
+                          </div>
+                        </div>
+                    
+                        <!-- ２行目 -->
+                        <div class="row gx-2 align-items-center">
+                          <div class="col-auto d-flex align-items-center">
+                            <span>期間</span>
+                          </div>
+                          <div class="col-auto">
+                            <input
+                              type="number"
+                              class="form-control form-control-sm"
+                              value="11"
+                            >
+                          </div>
+                          <div class="col-auto d-flex align-items-center">
+                            <span>〜</span>
+                          </div>
+                          <div class="col-auto">
+                            <input
+                              type="number"
+                              class="form-control form-control-sm"
+                              value="35"
+                            >
+                          </div>
+                          <div class="col-auto d-flex align-items-center">
+                            <span>年</span>
+                          </div>
+                          <div class="col-auto d-flex align-items-center">
+                            <span>金利</span>
+                          </div>
+                          <div class="col-auto input-group input-group-sm">
+                            <input
+                              type="number"
+                              class="form-control form-control-sm"
+                              value="1.7"
+                              step="0.01"
+                            >
+                            <span class="input-group-text">％</span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th class="table-light">ボーナス付き返済額</th>
+                      <td>
+                        <input
+                          type="number"
+                          class="form-control form-control-sm"
+                          value="0"
+                        >
+                      </td>
+                      <td>入力</td>
+                    </tr>
+                    <tr>
+                      <th class="table-light">返済方式</th>
+                      <td>
+                        <select class="form-select form-select-sm">
+                          <option>元利均等</option>
+                          <option>元金均等</option>
+                        </select>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="text-center">
+                        <button class="btn btn-primary btn-sm">計算</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- 結果テーブル（現在と同じ表示） -->
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm align-middle mb-0 text-center">
+                  <thead class="table-light">
+                    <tr>
+                      <th>借入内訳<br>（万円）</th>
+                      <th>期間<br>（年～年）</th>
+                      <th>金利<br>（％）</th>
+                      <th>毎月返済<br>元本（万円）返済額</th>
+                      <th>ボーナス返済<br>元本（万円）返済額</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>よなごしんきん</td>
+                      <td>1年～10年</td>
+                      <td class="text-end">0.9%</td>
+                      <td class="text-end">¥122,165</td>
+                      <td class="text-end">¥100,112</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>11年～35年</td>
+                      <td class="text-end">1.7%</td>
+                      <td class="text-end">¥134,317</td>
+                      <td class="text-end">¥110,199</td>
+                    </tr>
+                    <tr>
+                      <td class="text-end">5,000 万円</td>
+                      <td></td>
+                      <td></td>
+                      <td class="text-end">4,400 万円</td>
+                      <td class="text-end">600 万円</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- プリント & 上長承認ボタン -->
+              <div class="mt-4 text-center">
+                <button class="btn btn-outline-secondary btn-lg me-2">
+                  <i class="bi bi-printer"></i> プリント
+                </button>
+                <button class="btn btn-success btn-lg">
+                  <i class="bi bi-check-circle"></i> 上長承認
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ①建築工事タブ -->
+        <div
+        class="tab-pane fade show active"
+        id="sub-construction"
+        role="tabpanel"
+        aria-labelledby="sub-construction-tab"
+        >
+        <div class="p-3">
+
+          <!-- Card 1 ：①建築工事 -->
+          <div class="card table-small mb-4">
+            <div class="card-header bg-gray">
+              <strong>①建築工事</strong>
+            </div>
+            <div class="card-body p-3">
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm text-center mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>内　訳</th>
+                      <th>金　額</th>
+                      <th>備　考</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>A 建物工事見積</td>
+                      <td>¥29,983,345</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>B 追加変更工事見積（未確定）</td>
+                      <td>¥0</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>C 付帯工事見積（概算）</td>
+                      <td>¥1,129,600</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>小　計</td>
+                      <td>¥31,112,945</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>消費税 10%</td>
+                      <td>¥3,111,294</td>
+                      <td></td>
+                    </tr>
+                    <tr class="table-active">
+                      <td>建築工事総計 ①</td>
+                      <td>¥34,224,239</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 ：A 建物工事見積もり -->
+          <div class="card table-small mb-4">
+            <div class="card-header bg-gray">
+              <strong>A 建物工事見積もり</strong>
+            </div>
+            <div class="card-body p-3">
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm text-center mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>名称</th>
+                      <th>金額</th>
+                      <th>備考</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>A 建物工事見積</td>
+                      <td>¥29,983,345</td>
+                      <td></td>
+                    </tr>
+                    <tr class="table-light">
+                      <td class="text-end"><strong>合　計（A）</strong></td>
+                      <td>¥29,983,345</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 ：B 追加変更工事見積（未確定） -->
+          <div class="card table-small mb-4">
+            <div class="card-header bg-gray">
+              <strong>B 追加変更工事見積（未確定）</strong>
+            </div>
+            <div class="card-body p-3">
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm text-center mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>名称</th>
+                      <th>金額</th>
+                      <th>備考</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input type="text" class="form-control form-control-sm" placeholder=""></td>
+                      <td><input type="text" class="form-control form-control-sm" placeholder=""></td>
+                      <td></td>
+                    </tr>
+                    <tr class="table-light">
+                      <td class="text-end"><strong>合　計（B）</strong></td>
+                      <td>¥0</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 ：C 付帯工事見積もり -->
+          <div class="card table-small">
+            <div class="card-header bg-gray">
+              <strong>C 付帯工事見積もり</strong>
+            </div>
+            <div class="card-body p-3">
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm text-center mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>名称</th>
+                      <th>金額</th>
+                      <th>備考</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>仮設工事費用</td>
+                      <td>¥167,600</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>屋外給排水工事費</td>
+                      <td>¥833,400</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>建築造作工事</td>
+                      <td>¥128,600</td>
+                      <td></td>
+                    </tr>
+                    <tr class="table-light">
+                      <td class="text-end"><strong>合　計（C）</strong></td>
+                      <td>¥1,129,600</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+
+
+
+        <!-- ②付帯・諸費用タブ -->
 <div
 class="tab-pane fade"
-id="sub-expence"
+id="sub-incidental"
 role="tabpanel"
-aria-labelledby="sub-expence-tab"
+aria-labelledby="sub-incidental-tab"
 >
 <div class="p-3">
-  <div class="table-responsive">
-    <table class="table table-sm table-bordered text-center mb-0">
-      <thead class="table-primary text-white">
-        <tr>
-          <th colspan="3">総　費　用 ①＋②＋③</th>
-        </tr>
-        <tr class="table-light">
-          <th style="width: 5%"></th>
-          <th>内　訳</th>
-          <th>金　額（税込）</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>①建築工事費用</td>
-          <td>¥34,224,239</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>②付帯・諸費用</td>
-          <td>¥6,555,400</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>③土地関係費用</td>
-          <td>¥5,120,000</td>
-        </tr>
-        <tr class="table-active">
-          <th colspan="2" class="text-end">合　計（税込）</th>
-          <td>¥45,899,639</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-</div>
 
-    <!-- 建築工事 -->
-    <div
-      class="tab-pane fade"
-      id="sub-construction"
-      role="tabpanel"
-      aria-labelledby="sub-construction-tab"
-    >
-      <!-- 建築工事サブタブのコンテンツ -->
-<div class="p-3">
-  <!-- ご契約金額 -->
-  <div class="table-responsive mb-4">
-    <table class="table table-bordered text-center mb-0">
-      <tbody>
-        <tr>
-          <th>A 建物工事見積</th>
-          <td>¥29,983,345</td>
-        </tr>
-        <tr>
-          <th>B 追加変更工事見積（未確定）</th>
-          <td>¥0</td>
-        </tr>
-        <tr>
-          <th>C 付帯工事見積（概算）</th>
-          <td>¥1,129,600</td>
-        </tr>
-        <tr>
-          <th>小　計</th>
-          <td>¥31,112,945</td>
-        </tr>
-        <tr>
-          <th>消費税 10%</th>
-          <td>¥3,111,294</td>
-        </tr>
-        <tr class="table-active">
-          <th>建築工事総計 ①</th>
-          <td>¥34,224,239</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ３カラムレイアウト -->
-  <div class="row">
-    <!-- A 建物工事見積 -->
-    <div class="col-md-4">
-      <h5>A 建物工事見積</h5>
-      <p class="h6 text-end">¥29,983,345</p>
+  <!-- Card 1 ：②付帯・諸費用 -->
+  <div class="card table-small mb-4">
+    <div class="card-header bg-gray">
+      <strong>②付帯・諸費用</strong>
     </div>
-
-    <!-- B 追加変更工事見積 -->
-    <div class="col-md-4">
-      <h5>B 追加変更工事見積（未確定）</h5>
+    <div class="card-body p-3">
       <div class="table-responsive">
-        <table class="table table-sm table-bordered mb-2">
-          <thead class="table-light text-center">
-            <tr><th>名称</th><th>金額</th></tr>
-          </thead>
-          <tbody>
-            <!-- 空行を繰り返し -->
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <!-- 合計行 -->
-            <tr class="table-light">
-              <th class="text-end">合　計（B）</th>
-              <td class="text-end">¥0</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- C 付帯工事見積 -->
-    <div class="col-md-4">
-      <h5>C 付帯工事見積</h5>
-      <div class="table-responsive">
-        <table class="table table-sm table-bordered mb-2">
-          <thead class="table-light text-center">
-            <tr><th>名称</th><th>金額</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1 仮設工事費用</td><td class="text-end">¥167,600</td></tr>
-            <tr><td>2 屋外給排水工事費</td><td class="text-end">¥833,400</td></tr>
-            <tr><td>3 建築造作工事</td><td class="text-end">¥128,600</td></tr>
-            <!-- 空行 -->
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <!-- 合計行 -->
-            <tr class="table-light">
-              <th class="text-end">合　計（C）</th>
-              <td class="text-end">¥1,129,600</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-    </div>
-    <!-- 付帯・諸費用 -->
-    <div
-      class="tab-pane fade"
-      id="sub-incidental"
-      role="tabpanel"
-      aria-labelledby="sub-incidental-tab"
-    >
-      <!-- 付帯・諸費用タブのコンテンツ -->
-<div class="p-3">
-  <!-- 概要サマリー -->
-  <div class="table-responsive mb-4">
-    <table class="table table-bordered text-center mb-0">
-      <tbody>
-        <tr>
-          <th>D 付帯工事費（概算）</th>
-          <td>¥3,729,000</td>
-        </tr>
-        <tr>
-          <th>E 諸費用（概算含む）</th>
-          <td>¥2,826,400</td>
-        </tr>
-        <tr class="table-light">
-          <th>合　計 ②</th>
-          <td>¥6,555,400</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ２カラムレイアウト -->
-  <div class="row">
-    <!-- 左カラム：D 付帯工事費 -->
-    <div class="col-md-6">
-      <h5>D 付帯工事費（未確定）</h5>
-      <div class="table-responsive">
-        <table class="table table-sm table-bordered mb-2">
-          <thead class="table-light text-center">
+        <table class="table table-bordered table-sm text-center mb-0">
+          <thead class="table-light">
             <tr>
               <th>内　訳</th>
               <th>金　額</th>
+              <th>備　考</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>1 地盤改良費</td><td class="text-end">¥0</td></tr>
-            <tr><td>2 外構工事予算</td><td class="text-end">¥2,000,000</td></tr>
-            <tr><td>3 カーテン予算</td><td class="text-end">¥700,000</td></tr>
-            <tr><td>4 エアコン予算</td><td class="text-end">¥250,000</td></tr>
-            <tr><td>5 ポスト表札予算</td><td class="text-end">¥40,000</td></tr>
-            <tr><td>6 照明器具予算</td><td class="text-end">¥400,000</td></tr>
-            <tr><td>7 太陽光発電システム（ソーラーメイト）</td><td class="text-end">¥0</td></tr>
             <tr>
-              <th class="text-end">税抜き合計</th>
-              <td class="text-end">¥3,390,000</td>
+              <td>D 付帯工事費（概算）</td>
+              <td>¥3,729,000</td>
+              <td></td>
             </tr>
             <tr>
-              <th class="text-end">消 費 税 10%</th>
-              <td class="text-end">¥339,000</td>
+              <td>E 諸費用（概算含む）</td>
+              <td>¥2,826,400</td>
+              <td></td>
             </tr>
             <tr class="table-light">
-              <th class="text-end">合　計（D）</th>
-              <td class="text-end">¥3,729,000</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- 右カラム：E 諸費用 -->
-    <div class="col-md-6">
-      <h5>E 諸費用</h5>
-      <div class="table-responsive">
-        <table class="table table-sm table-bordered mb-2">
-          <thead class="table-light text-center">
-            <tr>
-              <th>内　訳</th>
-              <th>引当先</th>
-              <th>金額（税込）</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1 プラン申込料</td><td></td><td class="text-end">¥220,000</td></tr>
-            <tr><td>2 実施設計作図料</td><td></td><td class="text-end">¥902,000</td></tr>
-            <tr><td>3 家価値サポート費用</td><td></td><td class="text-end">¥297,000</td></tr>
-            <tr><td>4 確認申請料</td><td></td><td class="text-end">¥165,000</td></tr>
-            <tr><td>5 気密測定費用</td><td>本体価格に含む</td><td class="text-end"></td></tr>
-            <tr><td>6 JIO検査・保険料</td><td></td><td class="text-end">¥70,000</td></tr>
-            <tr><td>7 温熱計算料（ZEH対応）</td><td></td><td class="text-end">¥55,000</td></tr>
-            <tr><td>8 地鎮祭費用・上棟費用</td><td></td><td class="text-end">¥50,000</td></tr>
-            <tr><td>9 敷地調査料</td><td></td><td class="text-end">¥50,000</td></tr>
-            <tr><td>10 地盤調査料・保証料</td><td></td><td class="text-end">¥110,000</td></tr>
-            <tr><td>11</td><td></td><td></td></tr>
-            <tr><td>12</td><td></td><td></td></tr>
-            <tr><td>13</td><td></td><td></td></tr>
-            <tr><td>14 民間融資関係</td><td></td><td class="text-end">¥55,000</td></tr>
-            <tr><td>15 登記費用</td><td></td><td class="text-end">¥300,000</td></tr>
-            <tr><td>16 火災保険費用（概算）</td><td></td><td class="text-end">¥150,000</td></tr>
-            <tr><td>17 つなぎ融資金利（概算）</td><td></td><td class="text-end">¥150,000</td></tr>
-            <tr><td>18</td><td></td><td></td></tr>
-            <tr><td>19 印紙代</td><td></td><td class="text-end">¥30,000</td></tr>
-            <tr><td>20 上水道負担金</td><td></td><td class="text-end">¥37,400</td></tr>
-            <tr><td>21</td><td></td><td></td></tr>
-            <tr><td>22</td><td></td><td></td></tr>
-            <tr><td>23</td><td></td><td></td></tr>
-            <tr><td>24 こども未来給付金手数料（BELLS ZEH認定）</td><td></td><td class="text-end">¥185,000</td></tr>
-            <tr class="table-light">
-              <th colspan="2" class="text-end">合　計（E）</th>
-              <td class="text-end">¥2,826,400</td>
+              <td class="text-end"><strong>合　計 ②</strong></td>
+              <td>¥6,555,400</td>
+              <td></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
+
+  <!-- Card 2 ：D 付帯工事費（未確定） -->
+  <div class="card table-small mb-4">
+    <div class="card-header bg-gray">
+      <strong>D 付帯工事費（未確定）</strong>
+    </div>
+    <div class="card-body p-3">
+      <div class="table-responsive">
+        <table class="table table-bordered table-sm text-center mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>内　訳</th>
+              <th>金　額</th>
+              <th>備　考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 地盤改良費</td>
+              <td>¥0</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2 外構工事予算</td>
+              <td>¥2,000,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3 カーテン予算</td>
+              <td>¥700,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4 エアコン予算</td>
+              <td>¥250,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5 ポスト表札予算</td>
+              <td>¥40,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>6 照明器具予算</td>
+              <td>¥400,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>7 太陽光発電システム（ソーラーメイト）</td>
+              <td>¥0</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="text-end">税抜き合計</td>
+              <td>¥3,390,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="text-end">消 費 税 10%</td>
+              <td>¥339,000</td>
+              <td></td>
+            </tr>
+            <tr class="table-light">
+              <td class="text-end"><strong>合　計（D）</strong></td>
+              <td>¥3,729,000</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 ：E 諸費用 -->
+  <div class="card table-small">
+    <div class="card-header bg-gray">
+      <strong>E 諸費用</strong>
+    </div>
+    <div class="card-body p-3">
+      <div class="table-responsive">
+        <table class="table table-bordered table-sm text-center mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>内　訳</th>
+              <th>引当先</th>
+              <th>金　額</th>
+              <th>備　考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 プラン申込料</td>
+              <td></td>
+              <td>¥220,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2 実施設計作図料</td>
+              <td></td>
+              <td>¥902,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3 家価値サポート費用</td>
+              <td></td>
+              <td>¥297,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4 確認申請料</td>
+              <td></td>
+              <td>¥165,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5 気密測定費用</td>
+              <td>本体価格に含む</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>6 JIO検査・保険料</td>
+              <td></td>
+              <td>¥70,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>7 温熱計算料（ZEH対応）</td>
+              <td></td>
+              <td>¥55,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>8 地鎮祭費用・上棟費用</td>
+              <td></td>
+              <td>¥50,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>9 敷地調査料</td>
+              <td></td>
+              <td>¥50,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>10 地盤調査料・保証料</td>
+              <td></td>
+              <td>¥110,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>14 民間融資関係</td>
+              <td></td>
+              <td>¥55,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>15 登記費用</td>
+              <td></td>
+              <td>¥300,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>16 火災保険費用（概算）</td>
+              <td></td>
+              <td>¥150,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>17 つなぎ融資金利（概算）</td>
+              <td></td>
+              <td>¥150,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>19 印紙代</td>
+              <td></td>
+              <td>¥30,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>20 上水道負担金</td>
+              <td></td>
+              <td>¥37,400</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>22</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>24 こども未来給付金手数料（BELLS ZEH認定）</td>
+              <td></td>
+              <td>¥185,000</td>
+              <td></td>
+            </tr>
+            <tr class="table-light">
+              <td colspan="2" class="text-end"><strong>合　計（E）</strong></td>
+              <td>¥2,826,400</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
 </div>
 
-    </div>
-    <!-- 土地関係費用 -->
-    <div
-      class="tab-pane fade"
-      id="sub-land"
-      role="tabpanel"
-      aria-labelledby="sub-land-tab"
-    >
-      <!-- 土地関係費用サブタブのコンテンツ -->
-      <div class="p-3">
-        <div class="table-responsive">
-          <table class="table table-sm table-bordered mb-0 text-center">
-            <thead class="table-primary text-white">
-              <tr>
-                <th colspan="2">土地関係費用</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1 土地購入費用</td>
-                <td>¥5,000,000</td>
-              </tr>
-              <tr>
-                <td>2 所有権移転登記費(概算)</td>
-                <td>¥120,000</td>
-              </tr>
-              <tr>
-                <td>3 下水道受益者負担金(確認)</td>
-                <td>¥0</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th class="text-end">合　計 ③</th>
-                <td>¥5,120,000</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      </div>
+<!-- ③土地関係費用タブ -->
+<div
+class="tab-pane fade"
+id="sub-land"
+role="tabpanel"
+aria-labelledby="sub-land-tab"
+>
+<div class="p-3">
 
+  <!-- Card ：③土地関係費用 -->
+  <div class="card table-small">
+    <div class="card-header bg-gray">
+      <strong>③土地関係費用</strong>
     </div>
-    <!-- 返済計画 -->
-    <div
-      class="tab-pane fade"
-      id="sub-repayment"
-      role="tabpanel"
-      aria-labelledby="sub-repayment-tab"
-    >
-      <!-- 返済計画サブタブのコンテンツ -->
-      
-      <div class="p-3">
-        <!-- 上部サマリー -->
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered text-center mb-0">
-            <tbody>
-              <tr>
-                <th>総　費　用</th>
-                <td>¥45,899,639</td>
-              </tr>
-              <tr>
-                <th>自己資金</th>
-                <td>¥284,452</td>
-              </tr>
-              <tr>
-                <th>お借入金</th>
-                <td>¥45,615,187</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 返済計画テーブル -->
-        <div class="table-responsive">
-          <table class="table table-sm table-bordered align-middle mb-0">
-            <thead class="table-light text-center">
-              <tr>
-                <th>借入内訳<br>（万円）</th>
-                <th>期間<br>（年～年）</th>
-                <th>金利<br>（％）</th>
-                <th>毎月返済<br>元本（万円）返済額</th>
-                <th>ボーナス返済<br>元本（万円）返済額</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>よなごしんきん</td>
-                <td class="text-center">1年～10年</td>
-                <td class="text-end">0.9%</td>
-                <td class="text-end">¥122,165</td>
-                <td class="text-end">¥100,112</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td class="text-center">11年～35年</td>
-                <td class="text-end">1.7%</td>
-                <td class="text-end">¥134,317</td>
-                <td class="text-end">¥110,199</td>
-              </tr>
-              <tr>
-                <td class="text-end">5,000 万円</td>
-                <td></td>
-                <td></td>
-                <td class="text-end">4,400 万円</td>
-                <td class="text-end">600 万円</td>
-              </tr>
-              <!-- 空行 -->
-              <tr><td colspan="5">&nbsp;</td></tr>
-              <tr><td colspan="5">&nbsp;</td></tr>
-              <tr><td colspan="5">&nbsp;</td></tr>
-            </tbody>
-          </table>
-        </div>
+    <div class="card-body p-3">
+      <div class="table-responsive">
+        <table class="table table-bordered table-sm text-center mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>内　訳</th>
+              <th>金　額</th>
+              <th>備　考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 土地購入費用</td>
+              <td>¥5,000,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2 所有権移転登記費(概算)</td>
+              <td>¥120,000</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3 下水道受益者負担金(確認)</td>
+              <td>¥0</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="table-light">
+              <td class="text-end"><strong>合　計 ③</strong></td>
+              <td>¥5,120,000</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
+
+</div>
+</div>
 
 
-    <!-- 資料 -->
-    <div
-      class="tab-pane fade"
-      id="sub-doc"
-      role="tabpanel"
-      aria-labelledby="sub-doc-tab"
-    >
-      <!-- 資料サブタブのコンテンツ -->
-        <!-- 表示方法＆検索 -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <div class="d-flex align-items-center">
-            <span class="me-2">表示方法：</span>
-            <button class="btn btn-outline-primary me-2"><i class="bi bi-folder"></i></button>
-            <button class="btn btn-outline-secondary me-4"><i class="bi bi-list"></i></button>
-            <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;"><option value="created">作成日順</option></select>
+
+        <!-- 資料 -->
+        <div
+          class="tab-pane fade"
+          id="sub-doc"
+          role="tabpanel"
+          aria-labelledby="sub-doc-tab"
+        >
+          <div class="p-3">
+            <!-- 表示方法＆検索 -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center">
+                <span class="me-2">表示方法：</span>
+                <button class="btn btn-outline-primary me-2"><i class="bi bi-folder"></i></button>
+                <button class="btn btn-outline-secondary me-4"><i class="bi bi-list"></i></button>
+                <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
+                  <option value="created">作成日順</option>
+                </select>
+              </div>
+              <div class="input-group" style="width:300px;">
+                <input type="text" class="form-control" placeholder="キーワードを入力">
+                <button class="btn btn-outline-secondary" type="button">検索</button>
+              </div>
+            </div>
+            <!-- 公図テーブル -->
+            <div class="card">
+              <div class="card-body p-0">
+                <table class="table table-hover table-bordered mb-0 table-small">
+                  <thead class="table-light">
+                    <tr>
+                      <th>資料名称</th>
+                      <th>購読数</th>
+                      <th>公開設定</th>
+                      <th>取得日時</th>
+                      <th>アクション</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>案件_プラン_資金計画書</td>
+                      <td><a href="#">3</a></td>
+                      <td>公開</td>
+                      <td>2025/05/01 09:00</td>
+                      <td><button class="btn btn-sm btn-outline-primary">ダウンロード</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div class="input-group" style="width:300px;"><input type="text" class="form-control" placeholder="キーワードを入力"><button class="btn btn-outline-secondary" type="button">検索</button></div>
         </div>
-        <div class="card">
-          <div class="card-body p-0">
-            <table class="table table-hover mb-0">
-              <thead class="table-light">
-                <tr><th>資料名称</th><th>項目数</th><th>既読人数</th><th>公開設定</th><th>作成日時</th><th>アクション</th></tr>
-              </thead>
-              <tbody>
-                <!-- DEF建設見積書の1行 -->
-                <tr>
-                  <td>DEF建設見積書</td>
-                  <td>1</td>
-                  <td>0</td>
-                  <td>公開</td>
-                  <td>2025/05/16 12:00</td>
-                  <td><button class="btn btn-sm btn-outline-primary">詳細</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      </div>
     </div>
-
-
-    
-
-
-</div>
-</div>
-</div>
-</div>
-    
   </div>
 
   <div id="footer-container"></div>
