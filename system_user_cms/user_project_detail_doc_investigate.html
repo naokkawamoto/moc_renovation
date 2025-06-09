@@ -66,50 +66,77 @@
         <li class="nav-item"><a class="nav-link"      href="user_project_detail_designlist.html">プラン一覧</a></li>
         <li class="nav-item"><a class="nav-link active"      href="user_project_detail_doc.html">お客様資料</a></li>
         <li class="nav-item"><a class="nav-link"      href="user_project_detail_chat.html">チャット <span class="badge bg-danger">5</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="user_project_detail_user.html">メンバー</a></li>
         </ul>
 
         <!-- タイトル -->
-    <div class="mb-3">
-        <h4>お客様資料</h4>
+    <div class="mb-2">
+        <h4>現地調査</h4>
       </div>
   
-      <!-- フォルダリンク (カード) -->
-      <div class="row g-4 px-3">
-        <div class="col-6 col-md-4">
-          <div class="card folder-card h-100 text-center" onclick="location.href='user_project_detail_doc_investigate.html'">
-            <div class="card-body py-5">
-              <i class="bi bi-folder2-open fs-1 mb-2"></i>
-              <h5 class="card-title">現地調査</h5>
+      <!-- パンくずリスト -->
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb small-text mb-0">
+          <li class="breadcrumb-item">
+            <a href="user_project_detail_doc.html" class="text-decoration-none">お客様資料</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">現地調査</li>
+        </ol>
+      </nav>
+  
+      <!-- テーブル（購読者等の構成は user_project_detail_design_detail_doc_detail.html と同様） -->
+      <div class="table-responsive small-text mb-4">
+        <table class="table table-hover table-bordered mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>資料名称</th>
+              <th>購読数</th>
+              <th>公開設定</th>
+              <th>作成日時</th>
+              <th>アクション</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>現地調査報告書（案件名：プラン１）</td>
+              <td>
+                <button class="btn btn-link p-0 small-text" data-bs-toggle="modal" data-bs-target="#investSubscribersModal">
+                  3
+                </button>
+              </td>
+              <td>公開</td>
+              <td>2025/05/07 15:00</td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary">
+                  <i class="bi bi-file-earmark-arrow-down"></i> ダウンロード
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- 購読者一覧モーダル（現地調査） -->
+      <div class="modal fade" id="investSubscribersModal" tabindex="-1" aria-labelledby="investSubscribersModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="investSubscribersModalLabel">購読者一覧</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="card folder-card h-100 text-center position-relative" onclick="location.href='user_project_detail_doc_plan1.html'">
-            <!-- 右上にバッジとロックアイコンを配置 -->
-            <div class="position-absolute top-0 end-0 m-2 d-flex align-items-center">
-              <span class="badge bg-success">確定</span>
-              <i class="bi bi-lock-fill ms-1"></i>
+            <div class="modal-body small-text">
+              <ul class="list-unstyled mb-0">
+                <li>1. 会社A：担当者A</li>
+                <li>2. 会社B：担当者B</li>
+                <li>3. 会社C：担当者C</li>
+              </ul>
             </div>
-            <div class="card-body py-5">
-              <i class="bi bi-folder2-open fs-1 mb-2"></i>
-              <h5 class="card-title">プラン１</h5>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-6 col-md-4">
-          <div class="card folder-card h-100 text-center" onclick="location.href='user_project_detail_doc_plan2.html'">
-            <div class="card-body py-5">
-              <i class="bi bi-folder2-open fs-1 mb-2"></i>
-              <h5 class="card-title">プラン２</h5>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">閉じる</button>
             </div>
           </div>
         </div>
       </div>
-  
-    </div>
-        
+
 
     <!-- フッター -->
     <div id="footer-container"></div>
