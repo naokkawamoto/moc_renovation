@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>案件管理（現地調査スケジュール）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <style>
+    /* 全体左右マージンをcontainer-fluidのpaddingで担保 */
+    .card-project { cursor: pointer; }
+    .small-text td, .small-text th { font-size: 0.7rem; }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <div id="header-container"></div>
+
+  <div class="container-fluid mt-4 px-4">
+    <!-- 戻るボタン付きヘッダー行 -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h5 class="mb-0">会社名</h5>
+        <h4 class="mb-0 d-inline">案件名 <i class="bi bi-star"></i></h4>
+      </div>
+      <button class="btn btn-primary" onclick="location.href='user_project_detail_investigate.html'">
+        <i class="bi bi-arrow-return-left"></i> 現地調査へ戻る
+      </button>
+    </div>
+
+    <!-- サブナビ：スケジュール／アンケート -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
+      <h3 class="mb-3 mb-md-0">現地調査スケジュール <i class="bi bi-calendar3"></i></h3>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="user_project_detail_investigate_schedule.html">日程調整</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user_project_detail_investigate_questionnaire.html">お客様アンケート</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 日程調整セクション -->
+    <div class="mb-5">
+      <h5 class="mb-2">
+        日程調整
+        <span class="badge bg-secondary">日程調整前</span>
+      </h5>
+
+      <h6 class="mt-3">日程候補を追加</h6>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">調査候補日時を選択</label>
+          <div class="row gx-2 gy-2 align-items-center">
+            <div class="col-auto"><span>①</span></div>
+            <div class="col-auto">
+              <input type="datetime-local" class="form-control form-control-sm" value="2025-05-21T10:00">
+            </div>
+            <div class="col-auto"><span>②</span></div>
+            <div class="col-auto">
+              <input type="datetime-local" class="form-control form-control-sm" value="2025-05-22T14:00">
+            </div>
+            <div class="col-auto"><span>③</span></div>
+            <div class="col-auto">
+              <input type="datetime-local" class="form-control form-control-sm" value="2025-05-23T09:00">
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-secondary btn-sm mb-4">日程候補を追加</button>
+
+        <!-- 施主情報入力 -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">施主名</label>
+            <input type="text" class="form-control form-control-sm" placeholder="山田 太郎">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">メールアドレス</label>
+            <input type="email" class="form-control form-control-sm" placeholder="taro@example.com">
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#emailModal">
+          メール送信
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- メール送信モーダル -->
+  <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="emailModalLabel">現地調査のお願い</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        </div>
+        <div class="modal-body">
+          <p>施主様</p>
+          <p>いつもお世話になっております。株式会社サンプル 支店名サンプル支店の山田太郎です。</p>
+          <p>
+            下記の日程候補にて現地調査をお願い申し上げます。大変お手数ですが、リンク先よりご都合の良い日時をご選択いただき、
+            ご確認のほどよろしくお願いいたします。
+          </p>
+          <ul>
+            <li>2025/05/21 (水) 10:00～</li>
+            <li>2025/05/22 (木) 14:00～</li>
+            <li>2025/05/23 (金) 09:00～</li>
+          </ul>
+          <p>調査候補日確定フォーム：<a href="#">https://example.com/schedule</a></p>
+          <p>何卒よろしくお願いいたします。</p>
+          <hr>
+          <p>株式会社サンプル</p>
+          <p>サンプル支店</p>
+          <p>担当：山田太郎</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">送信</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div id="footer-container"></div>
+
+  <!-- Bootstrap JS & カスタムスクリプト -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../style.js"></script>
+  <script>
+    // ヘッダー・フッター読み込み
+    fetch('user_header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-container').innerHTML = html);
+    fetch('user_footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer-container').innerHTML = html);
+  </script>
+</body>
+</html>
