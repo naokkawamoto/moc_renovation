@@ -1,4 +1,3 @@
-<!-- site_project_detail_investigate_schedule.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -35,42 +34,100 @@
       <h3 class="mb-0">現地調査スケジュール <i class="bi bi-calendar3"></i></h3>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link active" href="site_project_detail_investigate_schedule.html">現地調査</a>
+          <a class="nav-link active" href="site_project_detail_investigate_schedule.html">日程調整</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="site_project_detail_investigate_inquery.html">お客様アンケート</a>
+          <a class="nav-link" href="site_project_detail_investigate_questionnaire.html">お客様アンケート</a>
         </li>
       </ul>
     </div>
 
     <div class="p-3">
-      <!-- スケジュール登録 -->
+      <!-- 日程調整セクション -->
       <div class="mb-4">
-        <h5 class="mb-3">スケジュール登録</h5>
+        <h5 class="mb-2">
+          日程調整
+          <span class="badge bg-secondary">日程調整前</span>
+        </h5>
+
+        <h6 class="mt-3">日程調査候補日を追加</h6>
         <form>
-          <!-- 担当者が複数選択できるスケジュール枠の例 -->
+          <!-- 調査候補日時選択 -->
           <div class="mb-3">
             <label class="form-label">調査候補日時を選択</label>
-            <div class="row gx-2">
+            <div class="row gx-2 align-items-center">
+              <div class="col-auto d-flex align-items-center">
+                <span>①</span>
+              </div>
               <div class="col-auto">
                 <input type="datetime-local" class="form-control form-control-sm" value="2025-05-21T10:00">
+              </div>
+              <div class="col-auto d-flex align-items-center">
+                <span>②</span>
               </div>
               <div class="col-auto">
                 <input type="datetime-local" class="form-control form-control-sm" value="2025-05-22T14:00">
               </div>
+              <div class="col-auto d-flex align-items-center">
+                <span>③</span>
+              </div>
               <div class="col-auto">
                 <input type="datetime-local" class="form-control form-control-sm" value="2025-05-23T09:00">
               </div>
-              <!-- 必要に応じてさらに追加可能 -->
             </div>
           </div>
-          <button type="button" class="btn btn-success btn-sm me-2">スケジュール登録</button>
-          <button type="button" class="btn btn-primary btn-sm">メール送信</button>
-          <!-- メール送信ボタンを押すと、定型文が顧客メールアドレスに届く -->
+
+          <button type="button" class="btn btn-secondary btn-sm mb-3">日程候補を追加</button>
+
+          <!-- 施主情報 -->
+          <div class="mb-3">
+            <label class="form-label">施主名</label>
+            <input type="text" class="form-control form-control-sm mb-2" placeholder="山田 太郎">
+            <label class="form-label">メールアドレス</label>
+            <input type="email" class="form-control form-control-sm" placeholder="taro@example.com">
+          </div>
+
+          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#emailModal">
+            メール送信
+          </button>
         </form>
       </div>
+    </div>
+  </div>
 
-
+  <!-- メール送信モーダル -->
+  <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="emailModalLabel">現地調査のお願い</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        </div>
+        <div class="modal-body">
+          <p>施主様</p>
+          <p>いつもお世話になっております。株式会社サンプル 支店名サンプル支店の山田太郎です。</p>
+          <p>
+            下記の日程候補にて現地調査をお願い申し上げます。大変お手数ですが、リンク先よりご都合の良い日時をご選択いただき、ご確認のほどよろしくお願いいたします。
+          </p>
+          <ul>
+            <li>2025/05/21 (水) 10:00～</li>
+            <li>2025/05/22 (木) 14:00～</li>
+            <li>2025/05/23 (金) 09:00～</li>
+          </ul>
+          <p>
+            調査候補日確定フォーム：<a href="#">https://example.com/schedule</a>
+          </p>
+          <p>何卒よろしくお願いいたします。</p>
+          <p>―――――――――――――――</p>
+          <p>株式会社サンプル</p>
+          <p>サンプル支店</p>
+          <p>担当：山田太郎</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">送信</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+        </div>
+      </div>
     </div>
   </div>
 

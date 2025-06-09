@@ -51,25 +51,59 @@
     </ul>
 
     <div class="p-3">
-      <!-- 日程確認 -->
-      <div class="d-flex align-items-center mb-3">
-        <label class="me-2 mb-0">現地調査日程:</label>
-        <input type="date" class="form-control form-control-sm me-2" style="width:auto; display:inline-block;" value="2025-05-20">
-        <input type="time" class="form-control form-control-sm me-2" style="width:auto; display:inline-block;" value="10:00">
-        <button class="btn btn-primary btn-sm me-2" onclick="location.href='site_project_detail_investigate_schedule.html'">
-          顧客確認
-        </button>
-        <span class="badge bg-warning text-dark">日程確認前</span>
+      <!-- 日程とアンケートを2カラムに配置 -->
+      <div class="row mb-4">
+        <!-- 日程調整 -->
+        <div class="col-md-6 mb-3">
+          <div class="card border">
+            <div class="card-body text-center">
+              <h5 class="mb-1">
+                現地調査日程
+                <span class="badge bg-warning text-dark">日程確認前</span>
+              </h5>
+              <!-- 日時表示 -->
+              <div class="mb-3">
+                <input
+                  type="date"
+                  class="form-control form-control-sm d-inline-block me-2"
+                  style="width:auto;"
+                  value="2025-05-20"
+                >
+                <input
+                  type="time"
+                  class="form-control form-control-sm d-inline-block"
+                  style="width:auto;"
+                  value="10:00"
+                >
+              </div>
+              <!-- ボタン中央 -->
+              <button
+                class="btn btn-primary btn-lg"
+                onclick="location.href='site_project_detail_investigate_schedule.html'"
+              >日程調整</button>
+            </div>
+          </div>
+        </div>
+        <!-- お客様アンケート -->
+        <div class="col-md-6 mb-3">
+          <div class="card border">
+            <div class="card-body text-center">
+              <h5 class="mb-1">
+                お客様アンケート
+                <span class="badge bg-danger text-light">アンケート未送信</span>
+              </h5>
+              <!-- ボタン中央 -->
+              <button
+                class="btn btn-primary btn-lg"
+                onclick="location.href='site_project_detail_investigate_questionnaire.html'"
+              >アンケート送信</button>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    
 
-      <!-- お客様アンケート -->
-      <div class="d-flex align-items-center mb-4">
-        <label class="me-2 mb-0">お客様アンケート:</label>
-        <button class="btn btn-secondary btn-sm me-2" onclick="location.href='site_project_detail_investigate_inquery.html'">
-          アンケート送付
-        </button>
-        <span class="badge bg-danger text-light">アンケート未送付</span>
-      </div>
 
       <!-- フロアープラン -->
       <div class="mb-2 px-3">
