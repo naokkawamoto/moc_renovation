@@ -98,6 +98,9 @@
               <button class="nav-link" id="sub-property-tab" data-bs-toggle="tab" data-bs-target="#sub-property" type="button" role="tab" aria-controls="sub-property" aria-selected="false">物件情報</button>
             </li>
             <li class="nav-item" role="presentation">
+              <button class="nav-link" id="sub-property-tab" data-bs-toggle="tab" data-bs-target="#sub-zoning" type="button" role="tab" aria-controls="sub-zoning" aria-selected="false">建築用途地域</button>
+            </li>
+            <li class="nav-item" role="presentation">
               <button class="nav-link" id="sub-staff-tab" data-bs-toggle="tab" data-bs-target="#sub-staff" type="button" role="tab" aria-controls="sub-staff" aria-selected="false">担当者情報</button>
             </li>
             <li class="nav-item" role="presentation">
@@ -105,7 +108,7 @@
               <button class="nav-link" id="sub-related-tab" data-bs-toggle="tab" data-bs-target="#sub-related" type="button" role="tab" aria-controls="sub-related" aria-selected="false">関係者情報</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="sub-officialdocs-tab" data-bs-toggle="tab" data-bs-target="#sub-official-docs" type="button" role="tab" aria-controls="sub-official-docs" aria-selected="false">公図資料</button>
+              <button class="nav-link" id="sub-officialdocs-tab" data-bs-toggle="tab" data-bs-target="#sub-official-docs" type="button" role="tab" aria-controls="sub-official-docs" aria-selected="false">登記資料</button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="sub-docs-tab" data-bs-toggle="tab" data-bs-target="#sub-docs" type="button" role="tab" aria-controls="sub-docs" aria-selected="false">既存資料</button>
@@ -192,253 +195,577 @@
                 </div>
               </div>
             </div>
+            <!-- 建築用途地域 -->
+            <div class="tab-pane fade" id="sub-zoning" role="tabpanel" aria-labelledby="sub-zoning-tab">
+              <div class="card mb-3">
+                <div class="card-header d-flex justify-content-between">
+                  <span>建築用途地域</span>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
+                </div>
+                <div class="card-body">
+                  <form id="zoning-form">
+                    <!-- 都市計画区域 -->
+                    <div class="mb-3">
+                      <label for="city_planning_zone" class="form-label">
+                        都市計画区域 <span class="text-danger">*</span>
+                      </label>
+                      <select
+                        class="form-select"
+                        id="city_planning_zone"
+                        name="city_planning_zone"
+                        required
+                      >
+                        <option value="">選択してください</option>
+                        <option value="市街化区域">市街化区域</option>
+                        <option value="市街化調整区域">市街化調整区域</option>
+                        <option value="非線引き区域">非線引き区域</option>
+                      </select>
+                    </div>
+              
+                    <!-- 用途地域（市街化区域時のみ表示・必須） -->
+                    <div class="mb-3" id="zoning_type_group">
+                      <label for="zoning_type" class="form-label">
+                        用途地域
+                        <span id="zoning_type_req" class="text-danger" style="display:none">*</span>
+                      </label>
+                      <select
+                        class="form-select"
+                        id="zoning_type"
+                        name="zoning_type"
+                      >
+                        <option value="">選択してください</option>
+                        <option>第一種低層住居専用地域</option>
+                        <option>第二種低層住居専用地域</option>
+                        <option>第一種中高層住居専用地域</option>
+                        <option>第二種中高層住居専用地域</option>
+                        <option>第一種住居地域</option>
+                        <option>第二種住居地域</option>
+                        <option>準住居地域</option>
+                        <option>田園住居地域</option>
+                        <option>近隣商業地域</option>
+                        <option>商業地域</option>
+                        <option>準工業地域</option>
+                        <option>工業地域</option>
+                        <option>工業専用地域</option>
+                      </select>
+                    </div>
+              
+                    <!-- 防火区域（市街化区域時のみ表示） -->
+                    <div class="mb-3" id="fire_protection_zone_group">
+                      <label for="fire_protection_zone" class="form-label">
+                        防火区域
+                      </label>
+                      <select
+                        class="form-select"
+                        id="fire_protection_zone"
+                        name="fire_protection_zone"
+                      >
+                        <option value="">選択してください</option>
+                        <option>防火地域</option>
+                        <option>準防火地域</option>
+                        <option>第22条区域</option>
+                        <option>指定なし</option>
+                      </select>
+                    </div>
+              
+                    <!-- 建ぺい率 -->
+                    <div class="mb-3">
+                      <label for="building_coverage_ratio" class="form-label">
+                        建ぺい率
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="building_coverage_ratio"
+                        name="building_coverage_ratio"
+                        placeholder="例: 60%"
+                      />
+                      <div class="form-text">
+                        （％付きで記入してください）
+                      </div>
+                    </div>
+              
+                    <!-- 容積率 -->
+                    <div class="mb-3">
+                      <label for="floor_area_ratio" class="form-label">
+                        容積率
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="floor_area_ratio"
+                        name="floor_area_ratio"
+                        placeholder="例: 200%"
+                      />
+                      <div class="form-text">
+                        （％付きで記入）
+                      </div>
+                    </div>
+                  </form>
+                  </div>
+              </div>
+            </div>
             <!-- 担当者情報 -->
             <div class="tab-pane fade" id="sub-staff" role="tabpanel" aria-labelledby="sub-staff-tab">
-              <!-- セクション１：案件担当者 -->
-              <div class="card mb-3">
+              <div class="card m-3">
                 <div class="card-header">
-                  <span>案件担当者</span>
+                  <span>社内担当者</span>
                 </div>
-                <div class="card-body">
-                  <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                      <label class="form-label">支店名</label>
-                      <select class="form-select">
-                        <option>東京店</option>
-                        <option>大阪店</option>
-                        <option>名古屋店</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">担当者名</label>
-                      <select class="form-select">
-                        <option>佐藤 太郎</option>
-                        <option>鈴木 次郎</option>
-                        <option>高橋 花子</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">権限</label>
-                      <select class="form-select">
-                        <option>営業</option>
-                        <option>現場監督</option>
-                        <option>設計</option>
-                        <option>インテリアコーディネーター</option>
-                        <option>職人</option>
-                        <option>管理職</option>
-                        <option>事務</option>
-                        <option>積算</option>
-                      </select>
-                    </div>
+                <div class="col">
+                  <!-- 新規追加ボタン（テーブル右上） -->
+                  <div class="d-flex justify-content-end m-3">
+                    <button 
+                      type="button" 
+                      class="btn btn-primary btn-sm" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#addStaffModal"
+                    >
+                      新規追加
+                    </button>
+                  </div>
+                  <!-- テーブル（上下左右にマージン） -->
+                  <div class="table-responsive m-3">
+                    <table class="table table-hover table-bordered small-text">
+                      <thead class="table-light">
+                        <tr>
+                          <th>支店名</th>
+                          <th>名前</th>
+                          <th>職種</th>
+                          <th>権限</th>
+                          <th>メール</th>
+                          <th>電話番号</th>
+                          <th style="font-size:0.5rem;" >案件管理者のみ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- 営業 -->
+                        <tr>
+                          <td>東京支店</td>
+                          <td>佐藤 花子</td>
+                          <td>営業</td>
+                          <td>案件管理者</td>
+                          <td>hanako.sato@example.com</td>
+                          <td>090-1111-1111</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <!-- 現場監督 -->
+                        <tr>
+                          <td>東京支店</td>
+                          <td>鈴木 次郎</td>
+                          <td>現場監督</td>
+                          <td>管理職</td>
+                          <td>jiro.suzuki@example.com</td>
+                          <td>090-2222-2222</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <!-- 設計 -->
+                        <tr>
+                          <td>東京支店</td>
+                          <td>高橋 三郎</td>
+                          <td>設計</td>
+                          <td>システム管理者</td>
+                          <td>sabu.takahashi@example.com</td>
+                          <td>090-3333-3333</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <!-- インテリアコーディネーター -->
+                        <tr>
+                          <td>東京支店</td>
+                          <td>田中 美咲</td>
+                          <td>インテリアコーディネーター</td>
+                          <td>一般</td>
+                          <td>misaki.tanaka@example.com</td>
+                          <td>090-4444-4444</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <!-- 職人 -->
+                        <tr>
+                          <td>東京支店</td>
+                          <td>伊藤 翔</td>
+                          <td>職人</td>
+                          <td>一般</td>
+                          <td>sho.ito@example.com</td>
+                          <td>090-5555-5555</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <!-- 管理職 -->
+                        <tr>
+                          <td>東京支店</td>
+                          <td>渡辺 智子</td>
+                          <td>管理職</td>
+                          <td>管理職</td>
+                          <td>tomoko.watanabe@example.com</td>
+                          <td>090-6666-6666</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <!-- 事務 -->
+                        <tr>
+                          <td>東京支店</td>
+                          <td>中村 健</td>
+                          <td>事務</td>
+                          <td>一般</td>
+                          <td>ken.nakamura@example.com</td>
+                          <td>090-7777-7777</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <!-- 積算 -->
+                        <tr>
+                          <td>東京支店</td>
+                          <td>小林 愛</td>
+                          <td>積算</td>
+                          <td>一般</td>
+                          <td>ai.kobayashi@example.com</td>
+                          <td>090-8888-8888</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
-              <!-- セクション２：社内案件関係者 -->
-              <div class="card mb-3">
-                <div class="card-header">
-                  <span>社内案件関係者</span>
-                </div>
-                <div class="card-body">
-                  <!-- 1行目サンプル -->
-                  <div class="row g-3 align-items-center mb-2">
-                    <div class="col-auto">
-                      <label class="form-label">支店名</label>
-                      <select class="form-select">
-                        <option>東京店</option>
-                        <option>大阪店</option>
-                        <option>名古屋店</option>
-                      </select>
+
+              <!-- 新規追加モーダル -->
+              <div 
+                class="modal fade" 
+                id="addStaffModal" 
+                tabindex="-1" 
+                aria-labelledby="addStaffModalLabel" 
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="addStaffModalLabel">社内担当者 追加</h5>
+                      <button 
+                        type="button" 
+                        class="btn-close" 
+                        data-bs-dismiss="modal" 
+                        aria-label="閉じる"
+                      ></button>
                     </div>
-                    <div class="col-auto">
-                      <label class="form-label">担当者名</label>
-                      <select class="form-select">
-                        <option>田中 一郎</option>
-                        <option>伊藤 三郎</option>
-                        <option>山本 四郎</option>
-                      </select>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                        <label class="form-label">支店名</label>
+                        <select class="form-select">
+                          <option>東京支店</option>
+                          <option>大阪支店</option>
+                          <option>名古屋支店</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">職種</label>
+                        <select class="form-select">
+                          <option>営業</option>
+                          <option>現場監督</option>
+                          <option>設計</option>
+                          <option>インテリアコーディネーター</option>
+                          <option>職人</option>
+                          <option>管理職</option>
+                          <option>事務</option>
+                          <option>積算</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">名前</label>
+                        <select class="form-select">
+                          <option>佐藤 花子</option>
+                          <option>鈴木 次郎</option>
+                          <option>高橋 三郎</option>
+                          <option>田中 美咲</option>
+                          <option>伊藤 翔</option>
+                          <option>渡辺 智子</option>
+                          <option>中村 健</option>
+                          <option>小林 愛</option>
+                        </select>
+                      </div>
                     </div>
-                    <div class="col-auto">
-                      <label class="form-label">権限</label>
-                      <select class="form-select">
-                        <option>設計</option>
-                        <option>現場監督</option>
-                        <option>事務</option>
-                      </select>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">新規追加</button>
                     </div>
                   </div>
-                  <!-- 2行目サンプル -->
-                  <div class="row g-3 align-items-center mb-2">
-                    <div class="col-auto">
-                      <label class="form-label">支店名</label>
-                      <select class="form-select">
-                        <option>東京店</option>
-                        <option>大阪店</option>
-                        <option>名古屋店</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">担当者名</label>
-                      <select class="form-select">
-                        <option>佐々木 五郎</option>
-                        <option>中村 六郎</option>
-                        <option>木村 七子</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">権限</label>
-                      <select class="form-select">
-                        <option>管理職</option>
-                        <option>職人</option>
-                        <option>事務</option>
-                      </select>
-                    </div>
-                  </div>
-                  <!-- 新規登録ボタン -->
-                  <button type="button" class="btn btn-sm btn-outline-secondary">新規登録</button>
                 </div>
               </div>
             </div>
+
+
+
             <!-- 関係者情報 -->
             <div class="tab-pane fade" id="sub-related" role="tabpanel" aria-labelledby="sub-related-tab">
-            <!-- セクション1：関係者 -->
-              <div class="card mb-3">
+              <!-- カード1：協力業者 -->
+              <div class="card m-3">
                 <div class="card-header">
-                  <span>社外工事関係者</span>
+                  <span>協力業者</span>
                 </div>
                 <div class="card-body">
-                  <!-- 1行目サンプル -->
-                  <div class="row g-3 align-items-center mb-2">
-                    <div class="col-auto">
-                      <label class="form-label">会社名</label>
-                      <select class="form-select">
-                        <option>株式会社ABC</option>
-                        <option>株式会社DEF</option>
-                        <option>株式会社GHI</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">担当者名</label>
-                      <select class="form-select">
-                        <option>佐藤 太郎</option>
-                        <option>鈴木 次郎</option>
-                        <option>高橋 花子</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">権限</label>
-                      <select class="form-select">
-                        <option>設計</option>
-                        <option>現場監督</option>
-                        <option>事務</option>
-                      </select>
-                    </div>
+                  <!-- 新規追加ボタン（テーブルの上、右寄せ） -->
+                  <div class="d-flex justify-content-end m-3">
+                    <button 
+                      type="button" 
+                      class="btn btn-primary btn-sm" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#addRelatedModal"
+                    >
+                      新規追加
+                    </button>
                   </div>
-                  <!-- 2行目サンプル -->
-                  <div class="row g-3 align-items-center mb-2">
-                    <div class="col-auto">
-                      <label class="form-label">会社名</label>
-                      <select class="form-select">
-                        <option>株式会社ABC</option>
-                        <option>株式会社DEF</option>
-                        <option>株式会社GHI</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">担当者名</label>
-                      <select class="form-select">
-                        <option>佐々木 五郎</option>
-                        <option>中村 六郎</option>
-                        <option>木村 七子</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">権限</label>
-                      <select class="form-select">
-                        <option>管理職</option>
-                        <option>職人</option>
-                        <option>事務</option>
-                      </select>
-                    </div>
+                  <!-- テーブル（上下左右にマージン） -->
+                  <div class="table-responsive m-3">
+                    <table class="table table-hover table-bordered small-text">
+                      <thead class="table-light">
+                        <tr>
+                          <th>会社名</th>
+                          <th>名前</th>
+                          <th>名前（カナ）</th>
+                          <th>職種</th>
+                          <th>権限</th>
+                          <th>メール</th>
+                          <th>電話番号</th>
+                          <th style="font-size:0.5rem;" >案件管理者のみ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>株式会社協力一</td>
+                          <td>佐藤 健</td>
+                          <td>サトウ ケン</td>
+                          <td>積算</td>
+                          <td>一般</td>
+                          <td>ken.sato@example.com</td>
+                          <td>090-1234-0001</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>株式会社協力二</td>
+                          <td>鈴木 彩</td>
+                          <td>スズキ アヤ</td>
+                          <td>事務</td>
+                          <td>一般</td>
+                          <td>aya.suzuki@example.com</td>
+                          <td>090-1234-0002</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>株式会社協力三</td>
+                          <td>高橋 大輔</td>
+                          <td>タカハシ ダイスケ</td>
+                          <td>管理職</td>
+                          <td>一般</td>
+                          <td>daisuke.takahashi@example.com</td>
+                          <td>090-1234-0003</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>株式会社協力四</td>
+                          <td>田中 礼子</td>
+                          <td>タナカ レイコ</td>
+                          <td>職人</td>
+                          <td>一般</td>
+                          <td>reiko.tanaka@example.com</td>
+                          <td>090-1234-0004</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>株式会社協力五</td>
+                          <td>伊藤 翔太</td>
+                          <td>イトウ ショウタ</td>
+                          <td>営業</td>
+                          <td>一般</td>
+                          <td>shota.ito@example.com</td>
+                          <td>090-1234-0005</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>株式会社協力六</td>
+                          <td>山本 浩</td>
+                          <td>ヤマモト ヒロシ</td>
+                          <td>代表者</td>
+                          <td>一般</td>
+                          <td>hiroshi.yamamoto@example.com</td>
+                          <td>090-1234-0006</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                  <!-- 新規登録ボタン -->
-                  <button type="button" class="btn btn-sm btn-outline-secondary">新規登録</button>
                 </div>
               </div>
-            
-              <!-- セクション2：有資格者 -->
-              <div class="card mb-3">
+
+              <!-- カード2：外部専門家 -->
+              <div class="card m-3">
                 <div class="card-header">
-                  <span>社外有資格者</span>
+                  <span>外部専門家</span>
                 </div>
                 <div class="card-body">
-                  <!-- 1行目サンプル -->
-                  <div class="row g-3 align-items-center mb-2">
-                    <div class="col-auto">
-                      <label class="form-label">会社名</label>
-                      <select class="form-select">
-                        <option>株式会社ABC</option>
-                          <option>株式会社DEF</option>
-                          <option>株式会社GHI</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">資格及び権限</label>
-                      <select class="form-select">
-                        <option>建築士</option>
-                        <option>司法書士</option>
-                        <option>土地家屋調査士</option>
-                        <option>不動産鑑定士</option>
-                        <option>行政書士</option>
-                        <option>弁護士</option>
-                        <option>ファイナンシャルプランナー</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">担当者名</label>
-                      <select class="form-select">
-                        <option>佐藤 太郎</option>
-                        <option>鈴木 次郎</option>
-                        <option>高橋 花子</option>
-                      </select>
-                    </div>
+                  <!-- 新規追加ボタン（テーブルの上、右寄せ） -->
+                  <div class="d-flex justify-content-end mb-3">
+                    <button type="button" class="btn btn-primary btn-sm">新規追加</button>
                   </div>
-                  <!-- 2行目サンプル -->
-                  <div class="row g-3 align-items-center mb-2">
-                    <div class="col-auto">
-                      <label class="form-label">会社名</label>
-                      <select class="form-select">
-                        <option>株式会社ABC</option>
-                        <option>株式会社DEF</option>
-                        <option>株式会社GHI</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">担当者名</label>
-                      <select class="form-select">
-                        <option>佐々木 五郎</option>
-                        <option>中村 六郎</option>
-                        <option>木村 七子</option>
-                      </select>
-                    </div>
-                    <div class="col-auto">
-                      <label class="form-label">権限</label>
-                      <select class="form-select">
-                        <option>管理職</option>
-                        <option>職人</option>
-                        <option>事務</option>
-                      </select>
-                    </div>
+                  <!-- テーブル（上下左右にマージン） -->
+                  <div class="table-responsive m-3">
+                    <table class="table table-hover table-bordered small-text">
+                      <thead class="table-light">
+                        <tr>
+                          <th>会社名</th>
+                          <th>名前</th>
+                          <th>名前（カナ）</th>
+                          <th>職種</th>
+                          <th>権限</th>
+                          <th>メール</th>
+                          <th>電話番号</th>
+                          <th style="font-size:0.5rem;" >案件管理者のみ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>株式会社専門一</td>
+                          <td>松本 桜</td>
+                          <td>マツモト サクラ</td>
+                          <td>家屋調査士</td>
+                          <td>一般</td>
+                          <td>sakura.matsumoto@example.com</td>
+                          <td>090-2345-0001</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>株式会社専門二</td>
+                          <td>小川 翔</td>
+                          <td>オガワ ショウ</td>
+                          <td>司法書士</td>
+                          <td>一般</td>
+                          <td>sho.ogawa@example.com</td>
+                          <td>090-2345-0002</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>株式会社専門三</td>
+                          <td>中山 理恵</td>
+                          <td>ナカヤマ リエ</td>
+                          <td>建築士</td>
+                          <td>一般</td>
+                          <td>rie.nakayama@example.com</td>
+                          <td>090-2345-0003</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>株式会社専門四</td>
+                          <td>橋本 健太</td>
+                          <td>ハシモト ケンタ</td>
+                          <td>インテリアコーディネーター</td>
+                          <td>一般</td>
+                          <td>kenta.hashimoto@example.com</td>
+                          <td>090-2345-0004</td>
+                          <td>
+                            <button class="btn btn-danger btn-sm">削除</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                  <!-- 新規登録ボタン -->
-                  <button type="button" class="btn btn-sm btn-outline-secondary">新規登録</button>
                 </div>
               </div>
             </div>
-            <!-- 公図 -->
+
+            <!-- 協力業者追加モーダル -->
+            <div 
+            class="modal fade" 
+            id="addRelatedModal" 
+            tabindex="-1" 
+            aria-labelledby="addRelatedModalLabel" 
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addRelatedModalLabel">協力業者追加 追加</h5>
+                  <button 
+                    type="button" 
+                    class="btn-close" 
+                    data-bs-dismiss="modal" 
+                    aria-label="閉じる"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label class="form-label">会社名</label>
+                    <select class="form-select">
+                      <option>ABC工務店</option>
+                      <option>EFG設計会社</option>
+                      <option>HIJ建設</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">職種</label>
+                    <select class="form-select">
+                      <option>営業</option>
+                      <option>現場監督</option>
+                      <option>設計</option>
+                      <option>インテリアコーディネーター</option>
+                      <option>職人</option>
+                      <option>管理職</option>
+                      <option>事務</option>
+                      <option>積算</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">名前</label>
+                    <select class="form-select">
+                      <option>佐藤 花子</option>
+                      <option>鈴木 次郎</option>
+                      <option>高橋 三郎</option>
+                      <option>田中 美咲</option>
+                      <option>伊藤 翔</option>
+                      <option>渡辺 智子</option>
+                      <option>中村 健</option>
+                      <option>小林 愛</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">新規追加</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+            <!-- 登記資料 -->
             <div class="tab-pane fade" id="sub-official-docs" role="tabpanel" aria-labelledby="sub-officialdocs-tab">
               <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                  <span>公図</span>
+                  <span>登記資料</span>
                   <button class="btn btn-sm btn-outline-secondary">編集</button>
                 </div>
                 <div class="card-body">
@@ -457,7 +784,7 @@
                       <button class="btn btn-outline-secondary" type="button">検索</button>
                     </div>
                   </div>
-                  <!-- 公図テーブル -->
+                  <!-- 登記資料テーブル -->
                   <div class="card">
                     <div class="card-body p-0">
                       <table class="table table-hover table-bordered mb-0">
@@ -513,13 +840,7 @@
                             <td>2025/05/06 14:00</td>
                             <td><button class="btn btn-sm btn-outline-primary">取得済みダウンロード</button></td>
                           </tr>
-                          <tr>
-                            <td>用途地域図</td>
-                            <td><a href="#">3</a></td>
-                            <td>公開</td>
-                            <td>2025/05/07 15:00</td>
-                            <td><button class="btn btn-sm btn-outline-primary">APIで取得</button></td>
-                          </tr>
+                      
                         </tbody>
                       </table>
                     </div>
