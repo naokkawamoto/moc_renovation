@@ -27,21 +27,25 @@
       <div class="text-end">
         <span class="me-2">案件フロー:</span>
         <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
-          <option>案件登録中</option>
-          <option>現地調査中</option>
-          <option selected>プラン中</option>
-          <option>提案完了</option>
-        </select>
-        <button class="btn btn-outline-primary btn-sm">変更</button>
-      </div>
+            <option value="registration">案件登録中</option>
+            <option value="investigate">現地調査中</option>
+            <option value="design">プラン中</option>
+            <option value="estimate">提案完了</option>
+            <option value="estimate">契約完了</option>
+            <option value="estimate">終了</option>
+            </select>
+            <button class="btn btn-outline-primary btn-sm">変更</button>
+        </div>
     </div>
 
-    <!-- ワークフロー バッジ -->
+    <!-- ワークフローバッジ -->
     <div class="d-flex justify-content-end mb-3">
-      <span class="badge bg-light text-dark me-2">案件登録中</span>
-      <span class="badge bg-light text-dark me-2">現地調査中</span>
-      <span class="badge bg-primary me-2">プラン中</span>
-      <span class="badge bg-light text-dark me-2">提案完了</span>
+        <span class="badge bg-light text-dark me-2">案件登録中</span>
+        <span class="badge bg-light text-dark me-2">現地調査中</span>
+        <span class="badge bg-light text-dark me-2">プラン中</span>
+        <span class="badge bg-primary me-2">提案完了</span>
+        <span class="badge bg-light text-dark me-2">契約完了</span>
+        <span class="badge bg-light text-dark me-2">終了</span>
     </div>
 
     <!-- ナビゲーションタブ -->
@@ -51,6 +55,7 @@
       <li class="nav-item"><a class="nav-link" href="site_project_detail_designlist.html">プラン一覧</a></li>
       <li class="nav-item"><a class="nav-link active" href="site_project_detail_doc.html">お客様資料</a></li>
       <li class="nav-item"><a class="nav-link" href="site_project_detail_chat.html">チャット <span class="badge bg-danger">5</span></a></li>
+      <li class="nav-item"><a class="nav-link" href="site_project_detail_expartner.html">外部協力会社依頼<span class="badge bg-danger">3</span></a></li>
     </ul>
 
     <!-- タイトル -->

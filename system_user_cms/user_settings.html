@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>システム設定</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- カスタムCSS -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <div id="header-container"></div>
+
+    <div class="container-fluid mt-4">
+      <h3 class="mb-3">システム設定</h3>
+      <!-- メインタブ -->
+      <ul class="nav nav-tabs mb-3" id="settingsTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tab-registration-tab" data-bs-toggle="tab" data-bs-target="#tab-registration" type="button" role="tab">案件登録設定</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-investigate-tab" data-bs-toggle="tab" data-bs-target="#tab-investigate" type="button" role="tab">現地調査設定</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-plan-tab" data-bs-toggle="tab" data-bs-target="#tab-plan" type="button" role="tab">プラン設定</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-quote-tab" data-bs-toggle="tab" data-bs-target="#tab-quote" type="button" role="tab">見積もり設定</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-finance-tab" data-bs-toggle="tab" data-bs-target="#tab-finance" type="button" role="tab">資金計画設定</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-notify-tab" data-bs-toggle="tab" data-bs-target="#tab-notify" type="button" role="tab">通知設定</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="tab-userperm-tab" href="user_permission.html" role="tab">ユーザー権限設定</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="settingsTabContent">
+        <!-- 案件登録設定 -->
+        <div class="tab-pane fade show active" id="tab-registration" role="tabpanel">
+          <div class="p-4">
+            <!-- 反響種別 -->
+            <div class="mb-5">
+              <div class="mb-2">反響種別</div>
+              <div class="d-flex flex-wrap" style="font-size:x-small;">
+                <!-- 来場予約 -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="rr1" checked>
+                  <label class="form-check-label" for="rr1">来場予約</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- モデルハウス予約 -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="rr2" checked>
+                  <label class="form-check-label" for="rr2">モデルハウス予約</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- 資料請求 -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="rr3" checked>
+                  <label class="form-check-label" for="rr3">資料請求</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- 建売問合せ -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="rr4" checked>
+                  <label class="form-check-label" for="rr4">建売問合せ</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- 土地問合せ -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="rr5" checked>
+                  <label class="form-check-label" for="rr5">土地問合せ</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <button class="btn btn-sm btn-primary">新規追加</button>
+              </div>
+              
+            </div>
+
+            <!-- 反響元：その他WEBページ -->
+            <div class="mb-5">
+              <div class="mb-2">反響元：その他WEBページ</div>
+              <div class="d-flex flex-wrap" style="font-size:x-small;">
+                <!-- SUUMO -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web1" checked>
+                  <label class="form-check-label" for="web1">SUUMO</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- HOME’S -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web2" checked>
+                  <label class="form-check-label" for="web2">HOME’S</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- 不動産ナビ -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web3" checked>
+                  <label class="form-check-label" for="web3">不動産ナビ</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- Instagram -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web4" checked>
+                  <label class="form-check-label" for="web4">Instagram</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- Facebook -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web5" checked>
+                  <label class="form-check-label" for="web5">Facebook</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- LINE -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web6" checked>
+                  <label class="form-check-label" for="web6">LINE</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- YouTube -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web7" checked>
+                  <label class="form-check-label" for="web7">YouTube</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- SNS広告 -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web8" checked>
+                  <label class="form-check-label" for="web8">SNS広告</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <button class="btn btn-sm btn-primary">新規追加</button>
+              </div>
+              
+            </div>
+
+            <!-- 反響元：その他広告 -->
+            <div class="mb-5">
+              <div class="mb-2">反響元：その他広告</div>
+              <div class="d-flex flex-wrap" style="font-size:x-small;">
+                <!-- ポスティングチラシ -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="ad1" checked>
+                  <label class="form-check-label" for="ad1">ポスティングチラシ</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- 折込チラシ -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="ad2" checked>
+                  <label class="form-check-label" for="ad2">折込チラシ</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- 紙媒体広告 -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="ad3" checked>
+                  <label class="form-check-label" for="ad3">紙媒体広告</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- 通りすがり -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="ad4" checked>
+                  <label class="form-check-label" for="ad4">通りすがり</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- YouTube -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web7" checked>
+                  <label class="form-check-label" for="web7">近所</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- SNS広告 -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web8" checked>
+                  <label class="form-check-label" for="web8">野建看板</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- SNS広告 -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web8" checked>
+                  <label class="form-check-label" for="web8">紹介</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <!-- SNS広告 -->
+                <div class="form-check form-check-inline me-4 align-items-center">
+                  <input class="form-check-input" type="checkbox" id="web8" checked>
+                  <label class="form-check-label" for="web8">不明</label>
+                  <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
+                  <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
+                </div>
+                <button class="btn btn-sm btn-primary">新規追加</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 現地調査設定 -->
+        <div class="tab-pane fade" id="tab-investigate" role="tabpanel" aria-labelledby="tab-investigate-tab">
+          <p>現地調査設定が入ります</p>
+        </div>
+        <!-- プラン設定 -->
+        <div class="tab-pane fade" id="tab-plan" role="tabpanel" aria-labelledby="tab-plan-tab">
+          <p>プラン設定が入ります</p>
+        </div>
+        <!-- 見積もり設定 -->
+        <div class="tab-pane fade" id="tab-quote" role="tabpanel" aria-labelledby="tab-quote-tab">
+          <p>見積もり設定が入ります</p>
+        </div>
+        <!-- 資金計画設定 -->
+        <div class="tab-pane fade" id="tab-finance" role="tabpanel" aria-labelledby="tab-finance-tab">
+          <p>資金計画設定が入ります</p>
+        </div>
+        <!-- 通知設定 -->
+        <div class="tab-pane fade" id="tab-notify" role="tabpanel" aria-labelledby="tab-notify-tab">
+          <div class="p-4">
+            <table class="table table-striped small mb-0">
+              <thead>
+                <tr>
+                  <th>通知項目</th>
+                  <th>ON／OFF</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>案件新規作成</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" checked>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>案件ステータス変更</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>プラン新規作成</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" checked>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>プランステータス変更</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>業者見積もり依頼</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>業者見積もり提出</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" checked>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>見積もりステータス変更</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>資金計画ステータス変更</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>チャットで自分と自分を含むグループ宛に受信ある場合</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" checked>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>お知らせがある場合</td>
+                  <td>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 保存ボタン -->
+      <div class="text-end mt-3">
+        <button class="btn btn-primary btn-sm">設定を保存</button>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- カスタムスクリプト -->
+    <script src="../style.js"></script>
+    <script>
+      fetch('user_header.html').then(r=>r.text()).then(html=>document.getElementById('header-container').innerHTML=html);
+      fetch('user_footer.html').then(r=>r.text()).then(html=>document.getElementById('footer-container').innerHTML=html);
+    </script>
+</body>
+</html>
