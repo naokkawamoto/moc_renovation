@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
     <!-- カスタムCSS -->
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -22,6 +24,9 @@
         </li>
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="tab-investigate-tab" data-bs-toggle="tab" data-bs-target="#tab-investigate" type="button" role="tab">現地調査設定</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-questionnaire-tab" data-bs-toggle="tab" data-bs-target="#tab-questionnaire" type="button" role="tab">アンケート設定</button>
         </li>
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="tab-plan-tab" data-bs-toggle="tab" data-bs-target="#tab-plan" type="button" role="tab">プラン設定</button>
@@ -99,10 +104,10 @@
                   <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
                   <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
                 </div>
-                <!-- HOME’S -->
+                <!-- HOME'S -->
                 <div class="form-check form-check-inline me-4 align-items-center">
                   <input class="form-check-input" type="checkbox" id="web2" checked>
-                  <label class="form-check-label" for="web2">HOME’S</label>
+                  <label class="form-check-label" for="web2">HOME'S</label>
                   <i class="bi bi-pencil ms-1" role="button" title="編集"></i>
                   <i class="bi bi-trash ms-1 text-danger" role="button" title="削除"></i>
                 </div>
@@ -218,10 +223,92 @@
             </div>
           </div>
         </div>
+        
         <!-- 現地調査設定 -->
         <div class="tab-pane fade" id="tab-investigate" role="tabpanel" aria-labelledby="tab-investigate-tab">
           <p>現地調査設定が入ります</p>
         </div>
+        
+        <!-- アンケート設定 -->
+        <div class="tab-pane fade" id="tab-questionnaire" role="tabpanel" aria-labelledby="tab-questionnaire-tab">
+          <div class="p-4">
+            <h5 class="mb-3">アンケート設定</h5>
+            
+            <!-- アンケート一覧テーブル -->
+            <div class="table-responsive">
+              <table class="table table-striped table-hover small">
+                <thead class="table-light">
+                  <tr>
+                    <th>ID</th>
+                    <th>アンケート名</th>
+                    <th>作成日</th>
+                    <th>更新日</th>
+                    <th>ステータス</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0001</td>
+                    <td>現地調査アンケート</td>
+                    <td>2025/01/15</td>
+                    <td>2025/01/20</td>
+                    <td><span class="badge bg-success">有効</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" onclick="location.href='user_project_detail_investigate_questionnaire_0001.html'">
+                        <i class="bi bi-eye"></i> 詳細
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0002</td>
+                    <td>お客様満足度調査</td>
+                    <td>2025/01/10</td>
+                    <td>2025/01/18</td>
+                    <td><span class="badge bg-success">有効</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" onclick="location.href='user_project_detail_investigate_questionnaire_0002.html'">
+                        <i class="bi bi-eye"></i> 詳細
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0003</td>
+                    <td>工事希望調査</td>
+                    <td>2025/01/05</td>
+                    <td>2025/01/12</td>
+                    <td><span class="badge bg-secondary">無効</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" onclick="location.href='user_project_detail_investigate_questionnaire_0003.html'">
+                        <i class="bi bi-eye"></i> 詳細
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0004</td>
+                    <td>予算確認アンケート</td>
+                    <td>2025/01/01</td>
+                    <td>2025/01/08</td>
+                    <td><span class="badge bg-success">有効</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" onclick="location.href='user_project_detail_investigate_questionnaire_0004.html'">
+                        <i class="bi bi-eye"></i> 詳細
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- 新規作成ボタン -->
+            <div class="mt-4">
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createQuestionnaireModal">
+                <i class="bi bi-plus-circle"></i> 新しくアンケートを作成する
+              </button>
+            </div>
+          </div>
+        </div>
+        
         <!-- プラン設定 -->
         <div class="tab-pane fade" id="tab-plan" role="tabpanel" aria-labelledby="tab-plan-tab">
           <p>プラン設定が入ります</p>
@@ -337,6 +424,55 @@
       </div>
     </div>
 
+    <!-- アンケート新規作成モーダル -->
+    <div class="modal fade" id="createQuestionnaireModal" tabindex="-1" aria-labelledby="createQuestionnaireModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createQuestionnaireModalLabel">アンケート新規作成</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">作成方法を選択してください</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="createMethod" id="createNew" value="new" checked>
+                <label class="form-check-label" for="createNew">
+                  新規作成
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="createMethod" id="createCopy" value="copy">
+                <label class="form-check-label" for="createCopy">
+                  既存をコピーして作成
+                </label>
+              </div>
+            </div>
+            
+            <div id="copyOptions" class="mb-3" style="display: none;">
+              <label class="form-label">コピー元アンケートを選択</label>
+              <select class="form-select">
+                <option value="">選択してください</option>
+                <option value="0001">0001 - 現地調査アンケート</option>
+                <option value="0002">0002 - お客様満足度調査</option>
+                <option value="0003">0003 - 工事希望調査</option>
+                <option value="0004">0004 - 予算確認アンケート</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">アンケート名</label>
+              <input type="text" class="form-control" placeholder="アンケート名を入力してください">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+            <button type="button" class="btn btn-primary">作成</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- フッター -->
     <div id="footer-container"></div>
 
@@ -348,6 +484,21 @@
     <script>
       fetch('user_header.html').then(r=>r.text()).then(html=>document.getElementById('header-container').innerHTML=html);
       fetch('user_footer.html').then(r=>r.text()).then(html=>document.getElementById('footer-container').innerHTML=html);
+      
+      // アンケート新規作成モーダルの制御
+      document.addEventListener('DOMContentLoaded', function() {
+        const createNewRadio = document.getElementById('createNew');
+        const createCopyRadio = document.getElementById('createCopy');
+        const copyOptions = document.getElementById('copyOptions');
+        
+        createNewRadio.addEventListener('change', function() {
+          copyOptions.style.display = 'none';
+        });
+        
+        createCopyRadio.addEventListener('change', function() {
+          copyOptions.style.display = 'block';
+        });
+      });
     </script>
 </body>
 </html>
