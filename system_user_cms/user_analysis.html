@@ -63,19 +63,19 @@
                           <label class="form-label fw-bold">アンケート選択</label>
                           <div class="d-flex flex-wrap gap-3">
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="q0001" value="0001" checked>
+                              <input class="form-check-input" type="radio" name="questionnaire" id="q0001" value="0001" checked>
                               <label class="form-check-label" for="q0001">ID0001 住まいに関する悩み</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="q0002" value="0002" checked>
+                              <input class="form-check-input" type="radio" name="questionnaire" id="q0002" value="0002">
                               <label class="form-check-label" for="q0002">ID0002 平日と休日の生活について</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="q0003" value="0003">
+                              <input class="form-check-input" type="radio" name="questionnaire" id="q0003" value="0003">
                               <label class="form-check-label" for="q0003">ID0003 建築家設計希望 間取り・ゾーニング・部屋数</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="q0004" value="0004">
+                              <input class="form-check-input" type="radio" name="questionnaire" id="q0004" value="0004">
                               <label class="form-check-label" for="q0004">ID0004 予算に関するヒアリングシート</label>
                             </div>
                           </div>
@@ -88,12 +88,31 @@
                           <label class="form-label fw-bold">対象範囲</label>
                           <div class="d-flex flex-column gap-2">
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="filter-all" value="all" checked>
+                              <input class="form-check-input" type="radio" name="scope" id="filter-all" value="all" checked>
                               <label class="form-check-label" for="filter-all">全社</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="filter-branch" value="branch">
+                              <input class="form-check-input" type="radio" name="scope" id="filter-branch" value="branch">
                               <label class="form-check-label" for="filter-branch">支店別</label>
+                            </div>
+                          </div>
+                          
+                          <!-- 支店選択（支店別が選択された時のみ表示） -->
+                          <div id="branchSelection" class="mt-2" style="display: none;">
+                            <label class="form-label fw-bold">支店名</label>
+                            <div class="d-flex flex-column gap-2">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="branch-tokyo" value="tokyo">
+                                <label class="form-check-label" for="branch-tokyo">東京支店</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="branch-osaka" value="osaka">
+                                <label class="form-check-label" for="branch-osaka">大阪支店</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="branch-nagoya" value="nagoya">
+                                <label class="form-check-label" for="branch-nagoya">名古屋支店</label>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -101,23 +120,23 @@
                           <label class="form-label fw-bold">物件種別</label>
                           <div class="d-flex flex-column gap-2">
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="property-house" value="house" checked>
+                              <input class="form-check-input" type="radio" name="property" id="property-house" value="house" checked>
                               <label class="form-check-label" for="property-house">戸建て</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="property-office" value="office">
+                              <input class="form-check-input" type="radio" name="property" id="property-office" value="office">
                               <label class="form-check-label" for="property-office">オフィス</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="property-shop" value="shop">
+                              <input class="form-check-input" type="radio" name="property" id="property-shop" value="shop">
                               <label class="form-check-label" for="property-shop">店舗</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="property-apartment" value="apartment">
+                              <input class="form-check-input" type="radio" name="property" id="property-apartment" value="apartment">
                               <label class="form-check-label" for="property-apartment">アパート</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="property-other" value="other">
+                              <input class="form-check-input" type="radio" name="property" id="property-other" value="other">
                               <label class="form-check-label" for="property-other">その他</label>
                             </div>
                           </div>
@@ -126,31 +145,31 @@
                           <label class="form-label fw-bold">工事区分</label>
                           <div class="d-flex flex-column gap-2">
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="work-new" value="new" checked>
+                              <input class="form-check-input" type="radio" name="work" id="work-new" value="new" checked>
                               <label class="form-check-label" for="work-new">新築</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="work-existing" value="existing">
+                              <input class="form-check-input" type="radio" name="work" id="work-existing" value="existing">
                               <label class="form-check-label" for="work-existing">既存住宅</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="work-used-purchase" value="used-purchase">
+                              <input class="form-check-input" type="radio" name="work" id="work-used-purchase" value="used-purchase">
                               <label class="form-check-label" for="work-used-purchase">中古住宅購入</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="work-existing-mansion" value="existing-mansion">
+                              <input class="form-check-input" type="radio" name="work" id="work-existing-mansion" value="existing-mansion">
                               <label class="form-check-label" for="work-existing-mansion">既存マンション</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="work-used-mansion" value="used-mansion">
+                              <input class="form-check-input" type="radio" name="work" id="work-used-mansion" value="used-mansion">
                               <label class="form-check-label" for="work-used-mansion">中古マンション購入</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="work-rental" value="rental">
+                              <input class="form-check-input" type="radio" name="work" id="work-rental" value="rental">
                               <label class="form-check-label" for="work-rental">賃貸物件</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="work-other" value="other">
+                              <input class="form-check-input" type="radio" name="work" id="work-other" value="other">
                               <label class="form-check-label" for="work-other">その他</label>
                             </div>
                           </div>
@@ -398,46 +417,76 @@
       fetch('user_header.html').then(r=>r.text()).then(html=>document.getElementById('header-container').innerHTML=html);
       fetch('user_footer.html').then(r=>r.text()).then(html=>document.getElementById('footer-container').innerHTML=html);
   
+      // ページ読み込み時の初期化
+      document.addEventListener('DOMContentLoaded', function() {
+        // 対象範囲のラジオボックス変更時の処理
+        const scopeRadios = document.querySelectorAll('input[name="scope"]');
+        scopeRadios.forEach(radio => {
+          radio.addEventListener('change', function() {
+            const branchSelection = document.getElementById('branchSelection');
+            if (this.value === 'branch') {
+              branchSelection.style.display = 'block';
+            } else {
+              branchSelection.style.display = 'none';
+              // 支店選択をクリア
+              document.querySelectorAll('input[id^="branch-"]').forEach(checkbox => {
+                checkbox.checked = false;
+              });
+            }
+          });
+        });
+      });
+  
       // アンケート分析機能
       function analyzeQuestionnaire() {
         // 選択されたアンケートを取得
-        const selectedQuestionnaires = [];
-        document.querySelectorAll('input[id^="q"]:checked').forEach(checkbox => {
-          selectedQuestionnaires.push(checkbox.value);
-        });
+        const selectedQuestionnaire = document.querySelector('input[name="questionnaire"]:checked');
+        
+        if (!selectedQuestionnaire) {
+          alert('アンケートを1つ選択してください。');
+          return;
+        }
+
+        const selectedQuestionnaires = [selectedQuestionnaire.value];
 
         // 選択されたフィルター条件を取得
         const selectedFilters = {
           scope: [],
           property: [],
-          work: []
+          work: [],
+          branches: []
         };
 
         // 対象範囲
-        document.querySelectorAll('input[id^="filter"]:checked').forEach(checkbox => {
-          selectedFilters.scope.push(checkbox.value);
-        });
+        const selectedScope = document.querySelector('input[name="scope"]:checked');
+        if (selectedScope) {
+          selectedFilters.scope.push(selectedScope.value);
+        }
 
         // 物件種別
-        document.querySelectorAll('input[id^="property"]:checked').forEach(checkbox => {
-          selectedFilters.property.push(checkbox.value);
-        });
+        const selectedProperty = document.querySelector('input[name="property"]:checked');
+        if (selectedProperty) {
+          selectedFilters.property.push(selectedProperty.value);
+        }
 
         // 工事区分
-        document.querySelectorAll('input[id^="work"]:checked').forEach(checkbox => {
-          selectedFilters.work.push(checkbox.value);
-        });
+        const selectedWork = document.querySelector('input[name="work"]:checked');
+        if (selectedWork) {
+          selectedFilters.work.push(selectedWork.value);
+        }
+
+        // 支店選択（支店別が選択されている場合）
+        if (selectedScope && selectedScope.value === 'branch') {
+          document.querySelectorAll('input[id^="branch-"]:checked').forEach(checkbox => {
+            selectedFilters.branches.push(checkbox.value);
+          });
+        }
 
         // 集計期間
         const startMonth = document.getElementById('startMonth').value;
         const endMonth = document.getElementById('endMonth').value;
 
         // バリデーション
-        if (selectedQuestionnaires.length === 0) {
-          alert('アンケートを1つ以上選択してください。');
-          return;
-        }
-
         if (selectedFilters.scope.length === 0) {
           alert('対象範囲を選択してください。');
           return;
@@ -450,6 +499,12 @@
 
         if (selectedFilters.work.length === 0) {
           alert('工事区分を選択してください。');
+          return;
+        }
+
+        // 支店別が選択されている場合、支店を1つ以上選択する必要がある
+        if (selectedScope && selectedScope.value === 'branch' && selectedFilters.branches.length === 0) {
+          alert('支店を1つ以上選択してください。');
           return;
         }
 
@@ -487,6 +542,19 @@
       // 選択条件の表示
       function showSelectedConditions(questionnaires, filters, startMonth, endMonth) {
         const resultsDiv = document.getElementById('analysisResults');
+        
+        // 支店名の表示用
+        let scopeDisplay = filters.scope.map(s => s === 'all' ? '全社' : '支店別').join(', ');
+        if (filters.scope.includes('branch') && filters.branches.length > 0) {
+          const branchNames = {
+            'tokyo': '東京支店',
+            'osaka': '大阪支店',
+            'nagoya': '名古屋支店'
+          };
+          const selectedBranches = filters.branches.map(b => branchNames[b] || b).join(', ');
+          scopeDisplay += ` (${selectedBranches})`;
+        }
+        
         const conditionsHtml = `
           <div class="alert alert-info mb-3">
             <h6 class="mb-2">選択された条件</h6>
@@ -505,7 +573,7 @@
               </div>
               <div class="col-md-3">
                 <strong>対象範囲:</strong><br>
-                ${filters.scope.map(s => s === 'all' ? '全社' : '支店別').join('<br>')}
+                ${scopeDisplay}
               </div>
               <div class="col-md-3">
                 <strong>物件種別:</strong><br>
@@ -550,15 +618,6 @@
         
         // 新しい条件表示を挿入
         resultsDiv.insertAdjacentHTML('afterbegin', conditionsHtml);
-      }
-
-      // 全選択機能
-      function selectAllQuestionnaires() {
-        const checkboxes = document.querySelectorAll('input[id^="q"]');
-        const selectAllCheckbox = document.getElementById('selectAllQuestionnaires');
-        checkboxes.forEach(checkbox => {
-          checkbox.checked = selectAllCheckbox.checked;
-        });
       }
     </script>
   </body>

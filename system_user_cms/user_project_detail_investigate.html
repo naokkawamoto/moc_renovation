@@ -74,44 +74,67 @@
         <li class="nav-item"><a class="nav-link"      href="user_project_detail_expartner.html">外部業務依頼</a></li>
         </ul>
 
-        <!-- 日程とアンケート -->
-        <div class="row mb-5 gx-3">
-        <div class="col-md-6">
-            <div class="card border card-project">
-            <div class="card-body text-center">
-                <h5 class="mb-2">
-                現地調査日程
-                <span class="badge bg-warning text-dark">日程確認前</span>
-                </h5>
-                <div class="mb-3">
-                <input type="date" class="form-control form-control-sm d-inline-block me-2" style="width:auto;" value="2025-05-20">
-                <input type="time" class="form-control form-control-sm d-inline-block" style="width:auto;" value="10:00">
+        <!-- セクション1: お客様調整 -->
+        <div class="card mb-5">
+            <div class="card-header">
+                <h5 class="mb-0">お客様調整</h5>
+            </div>
+            <div class="card-body" style="padding-top: 0.5rem;">
+                <div class="row g-3">
+                    <!-- 1. 現地調査日程調整 -->
+                    <div class="col-md-4">
+                        <div class="card border card-project h-100" style="margin-top: -3px;">
+                            <div class="card-body text-center">
+                                <h6 class="mb-2">
+                                    現地調査日程調整
+                                    <span class="badge bg-warning text-dark">日程確認前</span>
+                                </h6>
+                                <div class="mb-3">
+                                    <input type="date" class="form-control form-control-sm d-inline-block me-2" style="width:auto;" value="2025-05-20">
+                                    <input type="time" class="form-control form-control-sm d-inline-block" style="width:auto;" value="10:00">
+                                </div>
+                                <button class="btn btn-primary btn-sm" onclick="location.href='user_project_detail_investigate_schedule.html'">日程調整</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. お客様システム登録案内 -->
+                    <div class="col-md-4">
+                        <div class="card border card-project h-100" style="margin-top: -3px;">
+                            <div class="card-body text-center">
+                                <h6 class="mb-2">
+                                    お客様システム登録案内
+                                    <span class="badge bg-danger text-light">登録前</span>
+                                </h6>
+                                <button class="btn btn-primary btn-sm" onclick="openRegistrationModal()">お客様へメール送信</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. お客様アンケート -->
+                    <div class="col-md-4">
+                        <div class="card border card-project h-100" style="margin-top: -3px;">
+                            <div class="card-body text-center">
+                                <h6 class="mb-2">
+                                    お客様アンケート
+                                    <span class="badge bg-danger text-light">未送信</span>
+                                </h6>
+                                <button class="btn btn-primary btn-sm" onclick="location.href='user_project_detail_investigate_questionnaire.html'">アンケート送信</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button class="btn btn-primary btn-lg" onclick="location.href='user_project_detail_investigate_schedule.html'">日程調整</button>
             </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card border card-project">
-            <div class="card-body text-center">
-                <h5 class="mb-3">
-                お客様アンケート
-                <span class="badge bg-danger text-light">未送信</span>
-                </h5>
-                <button class="btn btn-primary btn-lg" onclick="location.href='user_project_detail_investigate_questionnaire.html'">アンケート送信</button>
-            </div>
-            </div>
-        </div>
         </div>
 
-        <!-- フロアープラン -->
+        <!-- セクション2: 現地調査 -->
         <h5 class="mb-3">現地調査</h5>
         <div id="floorView" class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3 mb-5">
         <!-- 1F カード -->
         <div class="col-6 col-md-4 col-lg-3">
             <div class="card card-project h-100 text-center" onclick="location.href='user_project_detail_investigate_1f.html'">
                 <div class="card-header">1F</div>
-                <img src="../images/1F.webp" class="card-img-top" alt="1F画像">
+                <img src="../images/1f.webp" class="card-img-top" alt="1F画像">
                 </div>
             </div>
             <!-- 2F カード（モーダルを呼び出し） -->
@@ -204,6 +227,47 @@
         </div></div>
     </div>
 
+    <!-- HAUSCAN登録案内モーダル -->
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registrationModalLabel">HAUSCAN登録のお願い</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">件名</label>
+                        <input type="text" class="form-control" value="HAUSCAN登録のお願い" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">本文</label>
+                        <textarea class="form-control" rows="10" readonly>施主様
+
+いつもお世話になっております。株式会社サンプル 支店：サンプル支店 担当：山田太郎です。
+
+下記URLをから登録をお願いいたします。
+ご不明な点がございましたらお気軽に下記電話番号までお問い合わせください。
+
+URL: https://hauscan.example.com/register
+電話番号: 03-1234-5678
+
+よろしくお願いいたします。
+
+株式会社サンプル
+支店：サンプル支店
+担当：山田太郎
+TEL: 03-1234-5678</textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn btn-primary" onclick="sendRegistrationEmail()">送信</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- フッター -->
     <div id="footer-container"></div>
 
@@ -214,6 +278,27 @@
     <script>
         fetch('user_header.html').then(r => r.text()).then(html => document.getElementById('header-container').innerHTML = html);
         fetch('user_footer.html').then(r => r.text()).then(html => document.getElementById('footer-container').innerHTML = html);
+
+        // HAUSCAN登録案内モーダルを開く関数
+        function openRegistrationModal() {
+            const registrationModal = new bootstrap.Modal(document.getElementById('registrationModal'));
+            registrationModal.show();
+        }
+
+        // 登録案内メール送信関数
+        function sendRegistrationEmail() {
+            // ここにメール送信の処理を追加
+            alert('HAUSCAN登録案内メールを送信しました');
+            
+            // ステータスバッジを更新
+            const statusBadge = document.querySelector('.card:nth-child(2) .badge');
+            statusBadge.textContent = '登録済み';
+            statusBadge.className = 'badge bg-success text-light';
+            
+            // モーダルを閉じる
+            const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
+            registrationModal.hide();
+        }
     </script>
 </body>
 </html>
