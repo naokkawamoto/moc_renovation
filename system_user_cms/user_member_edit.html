@@ -28,7 +28,7 @@
         <!-- 操作ボタン -->
         <div class="d-flex justify-content-end mb-3">
           <button type="button" class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#addMemberModal">新規登録</button>
-          <button type="button" class="btn btn-secondary btn-sm">一括登録</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#bulkAddModal">一括登録</button>
         </div>
 
         <!-- テーブル -->
@@ -79,6 +79,28 @@
                 <td>建築士</td>
                 <td>090-3333-4444</td>
                 <td>jiro.takahashi@expert-b.jp</td>
+                <td><button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">削除</button></td>
+              </tr>
+              <tr>
+                <td>社内</td>
+                <td>クライアント株式会社</td>
+                <td>大阪支店</td>
+                <td>田中 美咲</td>
+                <td>タナカ ミサキ</td>
+                <td>設計</td>
+                <td>090-4444-5555</td>
+                <td>misaki.tanaka@client.co.jp</td>
+                <td><button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">削除</button></td>
+              </tr>
+              <tr>
+                <td>協力業者</td>
+                <td>協力会社B</td>
+                <td>-</td>
+                <td>山田 太郎</td>
+                <td>ヤマダ タロウ</td>
+                <td>職人</td>
+                <td>090-5555-6666</td>
+                <td>taro.yamada@coop-b.co.jp</td>
                 <td><button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">削除</button></td>
               </tr>
             </tbody>
@@ -177,6 +199,86 @@
     </div>
   </div>
 
+  <!-- 一括登録モーダル -->
+  <div class="modal fade" id="bulkAddModal" tabindex="-1" aria-labelledby="bulkAddModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bulkAddModalLabel">一括登録</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <!-- 左側：選択エリア -->
+            <div class="col-md-6">
+              <h6 class="mb-3">登録対象の選択</h6>
+              
+              <!-- 区分選択 -->
+              <div class="mb-3">
+                <label class="form-label">区分</label>
+                <select class="form-select" id="bulkMemberTypeSelect">
+                  <option value="社内">社内</option>
+                  <option value="協力業者">協力業者</option>
+                  <option value="外部専門家">外部専門家</option>
+                </select>
+              </div>
+
+              <!-- 会社名選択 -->
+              <div class="mb-3" id="bulkCompanyContainer">
+                <label class="form-label">会社名</label>
+                <select class="form-select" id="bulkCompanySelect">
+                  <option value="">会社を選択してください</option>
+                </select>
+              </div>
+
+              <!-- 職種選択 -->
+              <div class="mb-3">
+                <label class="form-label">職種</label>
+                <select class="form-select" id="bulkPositionSelect">
+                  <option value="">職種を選択してください</option>
+                </select>
+              </div>
+
+              <!-- 名前選択 -->
+              <div class="mb-3">
+                <label class="form-label">名前</label>
+                <select class="form-select" id="bulkNameSelect" multiple size="6">
+                  <!-- 動的に読み込まれる -->
+                </select>
+                <small class="form-text text-muted">Ctrl+クリックで複数選択できます</small>
+              </div>
+
+              <!-- 追加ボタン -->
+              <button type="button" class="btn btn-primary" onclick="addSelectedMembers()">
+                <i class="bi bi-plus-circle"></i> 選択したメンバーを追加
+              </button>
+            </div>
+
+            <!-- 右側：追加予定リスト -->
+            <div class="col-md-6">
+              <h6 class="mb-3">追加予定リスト</h6>
+              <div id="pendingMembersList" class="border rounded p-3" style="min-height: 300px; max-height: 400px; overflow-y: auto;">
+                <p class="text-muted text-center">追加予定のメンバーがここに表示されます</p>
+              </div>
+              
+              <div class="mt-3">
+                <button type="button" class="btn btn-success" onclick="confirmBulkAdd()">
+                  <i class="bi bi-check-circle"></i> 一括登録を実行
+                </button>
+                <button type="button" class="btn btn-outline-secondary" onclick="clearPendingList()">
+                  <i class="bi bi-trash"></i> リストをクリア
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 削除確認モーダル -->
   <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -229,6 +331,186 @@
           .forEach(opt => positionSelect.add(new Option(opt,opt)));
       }
     });
+
+    // 一括登録用のデータ
+    const memberData = {
+      '社内': {
+        companies: ['クライアント株式会社'],
+        branches: ['東京支店', '大阪支店', '名古屋支店', '福岡支店'],
+        positions: ['営業', '現場監督', '設計', 'インテリアコーディネーター', '職人', '管理職', '事務', '積算'],
+        names: [
+          {name: '佐藤 真', kana: 'サトウ マコト', phone: '090-1111-2222', email: 'makoto.sato@client.co.jp'},
+          {name: '田中 美咲', kana: 'タナカ ミサキ', phone: '090-4444-5555', email: 'misaki.tanaka@client.co.jp'},
+          {name: '山田 太郎', kana: 'ヤマダ タロウ', phone: '090-7777-8888', email: 'taro.yamada@client.co.jp'},
+          {name: '鈴木 花子', kana: 'スズキ ハナコ', phone: '090-9999-0000', email: 'hanako.suzuki@client.co.jp'},
+          {name: '高橋 次郎', kana: 'タカハシ ジロウ', phone: '090-1111-3333', email: 'jiro.takahashi@client.co.jp'}
+        ]
+      },
+      '協力業者': {
+        companies: ['協力会社A', '協力会社B', '協力会社C'],
+        branches: ['-'],
+        positions: ['積算', '事務', '管理職', '職人', '営業', '代表者'],
+        names: [
+          {name: '佐藤 健一', kana: 'サトウ ケンイチ', phone: '090-2222-3333', email: 'kenichi.sato@coop-a.co.jp'},
+          {name: '田中 恵子', kana: 'タナカ ケイコ', phone: '090-3333-4444', email: 'keiko.tanaka@coop-b.co.jp'},
+          {name: '山田 大輔', kana: 'ヤマダ ダイスケ', phone: '090-4444-5555', email: 'daisuke.yamada@coop-c.co.jp'},
+          {name: '鈴木 美穂', kana: 'スズキ ミホ', phone: '090-5555-6666', email: 'miho.suzuki@coop-a.co.jp'},
+          {name: '高橋 誠', kana: 'タカハシ マコト', phone: '090-6666-7777', email: 'makoto.takahashi@coop-b.co.jp'}
+        ]
+      },
+      '外部専門家': {
+        companies: ['専門家事務所A', '専門家事務所B', '専門家事務所C'],
+        branches: ['-'],
+        positions: ['家屋調査士', '司法書士', '建築士', 'インテリアコーディネーター'],
+        names: [
+          {name: '佐藤 翔', kana: 'サトウ ショウ', phone: '090-7777-8888', email: 'sho.sato@expert-a.jp'},
+          {name: '田中 美咲', kana: 'タナカ ミサキ', phone: '090-8888-9999', email: 'misaki.tanaka@expert-b.jp'},
+          {name: '山田 健太', kana: 'ヤマダ ケンタ', phone: '090-9999-0000', email: 'kenta.yamada@expert-c.jp'},
+          {name: '鈴木 花子', kana: 'スズキ ハナコ', phone: '090-0000-1111', email: 'hanako.suzuki@expert-a.jp'},
+          {name: '高橋 次郎', kana: 'タカハシ ジロウ', phone: '090-1111-2222', email: 'jiro.takahashi@expert-b.jp'}
+        ]
+      }
+    };
+
+    // 一括登録モーダル用の要素
+    const bulkTypeSelect = document.getElementById('bulkMemberTypeSelect');
+    const bulkCompanySelect = document.getElementById('bulkCompanySelect');
+    const bulkPositionSelect = document.getElementById('bulkPositionSelect');
+    const bulkNameSelect = document.getElementById('bulkNameSelect');
+    const pendingMembersList = document.getElementById('pendingMembersList');
+
+    // 追加予定リスト
+    let pendingMembers = [];
+
+    // 一括登録モーダルの初期化
+    bulkTypeSelect.addEventListener('change', updateBulkOptions);
+    
+    // モーダルが開かれた時の初期化
+    document.getElementById('bulkAddModal').addEventListener('show.bs.modal', function () {
+      updateBulkOptions();
+      clearPendingList();
+    });
+
+    // 選択肢の更新
+    function updateBulkOptions() {
+      const selectedType = bulkTypeSelect.value;
+      const data = memberData[selectedType];
+
+      // 会社名の更新
+      bulkCompanySelect.innerHTML = '<option value="">会社を選択してください</option>';
+      data.companies.forEach(company => {
+        bulkCompanySelect.add(new Option(company, company));
+      });
+
+      // 職種の更新
+      bulkPositionSelect.innerHTML = '<option value="">職種を選択してください</option>';
+      data.positions.forEach(position => {
+        bulkPositionSelect.add(new Option(position, position));
+      });
+
+      // 名前の更新
+      bulkNameSelect.innerHTML = '';
+      data.names.forEach(member => {
+        bulkNameSelect.add(new Option(member.name, member.name));
+      });
+    }
+
+    // 選択したメンバーを追加予定リストに追加
+    function addSelectedMembers() {
+      const selectedType = bulkTypeSelect.value;
+      const selectedCompany = bulkCompanySelect.value;
+      const selectedPosition = bulkPositionSelect.value;
+      const selectedNames = Array.from(bulkNameSelect.selectedOptions).map(option => option.value);
+
+      if (!selectedCompany || !selectedPosition || selectedNames.length === 0) {
+        alert('会社名、職種、名前を選択してください。');
+        return;
+      }
+
+      const data = memberData[selectedType];
+      selectedNames.forEach(name => {
+        const memberInfo = data.names.find(m => m.name === name);
+        if (memberInfo) {
+          const newMember = {
+            type: selectedType,
+            company: selectedCompany,
+            branch: data.branches[0],
+            name: memberInfo.name,
+            kana: memberInfo.kana,
+            position: selectedPosition,
+            phone: memberInfo.phone,
+            email: memberInfo.email
+          };
+          
+          // 重複チェック
+          if (!pendingMembers.some(m => m.name === newMember.name && m.company === newMember.company)) {
+            pendingMembers.push(newMember);
+          }
+        }
+      });
+
+      updatePendingMembersList();
+      bulkNameSelect.selectedIndex = -1; // 選択をクリア
+    }
+
+    // 追加予定リストの表示更新
+    function updatePendingMembersList() {
+      if (pendingMembers.length === 0) {
+        pendingMembersList.innerHTML = '<p class="text-muted text-center">追加予定のメンバーがここに表示されます</p>';
+        return;
+      }
+
+      let html = '<div class="list-group">';
+      pendingMembers.forEach((member, index) => {
+        html += `
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <strong>${member.name}</strong> (${member.position})<br>
+              <small class="text-muted">${member.company} - ${member.type}</small>
+            </div>
+            <button class="btn btn-sm btn-outline-danger" onclick="removePendingMember(${index})">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+        `;
+      });
+      html += '</div>';
+      pendingMembersList.innerHTML = html;
+    }
+
+    // 追加予定リストから削除
+    function removePendingMember(index) {
+      pendingMembers.splice(index, 1);
+      updatePendingMembersList();
+    }
+
+    // 追加予定リストをクリア
+    function clearPendingList() {
+      pendingMembers = [];
+      updatePendingMembersList();
+    }
+
+    // 一括登録の実行
+    function confirmBulkAdd() {
+      if (pendingMembers.length === 0) {
+        alert('追加予定のメンバーがありません。');
+        return;
+      }
+
+      // ここで実際の登録処理を行う
+      console.log('一括登録実行:', pendingMembers);
+      alert(`${pendingMembers.length}名のメンバーを登録しました。`);
+      
+      // モーダルを閉じる
+      const modal = bootstrap.Modal.getInstance(document.getElementById('bulkAddModal'));
+      modal.hide();
+      
+      // リストをクリア
+      clearPendingList();
+      
+      // ページをリロード（実際の実装では不要）
+      // location.reload();
+    }
   </script>
 </body>
 </html>

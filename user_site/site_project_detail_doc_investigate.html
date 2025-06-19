@@ -76,21 +76,28 @@
           <thead class="table-light">
             <tr>
               <th>資料名称</th>
-              <th>購読数</th>
-              <th>公開設定</th>
+              <th>社内（購読）</th>
+              <th>協力業者（購読）</th>
+              <th>専門業者（購読）</th>
               <th>作成日時</th>
               <th>アクション</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>現地調査報告書（案件名：プラン１）</td>
+              <td>案件名_現地調査報告書_20250507</td>
               <td>
-                <button class="btn btn-link p-0 small-text" data-bs-toggle="modal" data-bs-target="#investSubscribersModal">
-                  3
-                </button>
+                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#publishSettingModalStaff">公開</button>
+                <button class="btn btn-link p-0 small-text align-baseline" data-bs-toggle="modal" data-bs-target="#subscribersModalStaff">（3）</button>
               </td>
-              <td>公開</td>
+              <td>
+                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#publishSettingModalPartner">公開</button>
+                <button class="btn btn-link p-0 small-text align-baseline" data-bs-toggle="modal" data-bs-target="#subscribersModalPartner">（3）</button>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#publishSettingModalExpert">非公開</button>
+                <button class="btn btn-link p-0 small-text align-baseline" data-bs-toggle="modal" data-bs-target="#subscribersModalExpert">（0）</button>
+              </td>
               <td>2025/05/07 15:00</td>
               <td>
                 <button class="btn btn-sm btn-outline-primary">
@@ -102,23 +109,202 @@
         </table>
       </div>
   
-      <!-- 購読者一覧モーダル（現地調査） -->
-      <div class="modal fade" id="investSubscribersModal" tabindex="-1" aria-labelledby="investSubscribersModalLabel" aria-hidden="true">
+      <!-- 社内購読者モーダル -->
+      <div class="modal fade" id="subscribersModalStaff" tabindex="-1" aria-labelledby="subscribersModalStaffLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="investSubscribersModalLabel">購読者一覧</h5>
+              <h5 class="modal-title" id="subscribersModalStaffLabel">社内購読者一覧</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body small-text">
               <ul class="list-unstyled mb-0">
-                <li>1. 会社A：担当者A</li>
-                <li>2. 会社B：担当者B</li>
-                <li>3. 会社C：担当者C</li>
+                <li>1. 東京本社 営業部 山田 太郎</li>
+                <li>2. 大阪支店 設計部 鈴木 一郎</li>
+                <li>3. 名古屋支店 工務部 佐藤 次郎</li>
               </ul>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">閉じる</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 協力業者購読者モーダル -->
+      <div class="modal fade" id="subscribersModalPartner" tabindex="-1" aria-labelledby="subscribersModalPartnerLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="subscribersModalPartnerLabel">協力業者購読者一覧</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body small-text">
+              <ul class="list-unstyled mb-0">
+                <li>1. 株式会社ABC建設 工事担当 田中 三郎</li>
+                <li>2. 株式会社XYZ設計 設計担当 高橋 四郎</li>
+                <li>3. 株式会社123設備 設備担当 伊藤 五郎</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">閉じる</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 専門業者購読者モーダル -->
+      <div class="modal fade" id="subscribersModalExpert" tabindex="-1" aria-labelledby="subscribersModalExpertLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="subscribersModalExpertLabel">専門業者購読者一覧</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body small-text">
+              <ul class="list-unstyled mb-0">
+                <li>購読者はいません</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">閉じる</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 社内公開設定モーダル（チェックボックス） -->
+      <div class="modal fade" id="publishSettingModalStaff" tabindex="-1" aria-labelledby="publishSettingModalStaffLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="publishSettingModalStaffLabel">社内公開設定</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="mb-4">この案件を以下の社内メンバーに公開するにはチェックボックスを押してください。</p>
+              <div class="mb-4">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="allStaff">
+                  <label class="form-check-label fw-bold" for="allStaff">
+                    社内担当者全て
+                  </label>
+                </div>
+                <div class="ms-4">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="staff1">
+                    <label class="form-check-label" for="staff1">
+                      東京本社 営業部 山田 太郎
+                    </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="staff2">
+                    <label class="form-check-label" for="staff2">
+                      大阪支店 設計部 鈴木 一郎
+                    </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="staff3">
+                    <label class="form-check-label" for="staff3">
+                      名古屋支店 工務部 佐藤 次郎
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+              <button type="button" class="btn btn-primary">保存</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 協力業者公開設定モーダル（チェックボックス） -->
+      <div class="modal fade" id="publishSettingModalPartner" tabindex="-1" aria-labelledby="publishSettingModalPartnerLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="publishSettingModalPartnerLabel">外部協力会社公開設定</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="mb-4">この案件を以下の外部協力会社に公開するにはチェックボックスを押してください。</p>
+              <div class="mb-4">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="allPartners">
+                  <label class="form-check-label fw-bold" for="allPartners">
+                    外部協力業者全て
+                  </label>
+                </div>
+                <div class="ms-4">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="partner1">
+                    <label class="form-check-label" for="partner1">
+                      株式会社ABC建設 工事担当 田中 三郎
+                    </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="partner2">
+                    <label class="form-check-label" for="partner2">
+                      株式会社XYZ設計 設計担当 高橋 四郎
+                    </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="partner3">
+                    <label class="form-check-label" for="partner3">
+                      株式会社123設備 設備担当 伊藤 五郎
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+              <button type="button" class="btn btn-primary">保存</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 専門業者公開設定モーダル（チェックボックス） -->
+      <div class="modal fade" id="publishSettingModalExpert" tabindex="-1" aria-labelledby="publishSettingModalExpertLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="publishSettingModalExpertLabel">外部専門業者公開設定</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="mb-4">この案件を以下の外部専門業者に公開するにはチェックボックスを押してください。</p>
+              <div class="mb-4">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="allExperts">
+                  <label class="form-check-label fw-bold" for="allExperts">
+                    外部専門家全て
+                  </label>
+                </div>
+                <div class="ms-4">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="expert1">
+                    <label class="form-check-label" for="expert1">
+                      株式会社建築コンサル 構造設計 渡辺 六郎
+                    </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="expert2">
+                    <label class="form-check-label" for="expert2">
+                      株式会社法務事務所 法務担当 中村 七郎
+                    </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="expert3">
+                    <label class="form-check-label" for="expert3">
+                      株式会社税理士法人 税務担当 小林 八郎
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+              <button type="button" class="btn btn-primary">保存</button>
             </div>
           </div>
         </div>

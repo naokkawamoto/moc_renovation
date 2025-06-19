@@ -72,7 +72,16 @@
 
     <!-- 資金計画サブタイトル -->
     <div class="mb-2 px-3">
-      <h5 class="mb-0">資金計画</h5>これはプラン１の資金計画概要です。
+      <h5 class="mb-0">資金計画</h5>
+      <div class="d-flex align-items-center mt-2">
+        <span class="badge bg-primary me-2">資金計画中</span>
+        <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
+          <option>資金計画中</option>
+          <option>上長承認中</option>
+          <option>承認済み</option>
+        </select>
+        <button class="btn btn-outline-primary btn-sm">更新</button>
+      </div>
     </div>
 
     <!-- サブタブ -->
@@ -125,6 +134,18 @@
             aria-controls="sub-land"
             aria-selected="false"
           >③土地関係費用</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="sub-repay-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sub-repay"
+            type="button"
+            role="tab"
+            aria-controls="sub-repay"
+            aria-selected="false"
+          >④返済計画 <span class="badge bg-danger">1</span></button>
         </li>
         <li class="nav-item" role="presentation">
           <button
@@ -244,225 +265,6 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- セクション3：返済計画 -->
-          <div class="card mb-4 table-small">
-            <div class="card-header bg-gray">
-              <strong>返済計画</strong>
-            </div>
-            <div class="card-body p-3">
-              <!-- 入力テーブル -->
-              <div class="table-responsive mb-3">
-                <table class="table table-bordered table-sm mb-0">
-                  <tbody>
-                    <tr>
-                      <th class="table-light">①総費用</th>
-                      <td>¥45,899,639</td>
-                      <td>見積もりから自動計算</td>
-                    </tr>
-                    <tr>
-                      <th class="table-light">②自己資金</th>
-                      <td>
-                        <input
-                          type="text"
-                          class="form-control form-control-sm"
-                          value="¥284,452"
-                        >
-                      </td>
-                      <td>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="table-light">③お借入金額</th>
-                      <td>¥45,615,187</td>
-                      <td>①−②</td>
-                    </tr>
-                    <tr>
-                      <th class="table-light">借入先金融機関</th>
-                      <td>
-                        <select class="form-select form-select-sm">
-                          <option value="">選択してください</option>
-                          <option>よなごしんきん</option>
-                          <option>○○銀行</option>
-                          <option>▲▲信用組合</option>
-                        </select>
-                      </td>
-                      <td>選択</td>
-                    </tr>
-                    <tr>
-                      <th class="table-light">借入期間</th>
-                      <td>
-                        <div class="input-group input-group-sm">
-                          <input
-                            type="number"
-                            class="form-control form-control-sm"
-                            value="35"
-                          >
-                          <span class="input-group-text">年</span>
-                        </div>
-                      </td>
-                      <td>入力</td>
-                    </tr>
-                    <tr>
-                      <th class="table-light">金利・期間設定</th>
-                      <td colspan="2">
-                        <!-- １行目 -->
-                        <div class="row gx-2 mb-2 align-items-center">
-                          <div class="col-auto d-flex align-items-center">
-                            <span>期間</span>
-                          </div>
-                          <div class="col-auto">
-                            <input
-                              type="number"
-                              class="form-control form-control-sm"
-                              value="1"
-                            >
-                          </div>
-                          <div class="col-auto d-flex align-items-center">
-                            <span>〜</span>
-                          </div>
-                          <div class="col-auto">
-                            <input
-                              type="number"
-                              class="form-control form-control-sm"
-                              value="10"
-                            >
-                          </div>
-                          <div class="col-auto d-flex align-items-center">
-                            <span>年</span>
-                          </div>
-                          <div class="col-auto d-flex align-items-center">
-                            <span>金利</span>
-                          </div>
-                          <div class="col-auto input-group input-group-sm">
-                            <input
-                              type="number"
-                              class="form-control form-control-sm"
-                              value="0.7"
-                              step="0.01"
-                            >
-                            <span class="input-group-text">％</span>
-                          </div>
-                        </div>
-                    
-                        <!-- ２行目 -->
-                        <div class="row gx-2 align-items-center">
-                          <div class="col-auto d-flex align-items-center">
-                            <span>期間</span>
-                          </div>
-                          <div class="col-auto">
-                            <input
-                              type="number"
-                              class="form-control form-control-sm"
-                              value="11"
-                            >
-                          </div>
-                          <div class="col-auto d-flex align-items-center">
-                            <span>〜</span>
-                          </div>
-                          <div class="col-auto">
-                            <input
-                              type="number"
-                              class="form-control form-control-sm"
-                              value="35"
-                            >
-                          </div>
-                          <div class="col-auto d-flex align-items-center">
-                            <span>年</span>
-                          </div>
-                          <div class="col-auto d-flex align-items-center">
-                            <span>金利</span>
-                          </div>
-                          <div class="col-auto input-group input-group-sm">
-                            <input
-                              type="number"
-                              class="form-control form-control-sm"
-                              value="1.7"
-                              step="0.01"
-                            >
-                            <span class="input-group-text">％</span>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    
-                    <tr>
-                      <th class="table-light">ボーナス付き返済額</th>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control form-control-sm"
-                          value="0"
-                        >
-                      </td>
-                      <td>入力</td>
-                    </tr>
-                    <tr>
-                      <th class="table-light">返済方式</th>
-                      <td>
-                        <select class="form-select form-select-sm">
-                          <option>元利均等</option>
-                          <option>元金均等</option>
-                        </select>
-                      </td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" class="text-center">
-                        <button class="btn btn-primary btn-sm">計算</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- 結果テーブル（現在と同じ表示） -->
-              <div class="table-responsive">
-                <table class="table table-bordered table-sm align-middle mb-0 text-center">
-                  <thead class="table-light">
-                    <tr>
-                      <th>借入内訳<br>（万円）</th>
-                      <th>期間<br>（年～年）</th>
-                      <th>金利<br>（％）</th>
-                      <th>毎月返済<br>元本（万円）返済額</th>
-                      <th>ボーナス返済<br>元本（万円）返済額</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>よなごしんきん</td>
-                      <td>1年～10年</td>
-                      <td class="text-end">0.9%</td>
-                      <td class="text-end">¥122,165</td>
-                      <td class="text-end">¥100,112</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>11年～35年</td>
-                      <td class="text-end">1.7%</td>
-                      <td class="text-end">¥134,317</td>
-                      <td class="text-end">¥110,199</td>
-                    </tr>
-                    <tr>
-                      <td class="text-end">5,000 万円</td>
-                      <td></td>
-                      <td></td>
-                      <td class="text-end">4,400 万円</td>
-                      <td class="text-end">600 万円</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- プリント & 上長承認ボタン -->
-              <div class="mt-4 text-center">
-                <button class="btn btn-outline-secondary btn-lg me-2">
-                  <i class="bi bi-printer"></i> プリント
-                </button>
-                <button class="btn btn-success btn-lg">
-                  <i class="bi bi-check-circle"></i> 上長承認
-                </button>
               </div>
             </div>
           </div>
@@ -998,58 +800,447 @@ aria-labelledby="sub-land-tab"
 </div>
 </div>
 
+<!-- ④返済計画タブ -->
+<div class="tab-pane fade" id="sub-repay" role="tabpanel" aria-labelledby="sub-repay-tab">
+  <div class="p-3">
+    <div class="card mb-4 table-small">
+      <div class="card-header bg-gray">
+        <strong>返済計画</strong>
+      </div>
+      <div class="card-body p-3">
+        <div class="mb-2 text-danger fw-bold" style="text-align:left;">承認してください</div>
+        <div class="d-flex justify-content-end mb-2">
+          <button class="btn btn-outline-secondary me-2"><i class="bi bi-printer"></i> プリント</button>
+          <button class="btn btn-danger me-2"><i class="bi bi-check-circle"></i> 承認</button>
+          <button class="btn btn-warning me-2">却下</button>
+          <button class="btn btn-primary">上申</button>
+        </div>
+        <!-- 入力テーブル -->
+        <div class="table-responsive mb-3">
+          <table class="table table-bordered table-sm mb-0">
+            <tbody>
+              <tr>
+                <th class="table-light">①総費用</th>
+                <td>¥45,899,639</td>
+                <td>見積もりから自動計算</td>
+              </tr>
+              <tr>
+                <th class="table-light">②自己資金</th>
+                <td>
+                  <input type="text" class="form-control form-control-sm" value="¥284,452">
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <th class="table-light">③お借入金額</th>
+                <td>¥45,615,187</td>
+                <td>①−②</td>
+              </tr>
+              <tr>
+                <th class="table-light">借入先金融機関</th>
+                <td>
+                  <select class="form-select form-select-sm">
+                    <option value="">選択してください</option>
+                    <option>よなごしんきん</option>
+                    <option>○○銀行</option>
+                    <option>▲▲信用組合</option>
+                  </select>
+                </td>
+                <td>選択</td>
+              </tr>
+              <tr>
+                <th class="table-light">借入期間</th>
+                <td>
+                  <div class="input-group input-group-sm">
+                    <input type="number" class="form-control form-control-sm" value="35">
+                    <span class="input-group-text">年</span>
+                  </div>
+                </td>
+                <td>入力</td>
+              </tr>
+              <tr>
+                <th class="table-light">金利・期間設定</th>
+                <td colspan="2">
+                  <!-- １行目 -->
+                  <div class="row gx-2 mb-2 align-items-center">
+                    <div class="col-auto d-flex align-items-center">
+                      <span>期間</span>
+                    </div>
+                    <div class="col-auto">
+                      <input type="number" class="form-control form-control-sm" value="1">
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                      <span>〜</span>
+                    </div>
+                    <div class="col-auto">
+                      <input type="number" class="form-control form-control-sm" value="10">
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                      <span>年</span>
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                      <span>金利</span>
+                    </div>
+                    <div class="col-auto input-group input-group-sm">
+                      <input type="number" class="form-control form-control-sm" value="0.7" step="0.01">
+                      <span class="input-group-text">％</span>
+                    </div>
+                  </div>
+                  <!-- ２行目 -->
+                  <div class="row gx-2 align-items-center">
+                    <div class="col-auto d-flex align-items-center">
+                      <span>期間</span>
+                    </div>
+                    <div class="col-auto">
+                      <input type="number" class="form-control form-control-sm" value="11">
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                      <span>〜</span>
+                    </div>
+                    <div class="col-auto">
+                      <input type="number" class="form-control form-control-sm" value="35">
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                      <span>年</span>
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                      <span>金利</span>
+                    </div>
+                    <div class="col-auto input-group input-group-sm">
+                      <input type="number" class="form-control form-control-sm" value="1.7" step="0.01">
+                      <span class="input-group-text">％</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th class="table-light">ボーナス付き返済額</th>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="0">
+                </td>
+                <td>入力</td>
+              </tr>
+              <tr>
+                <th class="table-light">返済方式</th>
+                <td>
+                  <select class="form-select form-select-sm">
+                    <option>元利均等</option>
+                    <option>元金均等</option>
+                  </select>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="3" class="text-center">
+                  <button class="btn btn-primary btn-lg">計算</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 結果テーブル（現在と同じ表示） -->
+        <div class="table-responsive">
+          <table class="table table-bordered table-sm align-middle mb-0 text-center">
+            <thead class="table-light">
+              <tr>
+                <th>借入内訳<br>（万円）</th>
+                <th>期間<br>（年～年）</th>
+                <th>金利<br>（％）</th>
+                <th>毎月返済<br>元本（万円）返済額</th>
+                <th>ボーナス返済<br>元本（万円）返済額</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>よなごしんきん</td>
+                <td>1年～10年</td>
+                <td class="text-end">0.9%</td>
+                <td class="text-end">¥122,165</td>
+                <td class="text-end">¥100,112</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>11年～35年</td>
+                <td class="text-end">1.7%</td>
+                <td class="text-end">¥134,317</td>
+                <td class="text-end">¥110,199</td>
+              </tr>
+              <tr>
+                <td class="text-end">5,000 万円</td>
+                <td></td>
+                <td></td>
+                <td class="text-end">4,400 万円</td>
+                <td class="text-end">600 万円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- 資料 -->
+<div
+  class="tab-pane fade"
+  id="sub-doc"
+  role="tabpanel"
+  aria-labelledby="sub-doc-tab"
+>
+  <div class="p-3">
+    <!-- 表示方法＆検索 -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div class="d-flex align-items-center">
+        <span class="me-2">表示方法：</span>
+        <button class="btn btn-outline-primary me-2"><i class="bi bi-folder"></i></button>
+        <button class="btn btn-outline-secondary me-4"><i class="bi bi-list"></i></button>
+        <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
+          <option value="created">作成日順</option>
+        </select>
+      </div>
+      <div class="input-group" style="width:300px;">
+        <input type="text" class="form-control" placeholder="キーワードを入力">
+        <button class="btn btn-outline-secondary" type="button">検索</button>
+      </div>
+    </div>
+    <!-- 公図テーブル -->
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-hover table-bordered mb-0 table-small">
+          <thead class="table-light">
+            <tr>
+              <th>資料名称</th>
+              <th>社内（購読）</th>
+              <th>協力業者（購読）</th>
+              <th>専門業者（購読）</th>
+              <th>取得日時</th>
+              <th>アクション</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>案件_プラン_資金計画書</td>
+              <td>
+                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#publishSettingModalStaff">公開</button>
+                <button class="btn btn-link p-0 small-text align-baseline" data-bs-toggle="modal" data-bs-target="#subscribersModalStaff">（3）</button>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#publishSettingModalPartner">公開</button>
+                <button class="btn btn-link p-0 small-text align-baseline" data-bs-toggle="modal" data-bs-target="#subscribersModalPartner">（3）</button>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#publishSettingModalExpert">非公開</button>
+                <button class="btn btn-link p-0 small-text align-baseline" data-bs-toggle="modal" data-bs-target="#subscribersModalExpert">（0）</button>
+              </td>
+              <td>2025/05/01 09:00</td>
+              <td><button class="btn btn-sm btn-outline-primary">ダウンロード</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-        <!-- 資料 -->
-        <div
-          class="tab-pane fade"
-          id="sub-doc"
-          role="tabpanel"
-          aria-labelledby="sub-doc-tab"
-        >
-          <div class="p-3">
-            <!-- 表示方法＆検索 -->
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div class="d-flex align-items-center">
-                <span class="me-2">表示方法：</span>
-                <button class="btn btn-outline-primary me-2"><i class="bi bi-folder"></i></button>
-                <button class="btn btn-outline-secondary me-4"><i class="bi bi-list"></i></button>
-                <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
-                  <option value="created">作成日順</option>
-                </select>
+    <!-- 社内購読者モーダル -->
+    <div class="modal fade" id="subscribersModalStaff" tabindex="-1" aria-labelledby="subscribersModalStaffLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="subscribersModalStaffLabel">社内購読者一覧</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body small-text">
+            <ul class="list-unstyled mb-0">
+              <li>1. 東京本社 営業部 山田 太郎</li>
+              <li>2. 大阪支店 設計部 鈴木 一郎</li>
+              <li>3. 名古屋支店 工務部 佐藤 次郎</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">閉じる</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 協力業者購読者モーダル -->
+    <div class="modal fade" id="subscribersModalPartner" tabindex="-1" aria-labelledby="subscribersModalPartnerLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="subscribersModalPartnerLabel">外部協力会社公開設定</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body small-text">
+            <ul class="list-unstyled mb-0">
+              <li>1. 株式会社ABC建設 工事担当 田中 三郎</li>
+              <li>2. 株式会社XYZ設計 設計担当 高橋 四郎</li>
+              <li>3. 株式会社123設備 設備担当 伊藤 五郎</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">閉じる</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 専門業者購読者モーダル -->
+    <div class="modal fade" id="subscribersModalExpert" tabindex="-1" aria-labelledby="subscribersModalExpertLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="subscribersModalExpertLabel">外部専門業者公開設定</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body small-text">
+            <ul class="list-unstyled mb-0">
+              <li>購読者はいません</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">閉じる</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 社内公開設定モーダル（チェックボックス） -->
+    <div class="modal fade" id="publishSettingModalStaff" tabindex="-1" aria-labelledby="publishSettingModalStaffLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="publishSettingModalStaffLabel">社内公開設定</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-4">この案件を以下の社内メンバーに公開するにはチェックボックスを押してください。</p>
+            <div class="mb-4">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="allStaff">
+                <label class="form-check-label fw-bold" for="allStaff">
+                  社内担当者全て
+                </label>
               </div>
-              <div class="input-group" style="width:300px;">
-                <input type="text" class="form-control" placeholder="キーワードを入力">
-                <button class="btn btn-outline-secondary" type="button">検索</button>
-              </div>
-            </div>
-            <!-- 公図テーブル -->
-            <div class="card">
-              <div class="card-body p-0">
-                <table class="table table-hover table-bordered mb-0 table-small">
-                  <thead class="table-light">
-                    <tr>
-                      <th>資料名称</th>
-                      <th>購読数</th>
-                      <th>公開設定</th>
-                      <th>取得日時</th>
-                      <th>アクション</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>案件_プラン_資金計画書</td>
-                      <td><a href="#">3</a></td>
-                      <td>公開</td>
-                      <td>2025/05/01 09:00</td>
-                      <td><button class="btn btn-sm btn-outline-primary">ダウンロード</button></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="ms-4">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="staff1">
+                  <label class="form-check-label" for="staff1">
+                    東京本社 営業部 山田 太郎
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="staff2">
+                  <label class="form-check-label" for="staff2">
+                    大阪支店 設計部 鈴木 一郎
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="staff3">
+                  <label class="form-check-label" for="staff3">
+                    名古屋支店 工務部 佐藤 次郎
+                  </label>
+                </div>
               </div>
             </div>
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+            <button type="button" class="btn btn-primary">保存</button>
+          </div>
         </div>
+      </div>
+    </div>
+    <!-- 協力業者公開設定モーダル（チェックボックス） -->
+    <div class="modal fade" id="publishSettingModalPartner" tabindex="-1" aria-labelledby="publishSettingModalPartnerLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="publishSettingModalPartnerLabel">外部協力会社公開設定</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-4">この案件を以下の外部協力会社に公開するにはチェックボックスを押してください。</p>
+            <div class="mb-4">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="allPartners">
+                <label class="form-check-label fw-bold" for="allPartners">
+                  外部協力業者全て
+                </label>
+              </div>
+              <div class="ms-4">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="partner1">
+                  <label class="form-check-label" for="partner1">
+                    株式会社ABC建設 工事担当 田中 三郎
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="partner2">
+                  <label class="form-check-label" for="partner2">
+                    株式会社XYZ設計 設計担当 高橋 四郎
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="partner3">
+                  <label class="form-check-label" for="partner3">
+                    株式会社123設備 設備担当 伊藤 五郎
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+            <button type="button" class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 専門業者公開設定モーダル（チェックボックス） -->
+    <div class="modal fade" id="publishSettingModalExpert" tabindex="-1" aria-labelledby="publishSettingModalExpertLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="publishSettingModalExpertLabel">外部専門業者公開設定</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-4">この案件を以下の外部専門業者に公開するにはチェックボックスを押してください。</p>
+            <div class="mb-4">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="allExperts">
+                <label class="form-check-label fw-bold" for="allExperts">
+                  外部専門家全て
+                </label>
+              </div>
+              <div class="ms-4">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="expert1">
+                  <label class="form-check-label" for="expert1">
+                    株式会社建築コンサル 構造設計 渡辺 六郎
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="expert2">
+                  <label class="form-check-label" for="expert2">
+                    株式会社法務事務所 法務担当 中村 七郎
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="expert3">
+                  <label class="form-check-label" for="expert3">
+                    株式会社税理士法人 税務担当 小林 八郎
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+            <button type="button" class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </div>
   </div>
