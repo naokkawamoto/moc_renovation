@@ -26,12 +26,11 @@
       <div class="text-end">
         <span class="me-2">案件フロー:</span>
         <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
-            <option value="registration">案件登録中</option>
-            <option value="investigate">現地調査中</option>
+            <option value="registration">案件登録済</option>
+            <option value="investigate">現地調査済</option>
             <option value="design">プラン中</option>
-            <option value="estimate">提案完了</option>
-            <option value="estimate">契約完了</option>
-            <option value="estimate">終了</option>
+            <option value="contract">契約完了</option>
+            <option value="complete">他決完了</option>
             </select>
             <button class="btn btn-outline-primary btn-sm">変更</button>
         </div>
@@ -39,12 +38,11 @@
 
     <!-- ワークフローバッジ -->
     <div class="d-flex justify-content-end mb-3">
-        <span class="badge bg-light text-dark me-2">案件登録中</span>
-        <span class="badge bg-primary me-2">現地調査中</span>
+        <span class="badge bg-light text-dark me-2">案件登録済</span>
+        <span class="badge bg-primary me-2">現地調査済</span>
         <span class="badge bg-light text-dark me-2">プラン中</span>
-        <span class="badge bg-light text-dark me-2">提案完了</span>
         <span class="badge bg-light text-dark me-2">契約完了</span>
-        <span class="badge bg-light text-dark me-2">終了</span>
+        <span class="badge bg-light text-dark me-2">他決完了</span>
     </div>
 
     <!-- ナビゲーションタブ -->
@@ -66,13 +64,26 @@
       </div>
       <div class="card-body" style="padding-top: 0.5rem;">
         <div class="row g-3">
-          <!-- 1. 現地調査日程調整 -->
+          <!-- 1. お客様システム登録案内 -->
+          <div class="col-md-4">
+            <div class="card border h-100" style="margin-top: -3px;">
+              <div class="card-body text-center">
+                <h6 class="mb-2">
+                  お客様システム登録案内
+                  <span class="badge bg-danger text-light">お客様登録前</span>
+                </h6>
+                <button class="btn btn-primary btn-sm" onclick="openRegistrationModal()">お客様へメール送信</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 現地調査日程調整 -->
           <div class="col-md-4">
             <div class="card border h-100" style="margin-top: -3px;">
               <div class="card-body text-center">
                 <h6 class="mb-2">
                   現地調査日程調整
-                  <span class="badge bg-warning text-dark">日程確認前</span>
+                  <span class="badge bg-warning text-dark">現調日程調整前</span>
                 </h6>
                 <div class="mb-3">
                   <input
@@ -92,19 +103,6 @@
                   class="btn btn-primary btn-sm"
                   onclick="location.href='site_project_detail_investigate_schedule.html'"
                 >日程調整</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. お客様システム登録案内 -->
-          <div class="col-md-4">
-            <div class="card border h-100" style="margin-top: -3px;">
-              <div class="card-body text-center">
-                <h6 class="mb-2">
-                  お客様システム登録案内
-                  <span class="badge bg-danger text-light">登録前</span>
-                </h6>
-                <button class="btn btn-primary btn-sm" onclick="openRegistrationModal()">お客様へメール送信</button>
               </div>
             </div>
           </div>

@@ -47,19 +47,19 @@
         <div class="text-end">
           <!-- ワークフローバッジ -->
           <div class="d-flex justify-content-end mb-3">
-              <span class="badge bg-light text-dark me-2">見積もり中</span>
-              <span class="badge bg-light text-dark me-2">資金計画中</span>
-              <span class="badge bg-light text-dark me-2">提案中</span>
-              <span class="badge bg-light text-dark me-2">提案完了</span>
-              <span class="badge bg-success me-2">確定</span>
+              <span class="badge bg-light text-dark me-2">プラン済</span>
+              <span class="badge bg-light text-dark me-2">見積もり済</span>
+              <span class="badge bg-light text-dark me-2">資金計画済</span>
+              <span class="badge bg-light text-dark me-2">提案済</span>
+              <span class="badge bg-success me-2">プラン確定</span>
               <span class="badge bg-light text-dark me-2">却下</span>
               <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
-                <option value="registration">見積もり中</option>
-                <option value="investigate">資金計画中</option>
-                <option value="design">提案中</option>
-                <option value="estimate">提案完了</option>
-                <option value="estimate">確定</option>
-                <option value="estimate">却下</option>
+                <option value="plan_done">プラン済</option>
+                <option value="estimate_done">見積もり済</option>
+                <option value="finance_done">資金計画済</option>
+                <option value="proposal_done">提案済</option>
+                <option value="plan_fixed">プラン確定</option>
+                <option value="rejected">却下</option>
                 </select>
                 <button class="btn btn-outline-primary btn-sm">変更</button>
           </div>
@@ -86,21 +86,21 @@
         <div class="p-3">
             <h4>見積もり管理</h4>
             <div class="d-flex align-items-center mt-2 mb-3">
-                <span class="badge bg-primary me-2">見積もり中</span>
+                <span class="badge bg-primary me-2">見積中</span>
                 <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
-                    <option>見積もり中</option>
-                    <option>上長承認中</option>
-                    <option>承認済み</option>
+                    <option>見積中</option>
+                    <option>承認中</option>
+                    <option>承認済</option>
                 </select>
                 <button class="btn btn-outline-primary btn-sm">更新</button>
             </div>
             <!-- サブタブ -->
             <ul class="nav nav-tabs mb-3" id="estimateSubTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="tab-estimate-manage" data-bs-toggle="tab" data-bs-target="#estimate-manage" type="button" role="tab" aria-controls="estimate-manage" aria-selected="true">見積詳細管理</button>
+                    <button class="nav-link active" id="tab-estimate-manage" data-bs-toggle="tab" data-bs-target="#estimate-manage" type="button" role="tab" aria-controls="estimate-manage" aria-selected="true">業者見積もり管理</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-estimate-doc" data-bs-toggle="tab" data-bs-target="#estimate-doc" type="button" role="tab" aria-controls="estimate-doc" aria-selected="false">見積書 <span class="badge bg-danger">1</span></button>
+                    <button class="nav-link" id="tab-estimate-doc" data-bs-toggle="tab" data-bs-target="#estimate-doc" type="button" role="tab" aria-controls="estimate-doc" aria-selected="false">お客様見積書 <span class="badge bg-danger">1</span></button>
                 </li>
             </ul>
             <div class="tab-content">

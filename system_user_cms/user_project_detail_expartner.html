@@ -56,12 +56,11 @@
             <div class="text-end">
                 <span class="me-2">案件フロー:</span>
                 <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
-                    <option value="registration">案件登録中</option>
-                    <option value="investigate">現地調査中</option>
+                    <option value="registration">案件登録済</option>
+                    <option value="investigate">現地調査済</option>
                     <option value="design">プラン中</option>
-                    <option value="estimate">提案完了</option>
-                    <option value="estimate">契約完了</option>
-                    <option value="estimate">終了</option>
+                    <option value="contract">契約完了</option>
+                    <option value="complete">他決完了</option>
                     </select>
                     <button class="btn btn-outline-primary btn-sm">変更</button>
                 </div>
@@ -69,12 +68,11 @@
             
                 <!-- ワークフローバッジ -->
                 <div class="d-flex justify-content-end mb-3">
-                    <span class="badge bg-light text-dark me-2">案件登録中</span>
-                    <span class="badge bg-light text-dark me-2">現地調査中</span>
+                    <span class="badge bg-light text-dark me-2">案件登録済</span>
+                    <span class="badge bg-light text-dark me-2">現地調査済</span>
                     <span class="badge bg-light text-dark me-2">プラン中</span>
-                    <span class="badge bg-light text-dark me-2">提案完了</span>
                     <span class="badge bg-primary me-2">契約完了</span>
-                    <span class="badge bg-light text-dark me-2">終了</span>
+                    <span class="badge bg-light text-dark me-2">他決完了</span>
                 </div>
 
         <!-- ナビゲーションタブ -->
@@ -109,6 +107,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>BELS依頼</td>
+                                <td>CADセンター</td>
+                                <td>株式会社CADセンター</td>
+                                <td>佐々木 亮</td>
+                                <td>ササキ リョウ</td>
+                                <td>ryo.sasaki@cadcenter.co.jp</td>
+                                <td>03-5678-1234</td>
+                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('BELS依頼', 'CADセンター', '佐々木 亮')">CADセンターとチャット</button><span class="badge bg-danger">0</span></td>
+                            </tr>
                             <tr>
                                 <td>CGパースを依頼</td>
                                 <td>CADセンター</td>
@@ -160,84 +168,64 @@
                                 <td><button class="btn btn-primary btn-sm" onclick="openChatModal('確認申請依頼', 'CADセンター', '高橋 次郎')">CADセンターとチャット</button><span class="badge bg-danger">2</span></td>
                             </tr>
                             <tr>
-                                <td>表示登記依頼</td>
+                                <td>性能評価依頼</td>
+                                <td>CADセンター</td>
+                                <td>株式会社CADセンター</td>
+                                <td>佐藤 未来</td>
+                                <td>サトウ ミライ</td>
+                                <td>mirai.sato@cadcenter.co.jp</td>
+                                <td>03-6789-2345</td>
+                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('性能評価依頼', 'CADセンター', '佐藤 未来')">CADセンターとチャット</button><span class="badge bg-danger">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>意匠図を依頼する</td>
+                                <td>CADセンター</td>
+                                <td>株式会社CADセンター</td>
+                                <td>田村 直樹</td>
+                                <td>タムラ ナオキ</td>
+                                <td>naoki.tamura@cadcenter.co.jp</td>
+                                <td>03-6789-3456</td>
+                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('意匠図を依頼する', 'CADセンター', '田村 直樹')">CADセンターとチャット</button><span class="badge bg-danger">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>家屋調査士に依頼する</td>
                                 <td>家屋調査士</td>
                                 <td>株式会社不動産調査</td>
                                 <td>松本 桜</td>
                                 <td>マツモト サクラ</td>
                                 <td>sakura.matsumoto@estate.co.jp</td>
                                 <td>03-6789-0123</td>
-                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('表示登記依頼', '家屋調査士', '松本 桜')">家屋調査士とチャット</button><span class="badge bg-danger">5</span></td>
+                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('家屋調査士に依頼する', '家屋調査士', '松本 桜')">家屋調査士とチャット</button><span class="badge bg-danger">0</span></td>
                             </tr>
                             <tr>
-                                <td>地目変更依頼</td>
-                                <td>家屋調査士</td>
-                                <td>株式会社不動産調査</td>
-                                <td>小林 一郎</td>
-                                <td>コバヤシ イチロウ</td>
-                                <td>ichiro.kobayashi@estate.co.jp</td>
-                                <td>03-7890-1234</td>
-                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('地目変更依頼', '家屋調査士', '小林 一郎')">家屋調査士とチャット</button><span class="badge bg-danger">2</span></td>
-                            </tr>
-                            <tr>
-                                <td>持ち分の登記依頼</td>
+                                <td>司法書士に依頼する</td>
                                 <td>司法書士</td>
                                 <td>株式会社法務事務所</td>
                                 <td>小川 翔</td>
                                 <td>オガワ ショウ</td>
                                 <td>sho.ogawa@legal.co.jp</td>
                                 <td>03-8901-2345</td>
-                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('持ち分の登記依頼', '司法書士', '小川 翔')">司法書士とチャット</button><span class="badge bg-danger">3</span></td>
+                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('司法書士に依頼する', '司法書士', '小川 翔')">司法書士とチャット</button><span class="badge bg-danger">0</span></td>
                             </tr>
                             <tr>
-                                <td>所有権移転登記依頼</td>
-                                <td>司法書士</td>
-                                <td>株式会社法務事務所</td>
-                                <td>渡辺 美穂</td>
-                                <td>ワタナベ ミホ</td>
-                                <td>miho.watanabe@legal.co.jp</td>
-                                <td>03-9012-3456</td>
-                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('所有権移転登記依頼', '司法書士', '渡辺 美穂')">司法書士とチャット</button><span class="badge bg-danger">1</span></td>
-                            </tr>
-                            <tr>
-                                <td>抵当権の設定登記依頼</td>
-                                <td>司法書士</td>
-                                <td>株式会社法務事務所</td>
-                                <td>中村 誠</td>
-                                <td>ナカムラ マコト</td>
-                                <td>makoto.nakamura@legal.co.jp</td>
-                                <td>03-0123-4567</td>
-                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('抵当権の設定登記依頼', '司法書士', '中村 誠')">司法書士とチャット</button><span class="badge bg-danger">2</span></td>
-                            </tr>
-                            <tr>
-                                <td>保存登記</td>
-                                <td>司法書士</td>
-                                <td>株式会社法務事務所</td>
-                                <td>井上 恵子</td>
-                                <td>イノウエ ケイコ</td>
-                                <td>keiko.inoue@legal.co.jp</td>
-                                <td>03-1234-5679</td>
-                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('保存登記', '司法書士', '井上 恵子')">司法書士とチャット</button><span class="badge bg-danger">1</span></td>
-                            </tr>
-                            <tr>
-                                <td>確認申請依頼</td>
+                                <td>設計事務所に依頼する</td>
                                 <td>設計事務所</td>
                                 <td>株式会社アーキテクト</td>
                                 <td>石川 大輔</td>
                                 <td>イシカワ ダイスケ</td>
                                 <td>daisuke.ishikawa@architect.co.jp</td>
                                 <td>03-2345-6780</td>
-                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('確認申請依頼', '設計事務所', '石川 大輔')">設計事務所とチャット</button><span class="badge bg-danger">4</span></td>
+                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('設計事務所に依頼する', '設計事務所', '石川 大輔')">設計事務所とチャット</button><span class="badge bg-danger">0</span></td>
                             </tr>
                             <tr>
-                                <td>インテリアコーディネート依頼</td>
+                                <td>インテリアコーディネーターに依頼する</td>
                                 <td>インテリアコーディネーター</td>
                                 <td>株式会社インテリアデザイン</td>
                                 <td>橋本 健太</td>
                                 <td>ハシモト ケンタ</td>
                                 <td>kenta.hashimoto@interior.co.jp</td>
                                 <td>03-3456-7891</td>
-                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('インテリアコーディネート依頼', 'インテリアコーディネーター', '橋本 健太')">インテリアコーディネーターとチャット</button><span class="badge bg-danger">2</span></td>
+                                <td><button class="btn btn-primary btn-sm" onclick="openChatModal('インテリアコーディネーターに依頼する', 'インテリアコーディネーター', '橋本 健太')">インテリアコーディネーターとチャット</button><span class="badge bg-danger">0</span></td>
                             </tr>
                         </tbody>
                     </table>

@@ -24,12 +24,11 @@
             <div class="text-end">
               <span class="me-2">案件フロー:</span>
               <select class="form-select form-select-sm me-2" style="width:auto; display:inline-block;">
-                  <option value="registration">案件登録中</option>
-                  <option value="investigate">現地調査中</option>
+                  <option value="registration">案件登録済</option>
+                  <option value="investigate">現地調査済</option>
                   <option value="design">プラン中</option>
-                  <option value="estimate">提案完了</option>
-                  <option value="estimate">契約完了</option>
-                  <option value="estimate">終了</option>
+                  <option value="contract">契約完了</option>
+                  <option value="complete">他決完了</option>
                   </select>
                   <button class="btn btn-outline-primary btn-sm">変更</button>
               </div>
@@ -37,12 +36,11 @@
       
           <!-- ワークフローバッジ -->
           <div class="d-flex justify-content-end mb-3">
-              <span class="badge bg-light text-dark me-2">案件登録中</span>
-              <span class="badge bg-light text-dark me-2">現地調査中</span>
+              <span class="badge bg-light text-dark me-2">案件登録済</span>
+              <span class="badge bg-light text-dark me-2">現地調査済</span>
               <span class="badge bg-primary me-2">プラン中</span>
-              <span class="badge bg-light text-dark me-2">提案完了</span>
               <span class="badge bg-light text-dark me-2">契約完了</span>
-              <span class="badge bg-light text-dark me-2">終了</span>
+              <span class="badge bg-light text-dark me-2">他決完了</span>
           </div>
           <!-- ナビゲーションタブ -->
           <ul class="nav nav-tabs mb-3">
@@ -107,7 +105,7 @@
               <div class="card card-project h-100">
                 <div class="card-header d-flex justify-content-end align-items-center">
                   <span>プラン１</span>
-                  <span class="badge bg-success ms-1">確定</span>
+                  <span class="badge bg-success ms-1">プラン確定</span>
                   <i class="bi bi-lock-fill ms-1"></i>
                 </div>
                 <img src="../images/plan1.webp" class="card-img-top" alt="案件画像">
@@ -119,6 +117,7 @@
               <div class="card card-project h-100">
                 <div class="card-header d-flex justify-content-end align-items-center">
                   <span>プラン２</span>
+                  <span class="badge bg-info ms-1">提案済み</span>
                   <i class="bi bi-unlock-fill ms-1"></i>
                 </div>
                 <img src="../images/plan2.webp" class="card-img-top" alt="案件画像">
